@@ -26,6 +26,8 @@ setup(name='kbat.content',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+#         'plone.app.dexterity [grok]', --
+          'cioppino.twothumbs',
       ],
       entry_points="""
       # -*- Entry points: -*-
