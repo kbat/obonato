@@ -1,6 +1,10 @@
 README.txt
 setup.cfg
 setup.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 kbat/__init__.py
 kbat.policy.egg-info/PKG-INFO
 kbat.policy.egg-info/SOURCES.txt
@@ -12,4 +16,8 @@ kbat.policy.egg-info/paster_plugins.txt
 kbat.policy.egg-info/requires.txt
 kbat.policy.egg-info/top_level.txt
 kbat/policy/__init__.py
+kbat/policy/configure.zcml
 kbat/policy/tests.py
+kbat/policy/profiles/default/metadata.xml
+kbat/policy/profiles/default/properties.xml
+kbat/policy/profiles/default/propertiestool.xml
