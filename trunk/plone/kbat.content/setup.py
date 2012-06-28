@@ -26,8 +26,11 @@ setup(name='kbat.content',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+         'Plone',
+          'plone.app.dexterity [grok]',
+          'collective.autopermission',
 #         'plone.app.dexterity [grok]', --
-          'cioppino.twothumbs',
+#          'cioppino.twothumbs',
       ],
       entry_points="""
       # -*- Entry points: -*-
@@ -35,6 +38,6 @@ setup(name='kbat.content',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
+#      setup_requires=["PasteScript"],
+#      paster_plugins=["ZopeSkel"],
       )

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <metadata>
-    <version>1</version>
+    <version>1</version> <!-- this is the profile version, not the package version -->
     <dependencies>
-        <dependency>profile-cioppino.twothumbs:default</dependency>
+        <dependency>profile-plone.app.dexterity:default</dependency>
+<!--        <dependency>profile-cioppino.twothumbs:default</dependency> -->
     </dependencies>
 </metadata>

@@ -1,2 +1,4 @@
 setuptools
-cioppino.twothumbs
+Plone
+plone.app.dexterity [grok]
+collective.autopermission
