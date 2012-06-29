@@ -1,3 +1,4 @@
 <object name="portal_types">
  <object name="kbat.content.quote" meta_type="Dexterity FTI" />
+ <object name="kbat.content.quotefolder" meta_type="Dexterity FTI" />
 </object>
