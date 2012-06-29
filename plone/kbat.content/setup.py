@@ -26,7 +26,7 @@ setup(name='kbat.content',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-         'Plone',
+#         'Plone',
           'plone.app.dexterity [grok]',
           'collective.autopermission',
 #         'plone.app.dexterity [grok]', --
