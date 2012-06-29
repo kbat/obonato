@@ -28,8 +28,9 @@ setup(name='kbat.content',
           # -*- Extra requirements: -*-
 #         'Plone',
           'plone.app.dexterity [grok]',
-          'collective.autopermission',
-#         'plone.app.dexterity [grok]', --
+#          'collective.autopermission',
+          'plone.app.referenceablebehavior',
+          'plone.namedfile [blobs]',
 #          'cioppino.twothumbs',
       ],
       entry_points="""
