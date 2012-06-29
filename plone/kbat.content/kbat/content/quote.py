@@ -12,18 +12,22 @@ class IQuote(form.Schema):
     
     title = schema.TextLine(
         title=_(u"Title"),
+        required = True
         )
     
     
     details = RichText(
         title=_(u"Text"),
-        required=False
+        required=True
         )
 
-    title = schema.TextLine(
+    author = schema.TextLine(
         title=_(u"Author"),
+        required = False
         )
 
     url = schema.TextLine(
         title=_(u"Link"),
+        description=_(u"URL must start with protocol name"),
+        required = False
         )
