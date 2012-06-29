@@ -21,9 +21,11 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:content="structure context/text/output" />
-        <a tal:attributes="href context/url"
-           tal:content="context/author" />
-
+	<div tal:condition="context/url">
+	  <div tal:condition="context/author">
+            <a tal:attributes="href context/url" tal:content="context/author" />
+	  </div>
+	</div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
