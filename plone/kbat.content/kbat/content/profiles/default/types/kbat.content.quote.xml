@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <object name="kbat.content.quote" meta_type="Dexterity FTI"
-   i18n:domain="example.conference" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+   i18n:domain="kbat.content" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Quote</property>
  <property name="description" i18n:translate="">A quote</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="allow_discussion">False</property>
- <property name="global_allow">True</property>
+ <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types" />
  
