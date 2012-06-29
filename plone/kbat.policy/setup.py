@@ -27,7 +27,7 @@ setup(name='kbat.policy',
           'setuptools',
           # -*- Extra requirements: -*-
           'Products.PloneFormGen',
-          'kbat.content',
+#          'kbat.content',
       ],
       entry_points="""
       # -*- Entry points: -*-
