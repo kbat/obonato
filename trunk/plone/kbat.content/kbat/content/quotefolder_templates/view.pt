@@ -25,7 +25,7 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div tal:content="structure context/details/output" />
+        <div tal:condition="context/details" tal:content="structure context/details/output" />
         
         <h2 i18n:translate="heading_quotes">Quotes</h2>
         <dl>
