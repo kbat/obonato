@@ -4,10 +4,13 @@ from zope import schema
 from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+
 from kbat.content import _
 
 class IQuote(form.Schema):
-    """A quote. Sessions are managed inside Quote Folder.
+    """A quote. Quotes are managed inside Quote Folder.
     """
     
     title = schema.TextLine(
@@ -15,8 +18,7 @@ class IQuote(form.Schema):
         required = True
         )
     
-    
-    details = RichText(
+    text = RichText(
         title=_(u"Text"),
         required=True
         )
@@ -31,3 +33,7 @@ class IQuote(form.Schema):
         description=_(u"URL must start with protocol name"),
         required = False
         )
+
+class View(grok.View):
+    grok.context(IQuote)
+    grok.require('zope2.View')
