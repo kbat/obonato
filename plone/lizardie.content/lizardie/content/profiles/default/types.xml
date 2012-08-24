@@ -1,0 +1,4 @@
+<object name="portal_types">
+ <object name="lizardie.content.doll" meta_type="Dexterity FTI" />
+ <object name="lizardie.content.dollfolder" meta_type="Dexterity FTI" />
+</object>
