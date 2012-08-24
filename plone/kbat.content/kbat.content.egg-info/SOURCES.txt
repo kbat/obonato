@@ -23,4 +23,5 @@ kbat/content/tests.py
 kbat/content/profiles/default/metadata.xml
 kbat/content/profiles/default/types.xml
 kbat/content/profiles/default/types/kbat.content.quote.xml
+kbat/content/quote_templates/view.pt
 kbat/content/quotefolder_templates/view.pt
