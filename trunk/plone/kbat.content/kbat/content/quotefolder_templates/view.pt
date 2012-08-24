@@ -15,9 +15,9 @@
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
         
-        <div class="discreet">
+        <!-- div class="discreet">
 	  discreet
-        </div>
+        </div -->
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
@@ -27,16 +27,14 @@
 
         <div tal:condition="context/details" tal:content="structure context/details/output" />
         
-        <h2 i18n:translate="heading_quotes">Quotes</h2>
         <dl>
             <tal:block repeat="quote view/quotes">
                 <dt>
-                    <a tal:attributes="href quote/getURL"
-                       tal:content="quote/Title" />
+                    <a tal:attributes="href quote/getURL" tal:content="quote/Title" />
                 </dt>
 <!--		<div tal:content="structure quote/text/output" /> -->
 		<!--p tal:content="quote/Author" / -->
-		<hr width="50%"/>
+		<!-- hr width="50%"/ -->
             </tal:block>
         </dl>
 
