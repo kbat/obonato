@@ -20,7 +20,9 @@ lizardie/content/configure.zcml
 lizardie/content/doll.py
 lizardie/content/dollfolder.py
 lizardie/content/tests.py
+lizardie/content/doll_templates/view.pt
 lizardie/content/dollfolder_templates/view.pt
 lizardie/content/profiles/default/metadata.xml
 lizardie/content/profiles/default/types.xml
 lizardie/content/profiles/default/types/lizardie.content.doll.xml
+lizardie/content/profiles/default/types/lizardie.content.dollfolder.xml

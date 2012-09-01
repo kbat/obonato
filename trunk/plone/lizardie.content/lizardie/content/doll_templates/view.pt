@@ -20,12 +20,17 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div tal:content="structure context/text/output" />
-	<div tal:condition="context/url">
-	  <div tal:condition="context/author">
-            <a tal:attributes="href context/url" tal:content="context/author" />
-	  </div>
+        <div tal:content="structure context/body/output" />
+	<div>
+          <label for="location" i18n:translate="label_doll_location">Location:</label>
+	  <span id="location" tal:content="context/location" />
 	</div>
+
+	<div>
+          <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
+          <span id="birthday" tal:content="view/birthdayFormatted" />
+        </div>
+
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
