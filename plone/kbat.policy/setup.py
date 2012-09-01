@@ -27,6 +27,9 @@ setup(name='kbat.policy',
           'setuptools',
           # -*- Extra requirements: -*-
           'Products.PloneFormGen',
+          'diazotheme.bootstrap',
+          'collective.plonetruegallery',
+          'collective.prettyphoto',
           'kbat.content',
       ],
       entry_points="""
