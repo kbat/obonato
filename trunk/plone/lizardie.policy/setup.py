@@ -28,6 +28,7 @@ setup(name='lizardie.policy',
           # -*- Extra requirements: -*-
           'Products.PloneFormGen',
           'lizardie.content',
+          'lizardietheme.bootstrap',
       ],
       entry_points="""
       # -*- Entry points: -*-

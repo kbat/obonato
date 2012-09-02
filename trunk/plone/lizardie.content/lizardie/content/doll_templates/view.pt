@@ -18,6 +18,19 @@
 
         <p class="documentDescription" tal:content="context/description" />
 
+	<div>
+          <label for="materials" i18n:translate="label_doll_materials">Materials:</label>
+          <!-- span id="materials" tal:content="view/materialsFormatted" / -->
+<!-- http://wiki.zope.org/zope2/PageTemplateStyleGuide -->
+	  <span tal:repeat="item python:sorted([x.strip() for x in str(context.materials).split(',')], key=str.lower)">
+	    <span  tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
+	    <span  tal:condition="repeat/item/end" tal:content="python:item+'.'">mat</span>
+	  </span>
+
+	  <br />
+          <label for="height" i18n:translate="label_doll_height">Height:</label>
+          <span id="height" tal:content="context/height" />&nbsp;cm.
+	</div>
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:content="structure context/body/output" />
@@ -29,6 +42,10 @@
 	<div>
           <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
           <span id="birthday" tal:content="view/birthdayFormatted" />
+	  <div tal:condition="python: checkPermission('Modify Portal Content', context)">
+	    <label for="status" i18n:translate="label_doll_status">Status:</label>
+	    <span id="status"  tal:condition="context/status" tal:content="structure context/status" />
+	  </div>
         </div>
 
 

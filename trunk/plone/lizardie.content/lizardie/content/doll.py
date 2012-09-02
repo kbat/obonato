@@ -67,6 +67,9 @@ class IDoll(form.Schema):
 
 
 class View(grok.View):
+    """
+    Default view (@@view) for Doll
+    """
     grok.context(IDoll)
     grok.require('zope2.View')
 
@@ -75,6 +78,7 @@ class View(grok.View):
         """
         
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
+        self.materialsFormatted = self.context.materials.split(",").sort()
 
 
 @form.default_value(field=IDoll['start'])
