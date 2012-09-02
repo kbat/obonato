@@ -1,5 +1,6 @@
 from five import grok
 from zope import schema
+import datetime
 
 from plone.directives import form, dexterity
 from plone.app.textfield import RichText
@@ -42,7 +43,7 @@ class IDoll(form.Schema):
         description = _(u"Comma-separated list of materials"),
         )
 
-    birthday = schema.Date(
+    start = schema.Date(
         title = _(u"Birthday")
         )
 
@@ -73,4 +74,10 @@ class View(grok.View):
         """Prepare information for the template
         """
         
-        self.birthdayFormatted = self.context.birthday.strftime("%d %b %Y")
+        self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
+
+
+@form.default_value(field=IDoll['start'])
+def startDefaultValue(data):
+    return datetime.datetime.today()
+
