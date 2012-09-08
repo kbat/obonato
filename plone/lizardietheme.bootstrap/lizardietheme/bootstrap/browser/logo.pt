@@ -1,0 +1,6 @@
+<a id="portal-logo"
+   accesskey="1"
+   tal:attributes="href view/navigation_root_url"
+   i18n:domain="plone">
+     <img src="" tal:attributes="src context/++theme++lizardietheme.bootstrap/logo.jpg" />
+</a>
