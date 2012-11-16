@@ -7,6 +7,7 @@ from plone.app.textfield import RichText
 
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
+from zope.app.file.interfaces import IImage # for View::images
 
 from lizardie.content import _
 
@@ -79,6 +80,17 @@ class View(grok.View):
         
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
         self.materialsFormatted = self.context.materials.split(",").sort()
+
+
+    def images(self):
+        """Return catalog search results of images to show"""
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+        
+        return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
+                       path='/'.join(context.getPhysicalPath()),
+                       sort_on='sortable_title')
+
 
 
 @form.default_value(field=IDoll['start'])
