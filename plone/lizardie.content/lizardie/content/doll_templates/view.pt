@@ -23,28 +23,51 @@
           <!-- span id="materials" tal:content="view/materialsFormatted" / -->
 <!-- http://wiki.zope.org/zope2/PageTemplateStyleGuide -->
 	  <span tal:repeat="item python:sorted([x.strip() for x in str(context.materials).split(',')], key=str.lower)">
-	    <span  tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
-	    <span  tal:condition="repeat/item/end" tal:content="python:item+'.'">mat</span>
+	    <span class="discreet">
+	      <span tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
+	      <span tal:condition="repeat/item/end" tal:content="python:item+'.'">mat</span>
+	    </span>
 	  </span>
 
 	  <br />
           <label for="height" i18n:translate="label_doll_height">Height:</label>
-          <span id="height" tal:content="context/height" />&nbsp;cm.
+	  <span class="discreet">
+            <span id="height" tal:content="context/height" />&nbsp;cm.
+	  </span>
 	</div>
         <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <dl>
+            <tal:block repeat="image view/images">
+                <dt>
+                  <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
+		  <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
+		  <div class="photoAlbumEntry">
+		    <a tal:attributes="href string:${image/getURL}/image_view_fullscreen; title image/Description">
+		      <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+		    </a>
+		    <!-- span class="photoAlbumEntryTitle" tal:content="image/pretty_title_or_id">Title</span -->
+		  </div>
+                </dt>
+            </tal:block>
+        </dl>
+
+	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
+
 
         <div tal:content="structure context/body/output" />
 	<div>
           <label for="location" i18n:translate="label_doll_location">Location:</label>
-	  <span id="location" tal:content="context/location" />
+	  <span class="discreet" id="location" tal:content="context/location" />
 	</div>
 
 	<div>
           <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
-          <span id="birthday" tal:content="view/birthdayFormatted" />
+          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
+
 	  <div tal:condition="python: checkPermission('Modify Portal Content', context)">
-	    <label for="status" i18n:translate="label_doll_status">Status:</label>
-	    <span id="status"  tal:condition="context/status" tal:content="structure context/status" />
+	    <label for="status" i18n:translate="label_doll_status">Additional info:</label>
+	    <span class="discreet" id="status"  tal:condition="context/status" tal:content="structure context/status" />
 	  </div>
         </div>
 

@@ -15,9 +15,9 @@
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
         
-        <!-- div class="discreet">
+        <!--div class="discreet">
 	  discreet
-        </div -->
+        </div-->
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
