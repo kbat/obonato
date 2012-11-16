@@ -1,6 +1,7 @@
 HISTORY.txt
 LICENSE.txt
 MANIFEST.in
+PKG-INFO
 README.rst
 setup.cfg
 setup.py
@@ -15,6 +16,12 @@ lizardietheme.bootstrap.egg-info/requires.txt
 lizardietheme.bootstrap.egg-info/top_level.txt
 lizardietheme/bootstrap/__init__.py
 lizardietheme/bootstrap/configure.zcml
+lizardietheme/bootstrap/browser/__init__.py
+lizardietheme/bootstrap/browser/colophon.pt
+lizardietheme/bootstrap/browser/configure.zcml
+lizardietheme/bootstrap/browser/footer.pt
+lizardietheme/bootstrap/browser/interfaces.py
+lizardietheme/bootstrap/browser/logo.pt
 lizardietheme/bootstrap/profiles/default/cssregistry.xml
 lizardietheme/bootstrap/profiles/default/metadata.xml
 lizardietheme/bootstrap/profiles/default/theme.xml
