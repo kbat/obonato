@@ -43,4 +43,5 @@ class View(grok.View):
         
         return catalog(object_provides=IDoll.__identifier__,
                        path='/'.join(context.getPhysicalPath()),
-                       sort_on='sortable_title')
+                       sort_on='start',
+                       sort_order='descending')
