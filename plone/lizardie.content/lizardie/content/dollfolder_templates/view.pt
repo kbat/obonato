@@ -9,7 +9,10 @@
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+		    result python:context.atctListAlbum(images=1, folders=1, subimages=0, others=1);
+		    images result/images;
+		    albums result/folders">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -27,29 +30,33 @@
 
         <div tal:condition="context/details" tal:content="structure context/details/output" />
         
-        <dl>
+<!--        <dl>
             <tal:block repeat="doll view/dolls">
                 <dt>
                     <a tal:attributes="href doll/getURL" tal:content="doll/Title" />
                 </dt>
-<!--		<div tal:content="structure doll/text/output" /> -->
-		<!--p tal:content="doll/Author" / -->
-		<!-- hr width="50%"/ -->
             </tal:block>
         </dl>
-
+-->
+<div class="photoAlbum">
         <dl>
             <tal:block repeat="doll view/dolls">
                 <dt>
-		  <div class="photoAlbumEntry">
-                    <a tal:attributes="href doll/getURL"> <span tal:content="doll/Title" />
-		      <img tal:define="image doll/view/mainimage" tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
+		  <div class="photoAlbumEntry photoAlbumFolder">
+                    <a tal:attributes="href doll/getURL" title="">
+		      <span class="photoAlbumEntryWrapper">
+			<img tal:define="obj doll/getObject;
+					 image python: obj.restrictedTraverse('@@view').mainimage()"
+			     tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+			<!-- <img tal:define="image doll/view/mainimage" tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />  -->
+		      </span>
+		      <span class="photoAlbumEntryTitle" tal:content="doll/Title" />
 		    </a>
 		  </div>
                 </dt>
             </tal:block>
         </dl>
-
+</div>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>

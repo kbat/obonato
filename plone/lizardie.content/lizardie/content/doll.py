@@ -13,6 +13,7 @@ from lizardie.content import _
 
 from zope.interface import implements
 from zope.interface import Interface
+from plone.memoize.instance import memoize
 
 class IDoll(Interface):
     """A doll. Dolls are managed inside Doll Folder.
@@ -30,7 +31,7 @@ class IDoll(Interface):
 
     location = schema.TextLine(
         title=_(u"Location"),
-        required = True
+        required = True,
         )
 
     height = schema.Int(
@@ -60,7 +61,7 @@ class IDoll(Interface):
     body = RichText(
         title=_(u"Description"),
         description=_(u"A story about this doll"),
-        required=True
+        required=True,
         )
 
     status = schema.Text(
@@ -71,8 +72,10 @@ class IDoll(Interface):
 
 
 class View(grok.View):
-    """Default view (@@view) for Doll
+    """Default view (called "@@view"") for a doll.
+    The associated template is found in doll_templates/view.pt.
     """
+
     implements(IDoll)
     grok.context(IDoll)
     grok.require('zope2.View')
@@ -85,6 +88,7 @@ class View(grok.View):
         self.materialsFormatted = self.context.materials.split(",").sort()
 
 
+    @memoize # [page 259]
     def images(self):
         """Return catalog search results of images to show
         """
@@ -97,14 +101,12 @@ class View(grok.View):
 
     def mainimage(self):
         """Return image to show in DollFolder view
+           Use the following code to call this method from the parent folder: <img tal:define="obj doll/getObject; image python: obj.restrictedTraverse('@@view').mainimage()"
+           [page 182]
         """
-        context = aq_inner(self.context)
-        catalog = getToolByName(context, 'portal_catalog')
 
-        return self.images()[0].Title # OK
-#        return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
-#                       path='/'.join(context.getPhysicalPath()),
-#                       sort_on='sortable_title')[0]
+        return self.images()[0]
+#        return self.images()[0].Title # OK
 #        return "hello"
 
 
