@@ -42,8 +42,8 @@
             <tal:block repeat="doll view/dolls">
                 <dt>
 		  <div class="photoAlbumEntry">
-                    <a tal:attributes="href doll/getURL"> <!-- tal:content="doll/Title"> -->
-		      <!-- span tal:content="structure doll/view/mainimage"/ -->
+                    <a tal:attributes="href doll/getURL"> <span tal:content="doll/Title" />
+		      <img tal:define="image doll/view/mainimage" tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
 		    </a>
 		  </div>
                 </dt>

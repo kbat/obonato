@@ -71,8 +71,7 @@ class IDoll(Interface):
 
 
 class View(grok.View):
-    """
-    Default view (@@view) for Doll
+    """Default view (@@view) for Doll
     """
     implements(IDoll)
     grok.context(IDoll)
@@ -87,7 +86,8 @@ class View(grok.View):
 
 
     def images(self):
-        """Return catalog search results of images to show"""
+        """Return catalog search results of images to show
+        """
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         
@@ -98,7 +98,14 @@ class View(grok.View):
     def mainimage(self):
         """Return image to show in DollFolder view
         """
-        return "hello"
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+
+        return self.images()[0].Title # OK
+#        return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
+#                       path='/'.join(context.getPhysicalPath()),
+#                       sort_on='sortable_title')[0]
+#        return "hello"
 
 
 
@@ -106,9 +113,3 @@ class View(grok.View):
 def startDefaultValue(data):
     return datetime.datetime.today()
 
-# context = aq_inner(self.context)
-# catalog = getToolByName(context, 'portal_catalog')
-
-# return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
-#                path='/'.join(context.getPhysicalPath()),
-#                sort_on='sortable_title')[0]
