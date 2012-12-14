@@ -57,7 +57,7 @@
 	<span tal:content="structure view/mainimage" />
 	<!-- img src="" tal:replace="structure view/mainimage" / -->
 
-        <div tal:content="structure context/body/output" />
+        <div tal:content="structure context/body/output" /> <!-- page 261 -->
 	<div>
           <label for="location" i18n:translate="label_doll_location">Location:</label>
 	  <span class="discreet" id="location" tal:content="context/location" />
