@@ -38,6 +38,18 @@
             </tal:block>
         </dl>
 
+        <dl>
+            <tal:block repeat="doll view/dolls">
+                <dt>
+		  <div class="photoAlbumEntry">
+                    <a tal:attributes="href doll/getURL"> <!-- tal:content="doll/Title"> -->
+		      <!-- span tal:content="structure doll/view/mainimage"/ -->
+		    </a>
+		  </div>
+                </dt>
+            </tal:block>
+        </dl>
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>
