@@ -44,7 +44,7 @@
 		  <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
 		  <div class="photoAlbumEntry">
 		    <a tal:attributes="href string:${image/getURL}/image_view_fullscreen; title image/Description">
-		      <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+		       <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
 		    </a>
 		    <!-- span class="photoAlbumEntryTitle" tal:content="image/pretty_title_or_id">Title</span -->
 		  </div>
@@ -54,6 +54,7 @@
 
 	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
 
+	<span tal:content="structure view/mainimage" />
 
         <div tal:content="structure context/body/output" />
 	<div>

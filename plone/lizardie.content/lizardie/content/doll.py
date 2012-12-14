@@ -11,7 +11,10 @@ from zope.app.file.interfaces import IImage # for View::images
 
 from lizardie.content import _
 
-class IDoll(form.Schema):
+from zope.interface import implements
+from zope.interface import Interface
+
+class IDoll(Interface):
     """A doll. Dolls are managed inside Doll Folder.
     """
     
@@ -71,6 +74,7 @@ class View(grok.View):
     """
     Default view (@@view) for Doll
     """
+    implements(IDoll)
     grok.context(IDoll)
     grok.require('zope2.View')
 
@@ -91,9 +95,20 @@ class View(grok.View):
                        path='/'.join(context.getPhysicalPath()),
                        sort_on='sortable_title')
 
+    def mainimage(self):
+        """Return image to show in DollFolder view
+        """
+        return "hello"
+
 
 
 @form.default_value(field=IDoll['start'])
 def startDefaultValue(data):
     return datetime.datetime.today()
 
+# context = aq_inner(self.context)
+# catalog = getToolByName(context, 'portal_catalog')
+
+# return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
+#                path='/'.join(context.getPhysicalPath()),
+#                sort_on='sortable_title')[0]
