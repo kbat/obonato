@@ -54,7 +54,7 @@
 
 	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
 
-	<span tal:content="structure view/mainimage" />
+	<span tal:condition="view/images" tal:content="structure view/mainimage" />
 	<!-- img src="" tal:replace="structure view/mainimage" / -->
 
         <div tal:content="structure context/body/output" /> <!-- page 261 -->
