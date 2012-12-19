@@ -97,7 +97,8 @@ class View(grok.View):
         
         return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
                        path='/'.join(context.getPhysicalPath()),
-                       sort_on='sortable_title')
+                       sort_on='getObjPositionInParent')
+#                       sort_on='sortable_title')
 
     def mainimage(self):
         """Return image to show in DollFolder view
