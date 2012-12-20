@@ -7,7 +7,7 @@ from plone.app.textfield import RichText
 
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
-from zope.app.file.interfaces import IImage # for View::images
+# from zope.app.file.interfaces import IImage # for View::images
 
 from lizardie.content import _
 
@@ -97,7 +97,9 @@ class View(grok.View):
         
         return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
                        path='/'.join(context.getPhysicalPath()),
-                       sort_on='getObjPositionInParent')
+                       sort_on='getObjPositionInParent',
+                       )
+#                       sort_limit=limit)[:limit] # sort_limit is only a hint for the search algorithms and can potentially return more items, so we also use slicing
 #                       sort_on='sortable_title')
 
     def mainimage(self):
@@ -107,9 +109,6 @@ class View(grok.View):
         """
 
         return self.images()[0]
-#        return self.images()[0].Title # OK
-#        return "hello"
-
 
 
 @form.default_value(field=IDoll['start'])
