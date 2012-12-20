@@ -4,7 +4,7 @@ from zope import schema
 from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
 from lizardie.content.doll import IDoll
 
@@ -34,14 +34,13 @@ class View(grok.View):
 # list of other standard permissions are in parts/omelette/Products/Five/permissions.zcml
     grok.require('zope2.View')
     
-    def dolls(self):
-        """Return a catalog search result of dolls to show
+    def items(self):
+        """Return a catalog search result of items to show
         """
         
-        context = aq_inner(self.context)
+        context = aq_parent(self.context)
         catalog = getToolByName(context, 'portal_catalog')
-        
-        return catalog(object_provides=IDoll.__identifier__,
-                       path='/'.join(context.getPhysicalPath()),
-                       sort_on='start',
-                       sort_order='descending')
+# http://plone.293351.n2.nabble.com/problem-when-searching-dexterity-content-with-portal-catalog-td4393561.html
+        results = catalog.searchResults({'portal_type' : 'lizardie.content.doll', 'sort_on' : 'start', 'sort_order' : 'descending'})
+
+        return results

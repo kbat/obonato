@@ -30,28 +30,19 @@
 
         <div tal:condition="context/details" tal:content="structure context/details/output" />
         
-<!--        <dl>
-            <tal:block repeat="doll view/dolls">
-                <dt>
-                    <a tal:attributes="href doll/getURL" tal:content="doll/Title" />
-                </dt>
-            </tal:block>
-        </dl>
--->
 <div class="photoAlbum">
         <dl>
-            <tal:block repeat="doll view/dolls">
+            <tal:block repeat="item view/items">
                 <dt>
 		  <div class="photoAlbumEntry photoAlbumFolder">
-                    <a tal:attributes="href doll/getURL" title="">
+                    <a tal:attributes="href item/getURL" title="">
 		      <span class="photoAlbumEntryWrapper"
-			    tal:define="obj doll/getObject"
+			    tal:define="obj item/getObject"
 			    tal:condition="python: obj.restrictedTraverse('@@view').images()">
 			<img tal:define="image python: obj.restrictedTraverse('@@view').mainimage()"
 			     tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
-			<!-- <img tal:define="image doll/view/mainimage" tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />  -->
 		      </span>
-		      <span class="photoAlbumEntryTitle" tal:content="doll/Title" />
+		      <span class="photoAlbumEntryTitle" tal:content="item/Title" />
 		    </a>
 		  </div>
                 </dt>
