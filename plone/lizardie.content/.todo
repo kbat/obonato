@@ -1,6 +1,21 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1355745007">
-        sort mainimage (alias) by the way the images appear in the Doll folder and show the first one.
+    <note priority="medium" time="1356001406">
+        atctListAlbum is modified and put in the custom folder manually. Do it by the code.
+    </note>
+    <note priority="medium" time="1356001694">
+        change atctListView to show images of the dolls on the front page
+    </note>
+    <note priority="medium" time="1356003144">
+        front page should list recent changes with relevant content types. this page should also generate RSS feed (possibly taken from Topic) with the same content
+    </note>
+    <note priority="medium" time="1356003167">
+        portlet "Featured images" should randomly display a picture with the "featured" tag
+    </note>
+    <note priority="medium" time="1356003474">
+        how to enable "next-previous" navigation in the Doll page? There is a checkbox in the menu, but what shall I add in the template?
+    </note>
+    <note priority="medium" time="1356003530">
+        add Google+ for Doll
     </note>
 </todo>
