@@ -20,8 +20,10 @@
 
 	<div>
           <label for="materials" i18n:translate="label_doll_materials">Materials:</label>
-          <!-- span id="materials" tal:content="view/materialsFormatted" / -->
-<!-- http://wiki.zope.org/zope2/PageTemplateStyleGuide -->
+	  <tal:comment tal:replace="nothing">
+	    <!-- span id="materials" tal:content="view/materialsFormatted" / -->
+	    http://wiki.zope.org/zope2/PageTemplateStyleGuide:
+	  </tal:comment>
 	  <span tal:repeat="item python:sorted([x.strip() for x in str(context.materials).split(',')], key=str.lower)">
 	    <span class="discreet">
 	      <span tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
@@ -37,8 +39,8 @@
 	</div>
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <dl>
-            <tal:block repeat="image view/images">
+        <dl tal:define="LimitedImages python:context.restrictedTraverse('@@view').images()[:context.nimages]">
+            <tal:block repeat="image LimitedImages">
                 <dt>
                   <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
 		  <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
@@ -57,7 +59,11 @@
             </tal:block>
         </dl>
 
-	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
+	<tal:comment tal:replace="nothing">
+	  needed in order to put everything below the current content:
+	</tal:comment>
+	<div class='visualClear'>
+	</div>
 
 	<span tal:condition="view/images" tal:content="structure view/mainimage" />
 	<!-- img src="" tal:replace="structure view/mainimage" / -->
