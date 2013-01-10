@@ -9,28 +9,28 @@
         <span class="portletTopRight"></span>
   </dt>
   
-  <tal:items tal:repeat="promotion view/featureditems">
-    <dd class="portletItem"
-	tal:define="oddrow repeat/promotion/odd;"
-	tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+  <tal:items tal:repeat="item view/featureditems">
+    <dd class="portletFeatured"
+	tal:define="oddrow repeat/item/odd;"
+	tal:attributes="class python:oddrow and 'portletFeatured even' or 'portletFeatured odd'">
       <a href=""
-	 tal:attributes="href promotion/url;
-			 title promotion/title;">
+	 tal:attributes="href item/url;
+			 title item/title;">
 	<!--
-	<img tal:replace="structure promotion/imageTag" />
+	<img tal:replace="structure item/imageTag" />
 	-->
-	<tal:title content="promotion/title">
+	<tal:title content="item/title">
 	  Title
 	</tal:title>
-	<!-- <span class="portletItemDetails"
-	      tal:content="promotion/summary"
-	      >Promotion summary</span> -->
+	<!-- <span class="portletFeaturedDetails"
+	      tal:content="item/summary"
+	      >Featured summary</span> -->
       </a>
     </dd>
   </tal:items>
   
   
-  <dd class="portletItem odd">
+  <dd class="portletFeatured odd">
     Body text
   </dd>
   
