@@ -1,3 +1,4 @@
+.todo
 README.txt
 setup.cfg
 setup.py
@@ -19,10 +20,21 @@ lizardie/content/__init__.py
 lizardie/content/configure.zcml
 lizardie/content/doll.py
 lizardie/content/dollfolder.py
+lizardie/content/frontpage.py
 lizardie/content/tests.py
 lizardie/content/doll_templates/view.pt
 lizardie/content/dollfolder_templates/view.pt
+lizardie/content/frontpage_templates/view.pt
+lizardie/content/portlets/__init__.py
+lizardie/content/portlets/configure.zcml
+lizardie/content/portlets/featured.pt
+lizardie/content/portlets/featured.py
 lizardie/content/profiles/default/metadata.xml
+lizardie/content/profiles/default/portlets.xml
 lizardie/content/profiles/default/types.xml
 lizardie/content/profiles/default/types/lizardie.content.doll.xml
 lizardie/content/profiles/default/types/lizardie.content.dollfolder.xml
+lizardie/content/profiles/default/types/lizardie.content.frontpage.xml
+lizardie/content/tests/__init__.py
+lizardie/content/tests/base_featured.py
+lizardie/content/tests/test_featured.py
