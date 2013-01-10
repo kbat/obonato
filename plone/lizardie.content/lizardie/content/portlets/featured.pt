@@ -1,24 +1,45 @@
 <dl class="portlet portletFeatured"
     i18n:domain="lizardie.content">
-
-    <dt class="portletHeader">
+  
+  <dt class="portletHeader">
         <span class="portletTopLeft"></span>
         <span>
-           Header
+	  Featured items
         </span>
         <span class="portletTopRight"></span>
-    </dt>
-
-    <dd class="portletItem odd">
-        Body text
+  </dt>
+  
+  <tal:items tal:repeat="promotion view/featureditems">
+    <dd class="portletItem"
+	tal:define="oddrow repeat/promotion/odd;"
+	tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+      <a href=""
+	 tal:attributes="href promotion/url;
+			 title promotion/title;">
+	<!--
+	<img tal:replace="structure promotion/imageTag" />
+	-->
+	<tal:title content="promotion/title">
+	  Title
+	</tal:title>
+	<!-- <span class="portletItemDetails"
+	      tal:content="promotion/summary"
+	      >Promotion summary</span> -->
+      </a>
     </dd>
-
-    <dd class="portletFooter">
-        <span class="portletBottomLeft"></span>
-        <span>
-           Footer
+  </tal:items>
+  
+  
+  <dd class="portletItem odd">
+    Body text
+  </dd>
+  
+  <dd class="portletFooter">
+    <span class="portletBottomLeft"></span>
+    <span>
+      Footer
         </span>
         <span class="portletBottomRight"></span>
-    </dd>
-
+  </dd>
+  
 </dl>
