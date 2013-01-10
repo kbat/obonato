@@ -122,7 +122,6 @@ class Renderer(base.Renderer):
         
     @property
     def available(self):
-#        return True # CCC
         print "featured data length:", len(self._data())
         return len(self._data()) > 0
 
@@ -133,16 +132,17 @@ class Renderer(base.Renderer):
         for brain in self._data():
             fi = brain.getObject()
             
-            scales = getMultiAdapter((fi, self.request), name='images')
-            scale = scales.scale('image', scale='thumb')
-            imageTag = None
-            if scale is not None:
-                imageTag = scale.tag()
+#            scales = getMultiAdapter((fi, self.request), name='images')
+#            scale = scales.scale('image', scale='thumb')
+#            imageTag = None
+#            if scale is not None:
+#                imageTag = scale.tag()
             
             yield dict(title=fi.Title(),
                        summary=fi.Description(),
                        url=brain.getURL(),
-                       imageTag=imageTag)
+                       )
+#                       imageTag=imageTag)
 
     # By using the @memoize decorator, the return value of the function will
     # be cached. Thus, calling it again does not result in another query.
