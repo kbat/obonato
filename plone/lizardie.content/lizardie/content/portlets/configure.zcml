@@ -1,20 +1,22 @@
-<configure
+<configure 
     xmlns="http://namespaces.zope.org/zope"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="lizardie.content">
+  <!-- Ensure Plone's portlets ZCML has already been processed; without
+       this, we may get a permission lookup error
+  -->
+  <include package="plone.app.portlets" />
+  <!-- -*- extra stuff goes here -*- -->
 
-    <!-- Ensure Plone's portlets ZCML has already been processed; without
-         this, we may get a permission lookup error
-      -->
-    <include package="plone.app.portlets" />
+  <plone:portlet
+      name="lizardie.content.portlets.Featured"
+      interface=".featured.IFeatured"
+      assignment=".featured.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".featured.Renderer"
+      addview=".featured.AddForm"
+      editview=".featured.EditForm"
+      />
 
-    <plone:portlet
-        name="lizardie.Featured"
-        interface=".featured.IFeaturedItemsPortlet"
-        assignment=".featured.Assignment"
-        renderer=".featured.Renderer"
-        addview=".featured.AddForm"
-        editview=".featured.EditForm"
-        />
-    
 </configure>
