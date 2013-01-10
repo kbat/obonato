@@ -1,6 +1,9 @@
 # -*- extra stuff goes here -*-
 from zope.i18nmessageid import MessageFactory
 
+contentMessageFactory = MessageFactory('lizardie.content')
+from zope.i18nmessageid import MessageFactory
+
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory("lizardie.content")
