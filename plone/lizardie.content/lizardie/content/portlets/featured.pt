@@ -10,36 +10,38 @@
   </dt>
   
   <tal:items tal:repeat="item view/featureditems">
-    <dd class="portletFeatured"
-	tal:define="oddrow repeat/item/odd;"
-	tal:attributes="class python:oddrow and 'portletFeatured even' or 'portletFeatured odd'">
-      <a href=""
-	 tal:attributes="href item/url;
-			 title item/title;">
-	<!--
-	<img tal:replace="structure item/imageTag" />
-	-->
-	<tal:title content="item/title">
-	  Title
-	</tal:title>
-	<!-- <span class="portletFeaturedDetails"
-	      tal:content="item/summary"
-	      >Featured summary</span> -->
-      </a>
+    <dd class="portletItem">
+<!--	tal:define="oddrow repeat/item/odd;"
+	tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'" --> 
+
+<!--      <img tal:define="image item/mainimage"
+	   tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> -->
+      
+       <div class="photoAlbumEntry">
+	 <a tal:attributes="href item/url" title="">
+	   <span class="photoAlbumEntryWrapper">
+	     <img tal:define="image item/mainimage"
+		  tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+	   </span>
+	   <span class="photoAlbumEntryTitle" tal:content="item/title" />
+	     </a>
+	   </div>
     </dd>
   </tal:items>
+
   
-  
-  <dd class="portletFeatured odd">
+<!-- 
+  <dd class="portletItem odd">
     Body text
   </dd>
-  
+-->  
+
   <dd class="portletFooter">
     <span class="portletBottomLeft"></span>
     <span>
-      Footer
-        </span>
-        <span class="portletBottomRight"></span>
+      <a href="@@search?SearchableText=featured">all featured items...</a>
+    </span>
+    <span class="portletBottomRight"></span>
   </dd>
   
 </dl>
