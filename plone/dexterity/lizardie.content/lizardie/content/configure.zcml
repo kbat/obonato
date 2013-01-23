@@ -22,5 +22,5 @@
         description="Installs the lizardie.content package"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-
+        
 </configure>

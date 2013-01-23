@@ -125,12 +125,12 @@ class Renderer(base.Renderer):
         print "featured data length:", len(self._data())
         return len(self._data()) > 0
 
-    # To make the view template as simple as possible, we return (yield) dicts with
+    # To make the view template as simple as possible, we return dicts with
     # only the necessary information.
+
     def featureditems(self): # was: promotions
         for brain in self._data():
             fi = brain.getObject()
-            print fi.Title(), brain.getURL(), fi.restrictedTraverse('@@view').mainimage().getObject().Title()
             
 #            scales = getMultiAdapter((fi, self.request), name='images')
 #            scale = scales.scale('image', scale='thumb')
@@ -139,8 +139,8 @@ class Renderer(base.Renderer):
 #                imageTag = scale.tag()
             
             yield dict(title=fi.Title(),
+                       summary=fi.Description(),
                        url=brain.getURL(),
-                       mainimage=fi.restrictedTraverse('@@view').mainimage(),
                        )
 #                       imageTag=imageTag)
 
