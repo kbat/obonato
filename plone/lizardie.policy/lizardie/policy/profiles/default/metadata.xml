@@ -3,7 +3,8 @@
     <version>1</version>
     <dependencies>
         <dependency>profile-Products.PloneFormGen:default</dependency>
-        <dependency>profile-lizardie.content:default</dependency>
+<!--        <dependency>profile-Products.LinguaPlone:default</dependency> -->
+<!--        <dependency>profile-lizardie.content:default</dependency> -->
         <dependency>profile-lizardietheme.bootstrap:default</dependency>
     </dependencies>
 </metadata>
