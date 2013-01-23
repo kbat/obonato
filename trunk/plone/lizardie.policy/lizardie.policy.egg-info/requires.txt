@@ -1,4 +1,4 @@
 setuptools
 Products.PloneFormGen
-lizardie.content
+Products.LinguaPlone
 lizardietheme.bootstrap
