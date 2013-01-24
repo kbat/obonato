@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="lizardie.content">
+
+    <permission
+        id="lizardie.content.AddDoll"
+        title="lizardie.content: Add Doll"
+        />
+
+</configure>

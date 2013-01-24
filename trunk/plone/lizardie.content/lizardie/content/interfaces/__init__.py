@@ -1,0 +1,1 @@
+from doll import IDoll

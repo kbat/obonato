@@ -1,0 +1,6 @@
+  <class class=".doll.Doll">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IDoll"
+        />
+  </class>
