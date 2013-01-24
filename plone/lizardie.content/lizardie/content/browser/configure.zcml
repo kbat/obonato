@@ -1,0 +1,12 @@
+<browser:resource
+    name="doll_icon.gif"
+    image="doll_icon.gif"
+    />
+
+<browser:page
+    for="..interfaces.IDoll"
+    name="view"
+    class=".lizardie.DollView"
+    template="doll.pt"
+    permission="Zope2.View"
+    />

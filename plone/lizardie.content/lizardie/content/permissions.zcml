@@ -7,4 +7,9 @@
         title="lizardie.content: Add Doll"
         />
 
+    <permission
+        id="lizardie.content.AddDollFolder"
+        title="lizardie.content: Add Doll Folder"
+        />
+
 </configure>

@@ -1,1 +1,5 @@
+<object name="portal_factory">   
+  <factorytypes>
     <type portal_type="Doll" />
+  </factorytypes>
+</object>
