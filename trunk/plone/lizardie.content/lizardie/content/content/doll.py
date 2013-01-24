@@ -15,7 +15,20 @@ from lizardie.content.config import PROJECTNAME
 DollSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
-        
+
+        atapi.StringField('location',
+                    widget=StringWidget(
+                           label='Location.py',
+                           label_msgid='label_location',
+                           description='City, Region, Country.py',
+                           description_msgid='help_location',
+#                           i18n_domain=I18N_DOMAIN,
+                           ),
+                    searchable = True,
+                    required = False,
+                    languageIndependent=False,
+                    ),
+
 
 ))
 
