@@ -102,6 +102,15 @@ class View(grok.View):
 #                       sort_limit=limit)[:limit] # sort_limit is only a hint for the search algorithms and can potentially return more items, so we also use slicing
 #                       sort_on='sortable_title')
 
+    def imagesLimited(self):
+        """Return catalog search results of images to show limited by context.nimages
+        """
+        images = self.images()
+        if self.context.nimages < 0:
+            return images
+        else:
+            return images[:self.context.nimages]
+
     def mainimage(self):
         """Return image to show in DollFolder view
            Use the following code to call this method from the parent folder: <img tal:define="obj doll/getObject; image python: obj.restrictedTraverse('@@view').mainimage()"
