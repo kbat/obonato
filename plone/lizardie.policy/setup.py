@@ -27,7 +27,6 @@ setup(name='lizardie.policy',
           'setuptools',
           # -*- Extra requirements: -*-
           'Products.PloneFormGen',
-          'Products.LinguaPlone',
           'lizardie.content',
           'lizardietheme.bootstrap',
       ],

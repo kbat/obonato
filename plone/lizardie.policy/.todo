@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <note priority="medium" time="1359121381">
+        Now I am adding the logo file manually - fix it to be able to do it when the package is installed
+    </note>
+</todo>
