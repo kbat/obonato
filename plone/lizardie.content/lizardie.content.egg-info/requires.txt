@@ -1,7 +1,0 @@
-setuptools
-Products.Archetypes
-Products.ATContentTypes
-Products.LinguaPlone
-
-[test]
-plone.app.testing
