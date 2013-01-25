@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <note priority="high" time="1359124788">
+        Additional info is shown to admin only
+    </note>
     <note priority="medium" time="1356003167">
         portlet "Featured images" should randomly display a picture with the "featured" tag
     </note>
