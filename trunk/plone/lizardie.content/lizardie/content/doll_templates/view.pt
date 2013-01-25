@@ -40,8 +40,8 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
 	<span tal:condition="python:context.restrictedTraverse('@@view').images()">
-          <dl tal:define="LimitedImages python:context.restrictedTraverse('@@view').images()[:context.nimages]">
-            <tal:block repeat="image LimitedImages">
+          <dl tal:define="imagesLimited python:context.restrictedTraverse('@@view').imagesLimited()">
+            <tal:block repeat="image imagesLimited">
               <dt>
                 <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
 		<!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
