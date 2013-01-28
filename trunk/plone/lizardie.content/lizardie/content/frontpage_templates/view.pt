@@ -15,9 +15,8 @@
 		    albums result/folders">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-
         <h1 class="documentFirstHeading" tal:content="context/title" />
-        
+
         <!--div class="discreet">
 	  discreet
         </div-->
