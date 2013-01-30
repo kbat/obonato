@@ -26,7 +26,8 @@
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization" />
-     <element value="plone.app.dexterity.behaviors.metadata.IRelatedItems" />
+     <element value="plone.app.relationfield.behavior.IRelatedItems" /> 
+     <element value="plone.app.referenceablebehaviour.IReferenceable" />
  </property>
  
  <!-- View information -->

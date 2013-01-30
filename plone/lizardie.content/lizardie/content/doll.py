@@ -71,7 +71,7 @@ class IDoll(Interface):
 
 
 
-class View(grok.View):
+class View(dexterity.DisplayForm):
     """Default view (called "@@view"") for a doll.
     The associated template is found in doll_templates/view.pt.
     """
