@@ -86,6 +86,11 @@
 	  </div>
         </div>
 
+<!--	<fieldset id="related-items" tal:condition="context/relatedItems">
+	  <legend i18n:translate="related_items">Related items</legend>
+	  <tal:relateditems tal:content="view/w/IRelatedItems.relatedItems/render" />
+	</fieldset> -->
+
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
