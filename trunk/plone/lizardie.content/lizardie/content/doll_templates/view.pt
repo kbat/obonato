@@ -27,14 +27,14 @@
 	  <span tal:repeat="item python:sorted([x.strip() for x in str(context.materials).split(',')], key=str.lower)">
 	    <span class="discreet">
 	      <span tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
-	      <span tal:condition="repeat/item/end" tal:content="python:item+'.'">mat</span>
+	      <span tal:condition="repeat/item/end" tal:content="python:item">mat</span>
 	    </span>
 	  </span>
 
 	  <br />
           <label for="height" i18n:translate="label_doll_height">Height:</label>
 	  <span class="discreet">
-            <span id="height" tal:content="context/height" />&nbsp;cm.
+            <span id="height" tal:content="context/height" />&nbsp;cm
 	  </span>
 	</div>
         <div tal:replace="structure provider:plone.abovecontentbody" />
@@ -80,17 +80,20 @@
           <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
           <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
 
-	  <div tal:condition="python: checkPermission('Modify Portal Content', context)">
+	  <div tal:condition="python: checkPermission('Add portal content', context)"> <!-- !!! change it to 'View Doll additional info' -->
 	    <label for="status" i18n:translate="label_doll_status">Additional info:</label>
 	    <span class="discreet" id="status"  tal:condition="context/status" tal:content="structure context/status" />
 	  </div>
         </div>
 
-<!--	<fieldset id="related-items" tal:condition="context/relatedItems">
+<!--
+    comment this out because raises the 'attribute error' for content types without related items.
+    However, if add-and-delete a related item, the error does not appear
+	<fieldset id="related-items" tal:condition="context/relatedItems">
 	  <legend i18n:translate="related_items">Related items</legend>
-	  <tal:relateditems tal:content="view/w/IRelatedItems.relatedItems/render" />
-	</fieldset> -->
-
+	  <tal:relateditems tal:content="structure view/w/IRelatedItems.relatedItems/render" />
+	</fieldset> 
+-->
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 

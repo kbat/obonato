@@ -3,12 +3,6 @@
     <note priority="veryhigh" time="1359540692">
         Illustration: make two content types: Illustration and "Illustration folder" in such a way that the latter could contain both Illustrations and Illustration folders.
     </note>
-    <note priority="high" time="1359124788">
-        Additional info is shown to admin only
-    </note>
-    <note priority="high" time="1359462123">
-        Fox-doll: full-screen links on self-inserted images do not work
-    </note>
     <note priority="high" time="1359462221">
         Fox-doll: location and birthday must be below the latest image
     </note>
@@ -42,7 +36,10 @@
     <note priority="medium" time="1359567101">
         Search for materials when they are clicked (as in the old version)
     </note>
-    <note priority="verylow" time="1359460352">
-        Remove dots after Materials and Height
+    <note priority="verylow" time="1359124788">
+        Additional info is shown to the users with 'add portal content' permission - Why the owner does not have the "Modify portal content" permission? Set it to something like "View Doll additional info" permission
+    </note>
+    <note priority="verylow" time="1359654208">
+        Modify the search template to show images of Dolls / Illustrations
     </note>
 </todo>
