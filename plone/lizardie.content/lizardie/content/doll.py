@@ -70,7 +70,8 @@ class IDoll(Interface):
         )
 
 
-
+# We inherit the View class from dexterity.DisplayForm instead of grok.View in order to be able to show the related items
+# as suggested here: http://stackoverflow.com/questions/6920817/rendering-related-items-of-a-dexterity-content-type
 class View(dexterity.DisplayForm):
     """Default view (called "@@view"") for a doll.
     The associated template is found in doll_templates/view.pt.
