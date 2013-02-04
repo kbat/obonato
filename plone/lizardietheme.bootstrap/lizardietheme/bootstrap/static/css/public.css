@@ -1263,8 +1263,9 @@ fieldset#search-field {
     border: none !important;
     text-align: center;
 }
+/* original value was 200% and marked as important: */
 input.searchPage {
-    font-size:200% !important;
+    font-size:100% !important;
 }
 #rss-subscription {
 	float: left;
