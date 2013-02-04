@@ -1,3 +1,4 @@
+.todo
 README.txt
 setup.cfg
 setup.py
