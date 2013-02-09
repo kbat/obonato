@@ -37,6 +37,16 @@ class IPost(form.Schema, IImageScaleTraversable):
     form.model("models/post.xml")
 
 
+#@form.default_value(field=IPost['start'])
+#def startDefaultValue(data):
+#    return datetime.datetime.today()
+
+# why does not work?
+# @form.validator(field=IPost['humidity'])
+# def validateHumidity(value):
+#     if value and value > 100:
+#         raise schema.ValidationError(u"Humidity is relative: 0 - 100%")
+
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
 # methods and properties. Put methods that are mainly useful for rendering
