@@ -1,11 +1,34 @@
 <?xml version="1.0" ?>
 <model xmlns="http://namespaces.plone.org/supermodel/schema"
        xmlns:form="http://namespaces.plone.org/supermodel/form">
-    
-    <schema>
-
-        <!-- field definitions -->
-        
-    </schema>
-    
+  <schema>
+    <field name="body" type="plone.app.textfield.RichText" form:omitted="false">
+      <title>Body</title>
+      <description>Enter your post here</description>
+      <required>True</required>
+    </field>
+    <fieldset name="weather" label="Weather">
+      <field name="start" type="zope.schema.Date">
+	<title>Date</title>
+	<description>Date of the post</description>
+	<required>True</required>
+      </field>
+      <field name="toutside" type="zope.schema.Int"
+	     form:omitted="false">
+	<title>Outside temperature</title>
+	<description>Enter outside temperature in deg C</description>
+	<required>True</required>
+      </field>
+      <field name="tinside" type="zope.schema.Int" form:omitted="false">
+	<title>Inside temperature</title>
+	<description>Enter inside temperature before fire was started</description>
+	<required>False</required>
+      </field>
+      <field name="humidity" type="zope.schema.Int" form:omitted="false">
+	<title>Humidity</title>
+	<description>Enter relative humidity [%]</description>
+	<required>False</required>
+      </field>
+    </fieldset>
+  </schema>
 </model>

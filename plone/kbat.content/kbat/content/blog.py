@@ -5,7 +5,8 @@ from zope import schema
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
-from zope.interface import invariant, Invalid
+from zope.interface import invariant, Invalid, alsoProvides
+from zope.app.content.interfaces import IContentType
 
 from z3c.form import group, field
 
@@ -35,7 +36,7 @@ class IBlog(form.Schema, IImageScaleTraversable):
     # and add directives here as necessary.
     
     form.model("models/blog.xml")
-
+alsoProvides(IBlog, IContentType)
 
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific

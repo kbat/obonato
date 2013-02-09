@@ -32,6 +32,8 @@ setup(name='kbat.content',
           'plone.app.referenceablebehavior',
           'plone.namedfile [blobs]',
 #          'cioppino.twothumbs',
+#        'zopeskel.dexterity',
+#        'paste.script.templates',
       ],
       entry_points="""
       # -*- Entry points: -*-
