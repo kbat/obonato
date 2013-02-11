@@ -16,7 +16,6 @@ lizardietheme.bootstrap.egg-info/requires.txt
 lizardietheme.bootstrap.egg-info/top_level.txt
 lizardietheme/bootstrap/__init__.py
 lizardietheme/bootstrap/configure.zcml
-lizardietheme/bootstrap/logo.jpg
 lizardietheme/bootstrap/browser/__init__.py
 lizardietheme/bootstrap/browser/colophon.pt
 lizardietheme/bootstrap/browser/configure.zcml
