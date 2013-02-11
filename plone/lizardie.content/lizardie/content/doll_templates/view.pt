@@ -85,6 +85,19 @@
 
 	  <div tal:condition="python: checkPermission('Add portal content', context)"> <!-- !!! change it to 'View Doll additional info' -->
 	    <!-- label for="status" i18n:translate="label_doll_status">Additional info:</label -->
+	    
+            <div tal:condition="context/links" class="websites">
+              <h4 i18n:translate="label_other_links">Links:</h4>
+              <ul>
+		<li tal:repeat="website context/links">
+                  <a class='url' href="" 
+                     tal:attributes="href website"
+                     tal:content="website" />
+		</li>
+              </ul>              
+            </div>
+
+
 	    <p class="callout" id="status" tal:condition="context/status" tal:content="structure context/status" />
 	  </div>
         </div>

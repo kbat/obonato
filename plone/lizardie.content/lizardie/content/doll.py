@@ -8,6 +8,7 @@ from plone.app.textfield import RichText
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 # from zope.app.file.interfaces import IImage # for View::images
+from plone.z3cform.textlines.textlines import TextLinesFieldWidget
 
 from lizardie.content import _
 
@@ -15,9 +16,11 @@ from zope.interface import implements
 from zope.interface import Interface
 from plone.memoize.instance import memoize
 
-class IDoll(Interface):
+class IDoll(form.Schema):
     """A doll. Dolls are managed inside Doll Folder.
     """
+
+    # Main form
     
     title = schema.TextLine(
         title=_(u"Title"),
@@ -68,6 +71,19 @@ class IDoll(Interface):
         title = _(u"Status"),
         description = _(u"Current status of the doll. If sold, specify the name and address of the customer as well as the sale date and other details."),
         )
+
+    # Links fieldset
+
+    form.fieldset('links', label=_(u"Links"), fields=['links'])
+
+    form.widget(links=TextLinesFieldWidget)
+    links = schema.List(
+        title = _(u"Links"),
+        description = _(u'Various links with this doll, one per line'),
+        value_type = schema.TextLine(),
+        required = False,
+        )
+
 
 
 # We inherit the View class from dexterity.DisplayForm instead of grok.View in order to be able to show the related items
