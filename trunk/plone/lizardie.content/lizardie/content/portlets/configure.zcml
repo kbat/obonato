@@ -19,4 +19,15 @@
       editview=".featured.EditForm"
       />
 
+  <plone:portlet
+      name="lizardie.content.portlets.Map"
+      interface=".map.IMap"
+      assignment=".map.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".map.Renderer"
+      addview=".map.AddForm"
+      editview=".map.EditForm"
+      />
+
 </configure>

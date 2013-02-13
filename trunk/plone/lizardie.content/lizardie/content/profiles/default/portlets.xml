@@ -4,11 +4,17 @@
      of this file for more information.
   -->
 <portlets>
-    
-    <portlet 
-       addview="lizardie.content.portlets.Featured"
-       title="Featured items"
-       description="A portlet which can show featured items."
-       />
+  
+  <portlet 
+      addview="lizardie.content.portlets.Featured"
+      title="Featured items"
+      description="A portlet which can show featured items."
+      />
+
+  <portlet 
+      addview="lizardie.content.portlets.Map"
+      title="Map of dolls"
+      description="A portlet which can show map of dolls."
+      />
     
 </portlets>
