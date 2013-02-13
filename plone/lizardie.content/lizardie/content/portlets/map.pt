@@ -1,0 +1,19 @@
+<dl class="portlet portletMap"
+    i18n:domain="lizardie.content">
+  
+  <dt class="portletHeader">
+    <span class="portletTopLeft"></span>
+    Map of my toys
+    <span class="portletTopRight"></span>
+  </dt>
+
+  <dd class="portletItem">
+    <a href="map.jpg/image_view_fullscreen" title="Map of my toys"><img src="map.jpg/image_mini"/></a>
+  </dd>
+  
+  <dd class="portletFooter">
+    <span class="portletBottomLeft"></span>
+    <span class="portletBottomRight"></span>
+  </dd>
+  
+</dl>
