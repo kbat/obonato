@@ -13,7 +13,7 @@
 	tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
 	<a href="" tal:attributes="href item/url; title item/title;">
 	  <img tal:define="image item/mainimage"
-	       tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+	       tal:attributes="src string:${image/getURL}/image_mini; title image/Description" />
 	  <!-- <span class="portletFeaturedDetails"
 	       tal:content="item/summary"
 	       >Featured summary</span> -->
