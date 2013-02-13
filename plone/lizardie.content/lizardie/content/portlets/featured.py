@@ -122,15 +122,15 @@ class Renderer(base.Renderer):
         
     @property
     def available(self):
-        print "featured data length:", len(self._data())
+#        print "featured data length:", len(self._data())
         return len(self._data()) > 0
 
     # To make the view template as simple as possible, we return dicts with
     # only the necessary information.
 
     def featureditems(self): # was: promotions
-        for brain in self._data():
-            fi = brain.getObject()
+        for fitems in self._data():
+            fi = fitems.getObject() # getObject() loads full item into memory - performance hit!
             
 #            scales = getMultiAdapter((fi, self.request), name='images')
 #            scale = scales.scale('image', scale='thumb')
@@ -139,10 +139,9 @@ class Renderer(base.Renderer):
 #                imageTag = scale.tag()
             
             yield dict(title=fi.Title(),
-                       summary=fi.Description(),
-                       url=brain.getURL(),
+                       url=fi.absolute_url(),
+                       mainimage=fi.restrictedTraverse('@@view').mainimage(),
                        )
-#                       imageTag=imageTag)
 
     # By using the @memoize decorator, the return value of the function will
     # be cached. Thus, calling it again does not result in another query.
@@ -151,6 +150,7 @@ class Renderer(base.Renderer):
     @memoize
     def _data(self):
         limit = self.data.count
+#        print "the limit is", limit
         
         query = dict(object_provides=IDoll.__identifier__)
         
@@ -165,9 +165,12 @@ class Renderer(base.Renderer):
         # normally have the rights to view inactive objects (as an
         # administrator would)
         query['effectiveRange'] = DateTime()
-        
+
         catalog = getToolByName(self.context, 'portal_catalog')
         results = catalog(query)
+
+#        for i in results:  print i.getObject().Title()
+
         
         fitems = []
         if self.data.randomize:
@@ -176,7 +179,10 @@ class Renderer(base.Renderer):
             fitems = fitems[:limit]
         else:
             fitems = results[:limit]
-        
+
+#        print "featured items"
+#        for i in fitems:  print i.getObject().Title()
+
         return fitems
 
 
