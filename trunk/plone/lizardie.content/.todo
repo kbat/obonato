@@ -9,6 +9,9 @@
     <note priority="high" time="1360602520">
         fix: plone.dexterity.utils Error resolving behaviour plone.app.referenceablebehaviour.IReferenceable
     </note>
+    <note priority="high" time="1360767587">
+        Doll body field is not searchable
+    </note>
     <note priority="medium" time="1356003167">
         portlet "Featured images" should randomly display a picture with the "featured" tag
     </note>
@@ -40,7 +43,7 @@
         Additional info is shown to the users with 'add portal content' permission - Why the owner does not have the "Modify portal content" permission? Set it to something like "View Doll additional info" permission
     </note>
     <note priority="verylow" time="1359460049">
-        fix error about absolute_url which is shown when I am filling the fields for Doll - it seems this is a bug in plone.app.theming - they are calling getSite().absolute_url() instead of eq_parent ( see developer.plone.org/troubleshooting/exceptions.html )
+        fix error about absolute_url which is shown when I am filling the fields for Doll - it seems this is a bug in plone.app.theming - they are calling getSite().absolute_url() instead of eq_parent ( see developer.plone.org/troubleshooting/exceptions.html ) see also a URL in my bookmarks (search for absolute_url)
     </note>
     <note priority="verylow" time="1359654208">
         Modify the search template to show images of Dolls / Illustrations
