@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="lizardie.content">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+        
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription" tal:content="context/description" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+	<tal:comment tal:replace="nothing">
+	  needed in order to put everything below the current content:
+	</tal:comment>
+	<div class='visualClear'>
+	</div>
+
+        <div tal:content="structure context/body/output" /> <!-- page 261 -->
+	
+	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
+
+	<div>
+          <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
+          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
+
+	  <div tal:condition="python: checkPermission('Add portal content', context)"> <!-- !!! change it to 'View Doll additional info' -->
+	    <!-- label for="status" i18n:translate="label_doll_status">Additional info:</label -->
+	    
+            <div tal:condition="context/links" class="websites">
+              <h4 i18n:translate="label_other_links">Links:</h4>
+              <ul>
+		<li tal:repeat="website context/links">
+                  <a class='url' href="" 
+                     tal:attributes="href website"
+                     tal:content="website" />
+		</li>
+              </ul>              
+            </div>
+
+
+	    <p class="callout" id="status" tal:condition="context/status" tal:content="structure context/status" />
+	  </div>
+        </div>
+
+<!--
+    comment this out because raises the 'attribute error' for content types without related items.
+    However, if add-and-delete a related item, the error does not appear
+	<fieldset id="related-items" tal:condition="context/relatedItems">
+	  <legend i18n:translate="related_items">Related items</legend>
+	  <tal:relateditems tal:content="structure view/w/IRelatedItems.relatedItems/render" />
+	</fieldset> 
+-->
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
