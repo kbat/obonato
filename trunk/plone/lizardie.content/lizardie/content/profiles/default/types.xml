@@ -2,4 +2,6 @@
  <object name="lizardie.content.doll"       meta_type="Dexterity FTI" />
  <object name="lizardie.content.dollfolder" meta_type="Dexterity FTI" />
  <object name="lizardie.content.frontpage"  meta_type="Dexterity FTI" />
+ <object name="lizardie.content.illustration"  meta_type="Dexterity FTI" />
+ <object name="lizardie.content.illustrationfolder"  meta_type="Dexterity FTI" />
 </object>
