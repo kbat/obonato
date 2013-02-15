@@ -34,13 +34,23 @@
             <tal:block repeat="item view/items">
                 <dt>
 		  <div class="photoAlbumEntry photoAlbumFolder">
-                    <a tal:attributes="href item/getURL" title="">
-		      <span class="photoAlbumEntryWrapper"
-			    tal:define="obj item/getObject"
-			    tal:condition="python: obj.restrictedTraverse('@@view').images()">
-			<img tal:define="image python: obj.restrictedTraverse('@@view').mainimage()"
-			     tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
-		      </span>
+                    <a title="" tal:attributes="href item/getURL"
+		       tal:define="obj item/getObject">
+
+		      <div tal:condition="python: getattr(item, 'portal_type', '') == 'lizardie.content.doll'">
+			<span class="photoAlbumEntryWrapper"
+			      tal:condition="python: obj.restrictedTraverse('@@view').images()">
+			  <img tal:define="image python: obj.restrictedTraverse('@@view').mainimage()"
+			       tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+			</span>
+		      </div>
+
+		      <div tal:condition="python: getattr(item, 'portal_type', '') == 'lizardie.content.illustration'">
+			<span class="photoAlbumEntryWrapper">
+			  <img src="#" tal:replace="structure obj/@@images/picture/thumb" />
+			</span>
+		      </div>
+
 		      <span class="photoAlbumEntryTitle" tal:content="item/Title" />
 		    </a>
 		  </div>
