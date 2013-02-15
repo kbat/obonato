@@ -30,6 +30,7 @@
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization" />
      <element value="plone.app.relationfield.behavior.IRelatedItems" /> 
      <element value="plone.app.referenceablebehaviour.IReferenceable" />
+     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
  </property>
  
  <!-- View information -->
