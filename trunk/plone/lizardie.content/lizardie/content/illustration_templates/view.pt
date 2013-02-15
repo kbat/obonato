@@ -26,14 +26,31 @@
 	<div class='visualClear'>
 	</div>
 
+	<div align="left">
+          <!-- label for="birthday" i18n:translate="label_illustration_birthday">Creation date:</label -->
+          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
+	</div>
+
+	<div tal:define="picture nocall:context/picture"
+	     tal:condition="nocall:picture" align="center">
+	  <img src="#" tal:replace="structure context/@@images/picture/preview" />
+	</div>
+
+<!-- this is how it should be used according to the Dexterity manual
+	<div tal:define="picture nocall:context/picture"
+	     tal:condition="nocall:picture">
+	  <img tal:attributes="src string:${context/absolute_url}/@@download/picture/${picture/filename};
+			       height picture/_height | nothing;
+			       width picture/_width | nothing;"
+	       />
+	  </div>
+-->
+
         <div tal:content="structure context/body/output" /> <!-- page 261 -->
 	
 	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
 
 	<div>
-          <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
-          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
-
 	  <div tal:condition="python: checkPermission('Add portal content', context)"> <!-- !!! change it to 'View Doll additional info' -->
 	    <!-- label for="status" i18n:translate="label_doll_status">Additional info:</label -->
 	    
@@ -49,7 +66,7 @@
             </div>
 
 
-	    <p class="callout" id="status" tal:condition="context/status" tal:content="structure context/status" />
+	    <p class="callout" id="notes" tal:condition="context/notes" tal:content="structure context/notes" />
 	  </div>
         </div>
 

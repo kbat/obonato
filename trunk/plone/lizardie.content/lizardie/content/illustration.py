@@ -9,6 +9,7 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 # from zope.app.file.interfaces import IImage # for View::images
 from plone.z3cform.textlines.textlines import TextLinesFieldWidget
+from plone.namedfile.field import NamedBlobImage
 
 from lizardie.content import _
 
@@ -26,20 +27,27 @@ class IIllustration(form.Schema):
         title=_(u"Title"),
         required = True
         )
-#    @form.validator(field=IIllustration['title'])
-#    def validateTitle(value):
-#        if value and value == value.upper():
-#            raise schema.ValidationError(u"Please don't shout")
     
     start = schema.Date(
-        title = _(u"Birthday")
+        title = _(u"Birthday"),
+        required = True,
         )
 
+    picture = NamedBlobImage(
+        title = _(u"Picture"),
+        required = True,
+        )
 
     body = RichText(
         title=_(u"Description"),
         description=_(u"A story about this illustration"),
         required=False,
+        )
+
+    notes = schema.Text(
+        title = _(u"Notes"),
+        description = _(u"Visible to registered users only"),
+        required = False,
         )
 
 
@@ -71,6 +79,7 @@ class View(dexterity.DisplayForm):
     def update(self):
         """Prepare information for the template
         """
+        self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view
@@ -85,3 +94,8 @@ class View(dexterity.DisplayForm):
 def startDefaultValue(data):
     return datetime.datetime.today()
 
+# Works but only the standard message is shown
+#@form.validator(field=IIllustration['title'])
+#def validateTitle(value):
+#    if value and value == value.upper():
+#        raise schema.ValidationError(_(u"Please don't shout"))
