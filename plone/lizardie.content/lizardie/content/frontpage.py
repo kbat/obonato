@@ -41,6 +41,6 @@ class View(grok.View):
         context = aq_parent(self.context)
         catalog = getToolByName(context, 'portal_catalog')
 # http://plone.293351.n2.nabble.com/problem-when-searching-dexterity-content-with-portal-catalog-td4393561.html
-        results = catalog.searchResults({'portal_type' : 'lizardie.content.doll', 'sort_on' : 'start', 'sort_order' : 'descending'})
+        results = catalog.searchResults({'portal_type' : ['lizardie.content.doll', 'lizardie.content.illustration'], 'sort_on' : 'start', 'sort_order' : 'descending'})
 
         return results
