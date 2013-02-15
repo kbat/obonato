@@ -39,6 +39,9 @@
     <note priority="medium" time="1359567101">
         Search for materials when they are clicked (as in the old version)
     </note>
+    <note priority="low" time="1360848463">
+        Doll: Set File and Page as secondary items in the "Add" menu
+    </note>
     <note priority="verylow" time="1359124788">
         Additional info is shown to the users with 'add portal content' permission - Why the owner does not have the "Modify portal content" permission? Set it to something like "View Doll additional info" permission
     </note>
