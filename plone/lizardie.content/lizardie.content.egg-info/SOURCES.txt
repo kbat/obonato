@@ -27,6 +27,8 @@ lizardie/content/tests.py
 lizardie/content/doll_templates/view.pt
 lizardie/content/dollfolder_templates/view.pt
 lizardie/content/frontpage_templates/view.pt
+lizardie/content/illustration_templates/view.pt
+lizardie/content/illustrationfolder_templates/view.pt
 lizardie/content/portlets/__init__.py
 lizardie/content/portlets/configure.zcml
 lizardie/content/portlets/featured.pt

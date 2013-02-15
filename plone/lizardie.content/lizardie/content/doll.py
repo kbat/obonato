@@ -10,6 +10,10 @@ from Products.CMFCore.utils import getToolByName
 # from zope.app.file.interfaces import IImage # for View::images
 from plone.z3cform.textlines.textlines import TextLinesFieldWidget
 
+# next 2 lines are for indexing
+from collective import dexteritytextindexer
+from zope.interface import alsoProvides
+
 from lizardie.content import _
 
 from zope.interface import implements
@@ -32,6 +36,7 @@ class IDoll(form.Schema):
 #            raise schema.ValidationError(u"Please don't shout")
     
 
+    dexteritytextindexer.searchable('location')
     location = schema.TextLine(
         title=_(u"Location"),
         required = True,
@@ -46,6 +51,7 @@ class IDoll(form.Schema):
 #        size = 2,
         )
 
+    dexteritytextindexer.searchable('materials')
     materials = schema.Text(
         title = _(u"Materials"),
         description = _(u"Comma-separated list of materials"),
@@ -61,12 +67,15 @@ class IDoll(form.Schema):
         required=True,
         default = -1,
         )
+
+    dexteritytextindexer.searchable('body')
     body = RichText(
         title=_(u"Description"),
         description=_(u"A story about this doll"),
         required=True,
         )
 
+    dexteritytextindexer.searchable('status')
     status = schema.Text(
         title = _(u"Status"),
         description = _(u"Current status of the doll. If sold, specify the name and address of the customer as well as the sale date and other details."),
@@ -77,6 +86,7 @@ class IDoll(form.Schema):
     form.fieldset('links', label=_(u"Links"), fields=['links'])
 
     form.widget(links=TextLinesFieldWidget)
+    dexteritytextindexer.searchable('links')
     links = schema.List(
         title = _(u"Links"),
         description = _(u'Various links with this doll, one per line'),

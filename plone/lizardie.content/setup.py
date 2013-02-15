@@ -33,6 +33,7 @@ setup(name='lizardie.content',
           'plone.app.relationfield',
           'plone.namedfile[blobs]',
           'plone.formwidget.namedfile',
+          'collective.dexteritytextindexer',
 #          'cioppino.twothumbs',
       ],
       entry_points="""
