@@ -34,9 +34,19 @@ class IBlog(form.Schema, IImageScaleTraversable):
     # If you want a model-based interface, edit
     # models/blog.xml to define the content type
     # and add directives here as necessary.
+ 
+    title = schema.TextLine(
+        title="title1", #_(u"Title"),
+        )
     
-    form.model("models/blog.xml")
-alsoProvides(IBlog, IContentType)
+    body = RichText(
+        title="description", #_(u"Description"),
+        required=False
+        )
+
+
+#    form.model("models/blog.xml")
+#alsoProvides(IBlog, IContentType)
 
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
