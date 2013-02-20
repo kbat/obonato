@@ -18,14 +18,35 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <h2>
-        Rendered from 
-        post_templates/<span tal:replace="template/id" />
-    </h2>
 
+    <!-- div tal:content="context/Title">Title inserted here</div -->
 
-    <div tal:content="context/Title">Title inserted here</div>
-    
+    <div>
+      <label for="date" i18n:translate="label_post_date">Date:</label>
+      <span class="discreet" id="date" tal:content="view/dateFormatted" />
+    </div>
+
+    <div tal:content="structure context/details/output|nothing" /> <!-- page 261 -->
+
+    <blockquote class="pullquote">
+    <table class="vertical listing" summary="weather">
+      <tbody>
+        <tr tal:condition="context/tinside">
+          <th class="type"><span i18n:translate="label_post_tinside">Inside temperature</span></th>
+          <td class="value"><span tal:content="context/tinside">[t deg]</span>&thinsp;&deg;C</td>
+        </tr>
+        <tr tal:condition="context/toutside">
+          <th class="type"><span i18n:translate="label_post_toutside">Outside temperature</span></th>
+          <td class="value"><span tal:content="context/toutside">[t deg]</span>&thinsp;&deg;C</td>
+        </tr>
+        <tr tal:condition="context/humidity">
+          <th class="type"><span i18n:translate="label_post_humidity">Humidity</span></th>
+          <td class="value"><span tal:content="context/humidity">[h %]</span>&thinsp;%</td>
+        </tr>
+      </tbody>
+    </table>
+    <span tal:content="context/weather|nothing"/>
+    </blockquote>
   </metal:content-core>
 </metal:main>
 

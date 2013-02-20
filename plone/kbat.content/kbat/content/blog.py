@@ -24,7 +24,7 @@ from kbat.content import MessageFactory as _
 
 # Interface class; used to define content-type schema.
 
-class IBlog(form.Schema, IImageScaleTraversable):
+class IBlog(form.Schema):
     """
     Blog - a folder for Posts
     """
@@ -35,15 +35,6 @@ class IBlog(form.Schema, IImageScaleTraversable):
     # models/blog.xml to define the content type
     # and add directives here as necessary.
  
-    title = schema.TextLine(
-        title="title1", #_(u"Title"),
-        )
-    
-    body = RichText(
-        title="description", #_(u"Description"),
-        required=False
-        )
-
 
 #    form.model("models/blog.xml")
 #alsoProvides(IBlog, IContentType)
