@@ -46,7 +46,7 @@
 	  </div>
 -->
 
-        <div tal:content="structure context/body/output" /> <!-- page 261 -->
+        <div tal:content="structure context/body/output|nothing" /> <!-- page 261 -->
 	
 	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
 

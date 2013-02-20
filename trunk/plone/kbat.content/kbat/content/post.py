@@ -1,5 +1,6 @@
 from five import grok
 from plone.directives import dexterity, form
+import datetime
 
 from zope import schema
 from zope.schema.interfaces import IContextSourceBinder
@@ -18,7 +19,7 @@ from plone.app.textfield import RichText
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
-from kbat.content import MessageFactory as _
+from kbat.content import _
 
 
 # Interface class; used to define content-type schema.
@@ -33,19 +34,50 @@ class IPost(form.Schema, IImageScaleTraversable):
     # If you want a model-based interface, edit
     # models/post.xml to define the content type
     # and add directives here as necessary.
+
+    start = schema.Date(
+        title = _(u"Date of the post"),
+        required = True,
+        )
     
-    form.model("models/post.xml")
+    details = RichText(
+        title=_(u"Text"),
+        required=False
+        )
+
+    form.fieldset('weather', label=_(u"Weather"), fields=['tinside', 'toutside', 'humidity', 'weather'])
+    tinside = schema.Int(
+        title=_(u"Inside temperature"),
+        description=_(u"in deg C"),
+        required=False,
+        )
+
+    toutside = schema.Int(
+        title=_(u"Outside temperature"),
+        description=_(u"in deg C"),
+        required=False,
+        )
+
+    humidity = schema.Int(
+        title=_(u"Inside humidity"),
+        description=_(u"in %"),
+        required=False,
+        )
+
+    weather = schema.Text(
+        title = _(u"Weather notes"),
+        description = _(u"Other notes about the weather"),
+        required = False,
+        )
 
 
-#@form.default_value(field=IPost['start'])
-#def startDefaultValue(data):
-#    return datetime.datetime.today()
+
 
 # why does not work?
-# @form.validator(field=IPost['humidity'])
-# def validateHumidity(value):
-#     if value and value > 100:
-#         raise schema.ValidationError(u"Humidity is relative: 0 - 100%")
+@form.validator(field=IPost['humidity'])
+def validateHumidity(value):
+    if value and value > 100:
+        raise schema.ValidationError(u"Humidity is relative: 0 - 100%")
 
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
@@ -73,3 +105,11 @@ class SampleView(grok.View):
     grok.require('zope2.View')
     
     # grok.name('view')
+
+    def update(self):
+        self.dateFormatted = self.context.start.strftime("%d %b %Y")
+
+
+@form.default_value(field=IPost['start'])
+def startDefaultValue(data):
+    return datetime.datetime.today()
