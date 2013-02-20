@@ -19,7 +19,8 @@
   <metal:content-core define-macro="content-core">
 
 
-    <!-- div tal:content="context/Title">Title inserted here</div -->
+    title:
+    <div tal:content="context/Title">Title inserted here</div>
 
     <div>
       <label for="date" i18n:translate="label_post_date">Date:</label>

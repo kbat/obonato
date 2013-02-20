@@ -15,11 +15,28 @@ from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
 from plone.app.textfield import RichText
+from plone.app.content.interfaces import INameFromTitle
 
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from kbat.content import _
+
+class INameFromDate(INameFromTitle):
+    def title():
+        """Return a processed title"""
+        
+class NameFromDate(object):
+    grok.implements(INameFromDate)
+
+    def __init__(self, context):
+        print "NameFromDate: init called"
+        self.context = context
+
+    @property
+    def title(self):
+        print "NameFromDate: title property set"
+        return u"custom title" #self.context.start.strftime("%y%m%d")
 
 
 # Interface class; used to define content-type schema.
@@ -35,6 +52,11 @@ class IPost(form.Schema, IImageScaleTraversable):
     # models/post.xml to define the content type
     # and add directives here as necessary.
 
+    title = schema.TextLine(
+        title = _(u"Title"),
+        required = True,
+        )
+    
     start = schema.Date(
         title = _(u"Date of the post"),
         required = True,
@@ -72,23 +94,28 @@ class IPost(form.Schema, IImageScaleTraversable):
 
 
 
-
-# why does not work?
-@form.validator(field=IPost['humidity'])
-def validateHumidity(value):
-    if value and value > 100:
-        raise schema.ValidationError(u"Humidity is relative: 0 - 100%")
-
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
 # methods and properties. Put methods that are mainly useful for rendering
 # in separate view classes.
 
 class Post(dexterity.Container):
+    """Customised Post content class"""
     grok.implements(IPost)
     
     # Add your class methods and properties here
+    # @property
+    # def title(self):
+    #     print "Post: title property set"
+    #     if hasattr(self, 'start'):
+    #         print "has start attribute"
+    #         return "generated-title"
 
+    # def defTitle(self, value):
+    #     print "Post: setTitle called"
+    #     return "aa"
+
+# see davidjb.com/blog/2010/04/plone-and-dexterity-working-with-computed-fields for explanation why setTitle is needed
 
 # View class
 # The view will automatically use a similarly named template in
@@ -113,3 +140,9 @@ class SampleView(grok.View):
 @form.default_value(field=IPost['start'])
 def startDefaultValue(data):
     return datetime.datetime.today()
+
+# why does not work?
+@form.validator(field=IPost['humidity'])
+def validateHumidity(value):
+    if value and value > 100:
+        raise schema.ValidationError(u"Humidity is relative: 0 - 100%")
