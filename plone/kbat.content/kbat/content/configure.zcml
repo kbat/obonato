@@ -18,5 +18,10 @@
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+
+    <adapter for="kbat.content.post.IPost"
+	     provides="kbat.content.post.INameFromDate"
+	     factory="kbat.content.post.NameFromDate"
+	     />
         
 </configure>
