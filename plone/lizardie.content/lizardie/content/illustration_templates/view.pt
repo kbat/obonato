@@ -26,10 +26,6 @@
 	<div class='visualClear'>
 	</div>
 
-	<div align="left">
-          <!-- label for="birthday" i18n:translate="label_illustration_birthday">Creation date:</label -->
-          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
-	</div>
 
 	<div tal:define="picture nocall:context/picture"
 	     tal:condition="nocall:picture" align="center">
@@ -45,6 +41,32 @@
 	       />
 	  </div>
 -->
+
+	<div align="left">
+          <label for="birthday" i18n:translate="label_illustration_birthday">Created:</label>
+          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
+	</div>
+	<div tal:condition="context/materials">
+	  <label for="materials" i18n:translate="label_doll_materials">Materials:</label>
+	  <tal:comment tal:replace="nothing">
+	    <!-- span id="materials" tal:content="view/materialsFormatted" / -->
+	    http://wiki.zope.org/zope2/PageTemplateStyleGuide:
+	  </tal:comment>
+	  <span tal:repeat="item python:sorted([x.strip() for x in str(context.materials).split(',')], key=str.lower)">
+	    <span class="discreet">
+	      <span tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
+	      <span tal:condition="repeat/item/end" tal:content="python:item">mat</span>
+	    </span>
+	  </span>
+	</div>
+	
+	<div tal:condition="python: context.width and context.height">
+	  <label for="height" i18n:translate="label_doll_dimensions">Dimensions:</label>
+	  <span class="discreet">
+            <span id="height" tal:content="context/height" />&nbsp;x&nbsp;<span id="width" tal:content="context/height" />&nbsp;cm
+	  </span>
+	</div>
+
 
         <div tal:content="structure context/body/output|nothing" /> <!-- page 261 -->
 	
