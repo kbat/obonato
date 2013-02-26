@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 # from zope.app.file.interfaces import IImage # for View::images
 from plone.z3cform.textlines.textlines import TextLinesFieldWidget
 from plone.namedfile.field import NamedBlobImage
+from collective import dexteritytextindexer
 
 from lizardie.content import _
 
@@ -50,6 +51,30 @@ class IIllustration(form.Schema):
         required = False,
         )
 
+    # Properties fieldset
+    form.fieldset('nondigital', label=_(u"Non-digital"), description=_(u"Properties of non-digital images"), fields=['width', 'height', 'materials'])
+
+    width = schema.Int(
+        title=_(u"Width"),
+        description=_(u"in centimeters"),
+        required=False,
+        min = 1,
+        )
+
+    height = schema.Int(
+        title=_(u"Height"),
+        description=_(u"in centimeters"),
+        required=False,
+        min = 1,
+        )
+
+    dexteritytextindexer.searchable('materials')
+    materials = schema.Text(
+        title = _(u"Materials"),
+        description = _(u"Comma-separated list of materials"),
+        required = False,
+        )
+
 
     # Links fieldset
 
@@ -80,6 +105,9 @@ class View(dexterity.DisplayForm):
         """Prepare information for the template
         """
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
+        self.materialsFormatted = None
+        if self.context.materials: self.materialsFormatted = self.context.materials.split(",").sort()
+
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view

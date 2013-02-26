@@ -16,6 +16,10 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
 from plone.app.textfield import RichText
 from plone.app.content.interfaces import INameFromTitle
+from plone.memoize.instance import memoize
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+
 
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
@@ -67,7 +71,12 @@ class IPost(form.Schema, IImageScaleTraversable):
         required=False
         )
 
-    form.fieldset('weather', label=_(u"Weather"), fields=['tinside', 'toutside', 'humidity', 'weather'])
+    private_notes = RichText(
+        title=_(u"Private notes"),
+        required=False
+        )
+
+    form.fieldset('weather', label=_(u"Weather"), fields=['tinside', 'toutside', 'humidity', 'pressure', 'weather'])
     tinside = schema.Int(
         title=_(u"Inside temperature"),
         description=_(u"in deg C"),
@@ -83,6 +92,12 @@ class IPost(form.Schema, IImageScaleTraversable):
     humidity = schema.Int(
         title=_(u"Inside humidity"),
         description=_(u"in %"),
+        required=False,
+        )
+
+    pressure = schema.Int(
+        title=_(u"Pressure"),
+        description=_(u"in mm"),
         required=False,
         )
 
@@ -127,7 +142,7 @@ class Post(dexterity.Container):
 # of this type by uncommenting the grok.name line below or by
 # changing the view class name and template filename to View / view.pt.
 
-class SampleView(grok.View):
+class View(grok.View):
     grok.context(IPost)
     grok.require('zope2.View')
     
@@ -135,6 +150,30 @@ class SampleView(grok.View):
 
     def update(self):
         self.dateFormatted = self.context.start.strftime("%d %b %Y")
+
+    @memoize # [page 259]
+    def images(self):
+        """Return catalog search results of images to show
+        """
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+        
+        return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
+                       path='/'.join(context.getPhysicalPath()),
+                       sort_on='getObjPositionInParent',
+                       )
+
+    def imagesLimited(self):
+        """Return catalog search results of images to show limited by context.nimages
+        """
+        images = self.images()
+        return images
+        # if self.context.nimages < 0:
+        #     return images
+        # else:
+        #     return images[:self.context.nimages]
+
+
 
 
 @form.default_value(field=IPost['start'])
