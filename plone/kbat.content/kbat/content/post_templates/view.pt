@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="kbat.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+    
+    Note that we're using Plone 4 macros. Replace them with Plone 3 macros
+    if needed.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+    title:
+    <div tal:content="context/Title">Title inserted here</div>
+
+    <div>
+      <label for="date" i18n:translate="label_post_date">Date:</label>
+      <span class="discreet" id="date" tal:content="view/dateFormatted" />
+    </div>
+    
+    <div>
+        <span tal:condition="python:context.restrictedTraverse('@@view').images()">
+          <dl tal:define="imagesLimited python:context.restrictedTraverse('@@view').imagesLimited()">
+            <tal:block repeat="image imagesLimited">
+              <dt>
+                <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
+                <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
+                <div class="photoAlbumEntry">
+                  <a tal:condition="python: checkPermission('Add Portal Content', context)" 
+                     tal:attributes="href string:${image/getURL}/view; title image/Description">
+                    <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
+                  </a>
+                  <a tal:condition="not:python: checkPermission('Add Portal Content', context)" 
+                     tal:attributes="href string:${image/getURL}/image_view_fullscreen; title image/Description">
+                    <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
+                  </a>
+                  <!-- span class="photoAlbumEntryTitle" tal:content="image/pretty_title_or_id">Title</span -->
+                </div>
+              </dt>
+            </tal:block>
+          </dl>
+        </span>
+    </div>
+    <br/>
+
+    <table align="right" class="vertical listing" summary="weather">
+      <tbody>
+        <tr tal:condition="context/tinside">
+          <th class="type"><span i18n:translate="label_post_tinside">Inside temperature</span></th>
+          <td class="value"><span tal:content="context/tinside">[t deg]</span>&thinsp;&deg;C</td>
+        </tr>
+        <tr tal:condition="context/toutside">
+          <th class="type"><span i18n:translate="label_post_toutside">Outside temperature</span></th>
+          <td class="value"><span tal:content="context/toutside">[t deg]</span>&thinsp;&deg;C</td>
+        </tr>
+        <tr tal:condition="context/humidity">
+          <th class="type"><span i18n:translate="label_post_humidity">Humidity</span></th>
+          <td class="value"><span tal:content="context/humidity">[h %]</span>&thinsp;%</td>
+        </tr>
+        <tr tal:condition="context/pressure">
+          <th class="type"><span i18n:translate="label_post_pressure">Pressure</span></th>
+          <td class="value"><span tal:content="context/pressure">[p mm]</span>&thinsp;mm</td>
+        </tr>
+	<tr tal:condition="context/weather">
+	  <td colspan="2">
+	    <span tal:content="context/weather|nothing"/>
+	  </td>
+	</tr>
+      </tbody>
+    </table>
+
+
+    <!-- div class='visualClear'></div -->
+    <p></p>
+
+
+    <div tal:content="structure context/details/output|nothing" /> <!-- page 261 -->
+
+
+<!--    <blockquote class="pullquote">
+    <table class="vertical listing" summary="weather">
+      <tbody>
+        <tr tal:condition="context/tinside">
+          <th class="type"><span i18n:translate="label_post_tinside">Inside temperature</span></th>
+          <td class="value"><span tal:content="context/tinside">[t deg]</span>&thinsp;&deg;C</td>
+        </tr>
+        <tr tal:condition="context/toutside">
+          <th class="type"><span i18n:translate="label_post_toutside">Outside temperature</span></th>
+          <td class="value"><span tal:content="context/toutside">[t deg]</span>&thinsp;&deg;C</td>
+        </tr>
+        <tr tal:condition="context/humidity">
+          <th class="type"><span i18n:translate="label_post_humidity">Humidity</span></th>
+          <td class="value"><span tal:content="context/humidity">[h %]</span>&thinsp;%</td>
+        </tr>
+      </tbody>
+    </table>
+    <span tal:content="context/weather|nothing"/>
+    </blockquote> -->
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
