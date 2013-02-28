@@ -56,6 +56,7 @@ class IPost(form.Schema, IImageScaleTraversable):
     # models/post.xml to define the content type
     # and add directives here as necessary.
 
+#    form.primary('title')
     title = schema.TextLine(
         title = _(u"Title"),
         required = True,
@@ -71,6 +72,8 @@ class IPost(form.Schema, IImageScaleTraversable):
         required=False
         )
 
+#    dexterity.read_permission(private_notes='cmv.ReviewPortalContent')
+#    dexterity.write_permission(private_notes='cmv.ReviewPortalContent')
     private_notes = RichText(
         title=_(u"Private notes"),
         required=False
@@ -81,18 +84,24 @@ class IPost(form.Schema, IImageScaleTraversable):
         title=_(u"Inside temperature"),
         description=_(u"in deg C"),
         required=False,
+        min = -50,
+        max = 50,
         )
 
     toutside = schema.Int(
         title=_(u"Outside temperature"),
         description=_(u"in deg C"),
         required=False,
+        min = -50,
+        max = 50,
         )
 
     humidity = schema.Int(
         title=_(u"Inside humidity"),
         description=_(u"in %"),
         required=False,
+        min = 0,
+        max = 100,
         )
 
     pressure = schema.Int(
