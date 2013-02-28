@@ -28,6 +28,9 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:condition="context/details" tal:content="structure context/details/output" />
+
+	<h3 tal:condition="python: context.type_of_items == 'featured'">Featured items</h3>
+	<h3 tal:condition="python: context.type_of_items == 'recent'">Recent items</h3>
         
 <div class="photoAlbum">
         <dl>
