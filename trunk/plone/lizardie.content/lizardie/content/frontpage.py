@@ -11,6 +11,11 @@ from lizardie.content.doll import IDoll
 
 from lizardie.content import _
 
+type_of_items_voc = SimpleVocabulary(
+    [   SimpleTerm(value=u'recent', title=_(u'Recent items')),
+        SimpleTerm(value=u'featured', title=_(u'Featured items')) ]
+    )
+
 nimages_voc = SimpleVocabulary(
     [   SimpleTerm(value=u'5', title=_(u'5')),
         SimpleTerm(value=u'10', title=_(u'10')),
@@ -28,6 +33,13 @@ class IFrontPage(form.Schema):
     details = RichText(
         title=_(u"Text"),
         required=False
+        )
+
+    type_of_items = schema.Choice(
+        title = _(u"Choose type of items to show"),
+        description = _(u"Specify which kind of items to show in the bottom of the page"),
+        vocabulary = type_of_items_voc,
+        required = True,
         )
 
     nimages = schema.Choice(
@@ -54,7 +66,10 @@ class View(grok.View):
         context = aq_parent(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         nimages = int(self.context.nimages)
-# http://plone.293351.n2.nabble.com/problem-when-searching-dexterity-content-with-portal-catalog-td4393561.html
-        results = catalog.searchResults({'portal_type' : ['lizardie.content.doll', 'lizardie.content.illustration'], 'sort_on' : 'start', 'sort_order' : 'descending'})[0:nimages]
+        if self.context.type_of_items == 'featured':
+            # http://plone.293351.n2.nabble.com/problem-when-searching-dexterity-content-with-portal-catalog-td4393561.html
+            results = catalog.searchResults({'portal_type' : ['lizardie.content.doll', 'lizardie.content.illustration'], 'Subject' : ('featured'), 'sort_on' : 'start', 'sort_order' : 'descending', 'sort_limit' : nimages})[:nimages]
+        else:
+            results = catalog.searchResults({'portal_type' : ['lizardie.content.doll', 'lizardie.content.illustration'], 'sort_on' : 'start', 'sort_order' : 'descending', 'sort_limit' : nimages})[:nimages]
 
         return results
