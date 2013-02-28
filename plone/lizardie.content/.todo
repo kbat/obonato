@@ -31,7 +31,7 @@
         Links should not be underlined under the mouse pointer - make them bold as in the old site version (see css)
     </note>
     <note priority="medium" time="1359480056">
-        Protect the doll/status method (not only in the tales)
+        Protect the doll/status method (not only in the tales) - see dexterity.read_permission in the reference manual
     </note>
     <note priority="medium" time="1359566509">
         Enable plone.app.dexterity.behaviors.nextprevious.INextPreviousToggle
