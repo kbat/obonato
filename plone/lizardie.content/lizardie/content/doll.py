@@ -25,7 +25,7 @@ class IDoll(form.Schema):
     """
 
     # Main form
-    
+    form.primary('title')
     title = schema.TextLine(
         title=_(u"Title"),
         required = True
