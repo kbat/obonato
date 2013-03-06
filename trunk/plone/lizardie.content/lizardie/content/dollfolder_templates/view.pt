@@ -38,28 +38,25 @@
             </tal:block>
         </dl>
 -->
-<div class="photoAlbum">
-        <dl>
-            <tal:block repeat="doll view/dolls">
-                <dt>
-		  <div class="photoAlbumEntry photoAlbumFolder">
-                    <a tal:attributes="href doll/getURL" title="">
-		      <span class="photoAlbumEntryWrapper"
-			    tal:define="obj doll/getObject"
-			    tal:condition="python: obj.restrictedTraverse('@@view').images()">
-			<img tal:define="image python: obj.restrictedTraverse('@@view').mainimage()"
-			     tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
-			<!-- <img tal:define="image doll/view/mainimage" tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />  -->
-		      </span>
-		      <span class="photoAlbumEntryTitle" tal:content="doll/Title" />
-		    </a>
-		  </div>
-                </dt>
+	  <dl class="photoAlbum">
+	    <tal:block repeat="doll view/dolls">
+              <dt class="photoAlbumEntry photoAlbumFolder">
+                  <a tal:attributes="href doll/getURL" title="">
+		    <span class="photoAlbumEntryWrapper"
+			  tal:define="obj doll/getObject"
+		      tal:condition="python: obj.restrictedTraverse('@@view').images()">
+		      <img tal:define="image python: obj.restrictedTraverse('@@view').mainimage()"
+			   tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
+		      <!-- <img tal:define="image doll/view/mainimage" tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />  -->
+		    </span>
+		    <span class="photoAlbumEntryTitle" tal:content="doll/Title" />
+		  </a>
+              </dt>
             </tal:block>
-        </dl>
-</div>
-        <div tal:replace="structure provider:plone.belowcontentbody" />
+          </dl>
 
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+	
     </tal:main-macro>
 </metal:main>
 
