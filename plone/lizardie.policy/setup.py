@@ -29,6 +29,7 @@ setup(name='lizardie.policy',
           'Products.PloneFormGen',
           'lizardie.content',
           'lizardietheme.bootstrap',
+          'collective.prettyphoto', # for the pop-up effect
       ],
       entry_points="""
       # -*- Entry points: -*-
