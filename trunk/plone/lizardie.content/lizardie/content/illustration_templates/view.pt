@@ -29,7 +29,9 @@
 
 	<div tal:define="picture nocall:context/picture"
 	     tal:condition="nocall:picture" align="center">
-	  <img src="#" tal:replace="structure context/@@images/picture/preview" />
+	  <a class='prettyPhoto' tal:attributes="href string:${context/absolute_url}/@@download/picture/thumb">
+	    <img src="#" tal:replace="structure context/@@images/picture/preview" />
+	  </a>
 	</div>
 
 <!-- this is how it should be used according to the Dexterity manual
