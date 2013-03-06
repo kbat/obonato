@@ -23,9 +23,9 @@ kbat/content/quote.py
 kbat/content/quotefolder.py
 kbat/content/tests.py
 kbat/content/blog_templates/sampleview.pt
-kbat/content/models/blog.xml
-kbat/content/models/post.xml
 kbat/content/post_templates/sampleview.pt
+kbat/content/post_templates/view.pt
+kbat/content/profiles/default/cssregistry.xml
 kbat/content/profiles/default/metadata.xml
 kbat/content/profiles/default/types.xml
 kbat/content/profiles/default/types/kbat.content.blog.xml
@@ -33,3 +33,4 @@ kbat/content/profiles/default/types/kbat.content.post.xml
 kbat/content/profiles/default/types/kbat.content.quote.xml
 kbat/content/quote_templates/view.pt
 kbat/content/quotefolder_templates/view.pt
+kbat/content/static/kbatcontent.css
