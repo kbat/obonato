@@ -39,12 +39,14 @@ class IIllustration(form.Schema):
         required = True,
         )
 
+    dexteritytextindexer.searchable('body')
     body = RichText(
         title=_(u"Description"),
         description=_(u"A story about this illustration"),
         required=False,
         )
 
+    dexteritytextindexer.searchable('notes')
     notes = schema.Text(
         title = _(u"Notes"),
         description = _(u"Visible to registered users only"),
@@ -115,8 +117,7 @@ class View(dexterity.DisplayForm):
            [page 182]
         """
 
-        return 0
-
+        return self.context.picture
 
 @form.default_value(field=IIllustration['start'])
 def startDefaultValue(data):

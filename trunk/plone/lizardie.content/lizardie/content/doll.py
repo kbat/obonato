@@ -25,7 +25,7 @@ class IDoll(form.Schema):
     """
 
     # Main form
-    form.primary('title')
+    form.primary('title') # what does it mean? has it anything to do with mounting?
     title = schema.TextLine(
         title=_(u"Title"),
         required = True
