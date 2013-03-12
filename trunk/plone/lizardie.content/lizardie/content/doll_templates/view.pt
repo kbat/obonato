@@ -50,7 +50,7 @@
 		     tal:attributes="href string:${image/getURL}/view; title image/Description;">
 		    <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
 		  </a>
-		  <a class='prettyPhoto' tal:condition="not:python: checkPermission('Add Portal Content', context)" 
+		  <a rel='prettyPhoto[pp_gal]' tal:condition="not:python: checkPermission('Add Portal Content', context)" 
 		     tal:attributes="href string:${image/getURL}; title image/Description">
 		    <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
 		  </a>
