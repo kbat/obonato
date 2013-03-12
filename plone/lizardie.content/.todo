@@ -3,14 +3,23 @@
     <note priority="veryhigh" time="1359540692">
         Illustration: make two content types: Illustration and "Illustration folder" in such a way that the latter could contain both Illustrations and Illustration folders.
     </note>
+    <note priority="veryhigh" time="1363080746">
+        Illustration folder should be viewed as PrettyPhoto gallery by Anonymous
+        <note priority="veryhigh" time="1363080790">
+            Illustration: Change the field 'picture' to 'image' and remove alias in update()
+        </note>
+        <note priority="veryhigh" time="1363080816">
+            Replace all illustrations with the new ones (using 'image' instead of 'picture')
+        </note>
+        <note priority="veryhigh" time="1363080906">
+            In order to display description with PrettyPhoto, it should be aliased to something else and renderad as ASCII text (?). Or change PrettyPhoto to render description.
+        </note>
+    </note>
     <note priority="high" time="1359995686">
         Fix the workflow states for Doll
     </note>
     <note priority="high" time="1360602520">
         fix: plone.dexterity.utils Error resolving behaviour plone.app.referenceablebehaviour.IReferenceable
-    </note>
-    <note priority="high" time="1360767587">
-        Doll body field is not searchable
     </note>
     <note priority="high" time="1360928844">
         Next-previous naviagation for dolls/illustrations is a must
