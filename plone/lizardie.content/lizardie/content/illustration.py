@@ -109,7 +109,7 @@ class View(dexterity.DisplayForm):
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
         self.materialsFormatted = None
         if self.context.materials: self.materialsFormatted = self.context.materials.split(",").sort()
-
+        self.context.image = self.context.picture # to be able to treat illustration as image in TinyMCE
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view
