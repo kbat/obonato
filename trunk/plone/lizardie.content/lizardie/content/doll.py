@@ -25,7 +25,6 @@ class IDoll(form.Schema):
     """
 
     # Main form
-    form.primary('title') # what does it mean? has it anything to do with mounting?
     title = schema.TextLine(
         title=_(u"Title"),
         required = True
@@ -68,6 +67,7 @@ class IDoll(form.Schema):
         default = -1,
         )
 
+    form.primary('body') # what does it mean? has it anything to do with mounting or external editing?
     dexteritytextindexer.searchable('body')
     body = RichText(
         title=_(u"Description"),
@@ -113,6 +113,7 @@ class View(dexterity.DisplayForm):
         
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
         self.materialsFormatted = self.context.materials.split(",").sort()
+#        self.context.image = self.mainimage() # to be able to treat doll as image in TinyMCE
 
 
     @memoize # [page 259]
