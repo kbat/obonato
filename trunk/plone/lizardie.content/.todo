@@ -5,12 +5,6 @@
     </note>
     <note priority="veryhigh" time="1363080746">
         Illustration folder should be viewed as PrettyPhoto gallery by Anonymous
-        <note priority="veryhigh" time="1363080790">
-            Illustration: Change the field 'picture' to 'image' and remove alias in update()
-        </note>
-        <note priority="veryhigh" time="1363080816">
-            Replace all illustrations with the new ones (using 'image' instead of 'picture')
-        </note>
         <note priority="veryhigh" time="1363080906">
             In order to display description with PrettyPhoto, it should be aliased to something else and renderad as ASCII text (?). Or change PrettyPhoto to render description.
         </note>
@@ -65,5 +59,11 @@
     </note>
     <note priority="verylow" time="1359997288">
         Hide the sharing tab
+    </note>
+    <note priority="verylow" time="1363259553">
+        Why prettyPhoto descriptions / titles sometimes shown and sometimes not? It seems there is a difference between manually and automatic (by Doll) inserted images.
+    </note>
+    <note priority="verylow" time="1363261041">
+        Use \rightarrow instead of slash in "You are here" (as in Plone3)
     </note>
 </todo>
