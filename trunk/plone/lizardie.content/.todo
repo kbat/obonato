@@ -9,6 +9,9 @@
             In order to display description with PrettyPhoto, it should be aliased to something else and renderad as ASCII text (?). Or change PrettyPhoto to render description.
         </note>
     </note>
+    <note priority="veryhigh" time="1364380222">
+        Show the Contact form
+    </note>
     <note priority="high" time="1359995686">
         Fix the workflow states for Doll
     </note>
