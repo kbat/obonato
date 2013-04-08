@@ -51,6 +51,9 @@
     <note priority="medium" time="1362069282">
         post: weather table does not show a line with temperature = 0 deg
     </note>
+    <note priority="medium" time="1365418472">
+        add link to RSS (recent-changes) in the footer
+    </note>
     <note priority="verylow" time="1359124788">
         Additional info is shown to the users with 'add portal content' permission - Why the owner does not have the "Modify portal content" permission? Set it to something like "View Doll additional info" permission
     </note>
