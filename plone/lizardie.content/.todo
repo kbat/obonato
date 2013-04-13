@@ -54,6 +54,9 @@
     <note priority="medium" time="1365418472">
         add link to RSS (recent-changes) in the footer
     </note>
+    <note priority="medium" time="1365874812">
+        Mail: use yandex mail settings in lizardie.policy
+    </note>
     <note priority="verylow" time="1359124788">
         Additional info is shown to the users with 'add portal content' permission - Why the owner does not have the "Modify portal content" permission? Set it to something like "View Doll additional info" permission
     </note>
