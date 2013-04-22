@@ -19,9 +19,11 @@
   <property name="klass">ess.content.techreport.Techreport</property>
 
   <property name="behaviors">
-     <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-   </property>
+     <!-- element value="plone.app.content.interfaces.INameFromTitle" / -->
+     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/> 
+     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+     <!-- element value="plone.app.dexterity.behaviors.metadata.IRelatedItems"/ -->
+  </property>
 
   <!-- View information -->
   <property name="link_target"></property>

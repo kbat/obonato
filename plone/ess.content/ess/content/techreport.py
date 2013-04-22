@@ -26,8 +26,21 @@ from collective import dexteritytextindexer
 from zope.interface import implements
 from zope.interface import Interface
 
+from plone.app.content.interfaces import INameFromTitle
 
-# Interface class; used to define content-type schema.
+class INameFromDate(INameFromTitle):
+    def title():
+        """Return a processed title"""
+
+class NameFromDate(object):
+    implements(INameFromDate)
+
+    def __init__(self, context):
+        self.context = context
+
+    @property
+    def title(self):
+        return self.context.start.strftime("%y%m%d")
 
 class ITechreport(form.Schema):
     """
@@ -39,12 +52,12 @@ class ITechreport(form.Schema):
         description = _(u"Used as its reference ID"),
         )
 
-    dexteritytextindexer.searchable('description')
-    summary = schema.Text(
-        title = _(u"Abstract"),
-        description = _(u"A short summary about this report"),
-        required = True,
-        )
+    # dexteritytextindexer.searchable('description')
+    # details = schema.Text(
+    #     title = _(u"Abstract1"),
+    #     description = _(u"A short summary about this report"),
+    #     required = True,
+    #     )
 
     doc = NamedBlobFile(
         title = _(u"Document"),
@@ -65,28 +78,26 @@ class ITechreport(form.Schema):
 # methods and properties. Put methods that are mainly useful for rendering
 # in separate view classes.
 
-class Techreport(dexterity.Container):
+class Techreport(dexterity.Item):
     grok.implements(ITechreport)
 
     # Add your class methods and properties here
 
 
-# View class
-# The view will automatically use a similarly named template in
-# Techreport_templates.
-# Template filenames should be all lower case.
-# The view will render when you request a content object with this
-# interface with "/@@sampleview" appended.
-# You may make this the default view for content objects
-# of this type by uncommenting the grok.name line below or by
-# changing the view class name and template filename to View / view.pt.
+class View(dexterity.DisplayForm):
+    """Default view (called "@@view"") for tech report
+    The associated template is found in techreport_templates/view.pt.
+    """
 
-class SampleView(grok.View):
+    implements(ITechreport)
     grok.context(ITechreport)
     grok.require('zope2.View')
 
-    # grok.name('view')
+    def update(self):
+        self.startFormatted = self.context.start.strftime("%d %b %Y")
+        self.idFormatted = self.context.start.strftime("%y%m%d")
 
-#@form.default_value(field=Techreport['start'])
-#def startDefaultValue(data):
-#    return datetime.datetime.today()
+
+@form.default_value(field=ITechreport['start'])
+def startDefaultValue(data):
+    return datetime.datetime.today()
