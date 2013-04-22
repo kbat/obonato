@@ -19,6 +19,7 @@ lizardie.policy.egg-info/top_level.txt
 lizardie/policy/__init__.py
 lizardie/policy/configure.zcml
 lizardie/policy/tests.py
+lizardie/policy/profiles/default/mailhost.xml
 lizardie/policy/profiles/default/metadata.xml
 lizardie/policy/profiles/default/portal_languages.xml
 lizardie/policy/profiles/default/properties.xml
