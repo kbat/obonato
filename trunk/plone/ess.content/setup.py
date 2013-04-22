@@ -24,8 +24,14 @@ setup(name='ess.content',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
-          # -*- Extra requirements: -*-
+        'setuptools',
+        # -*- Extra requirements: -*-
+        'Products.CMFPlone',
+        'plone.app.dexterity [grok]',
+        'plone.app.referenceablebehavior',
+        'plone.app.relationfield',
+        'plone.namedfile [blobs]',
+        'collective.dexteritytextindexer',
       ],
       entry_points="""
       # -*- Entry points: -*-
