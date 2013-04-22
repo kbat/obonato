@@ -17,11 +17,11 @@ ess.content.egg-info/requires.txt
 ess.content.egg-info/top_level.txt
 ess/content/__init__.py
 ess/content/configure.zcml
-ess/content/techreport.py
-ess/content/techreport.txt
+ess/content/technote.py
+ess/content/technote.txt
 ess/content/tests.py
-ess/content/models/techreport.xml
+ess/content/models/technote.xml
 ess/content/profiles/default/metadata.xml
 ess/content/profiles/default/types.xml
-ess/content/profiles/default/types/ess.content.techreport.xml
-ess/content/techreport_templates/sampleview.pt
+ess/content/profiles/default/types/ess.content.technote.xml
+ess/content/technote_templates/sampleview.pt
