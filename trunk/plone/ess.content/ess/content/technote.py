@@ -61,7 +61,7 @@ class ITechnote(form.Schema):
 
     doc = NamedBlobFile(
         title = _(u"Document"),
-        description = _(u"File with technical report"),
+        description = _(u"File with technical note"),
         required = True,
         )
 
