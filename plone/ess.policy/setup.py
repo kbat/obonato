@@ -27,6 +27,7 @@ setup(name='ess.policy',
         'setuptools',
         'Plone',
         # -*- Extra requirements: -*-
+        'ess.content',
       ],
       entry_points="""
       # -*- Entry points: -*-

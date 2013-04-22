@@ -1,6 +1,10 @@
 README.txt
 setup.cfg
 setup.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 ess/__init__.py
 ess.content.egg-info/PKG-INFO
 ess.content.egg-info/SOURCES.txt
@@ -12,4 +16,12 @@ ess.content.egg-info/paster_plugins.txt
 ess.content.egg-info/requires.txt
 ess.content.egg-info/top_level.txt
 ess/content/__init__.py
+ess/content/configure.zcml
+ess/content/techreport.py
+ess/content/techreport.txt
 ess/content/tests.py
+ess/content/models/techreport.xml
+ess/content/profiles/default/metadata.xml
+ess/content/profiles/default/types.xml
+ess/content/profiles/default/types/ess.content.techreport.xml
+ess/content/techreport_templates/sampleview.pt
