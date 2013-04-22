@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+ess/__init__.py
+ess.content.egg-info/PKG-INFO
+ess.content.egg-info/SOURCES.txt
+ess.content.egg-info/dependency_links.txt
+ess.content.egg-info/entry_points.txt
+ess.content.egg-info/namespace_packages.txt
+ess.content.egg-info/not-zip-safe
+ess.content.egg-info/paster_plugins.txt
+ess.content.egg-info/requires.txt
+ess.content.egg-info/top_level.txt
+ess/content/__init__.py
+ess/content/tests.py
