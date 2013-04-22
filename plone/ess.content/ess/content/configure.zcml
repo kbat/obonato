@@ -20,9 +20,9 @@
 	provides="Products.GenericSetup.interfaces.EXTENSION"
 	/>
 
-    <adapter for="ess.content.techreport.ITechreport"
-	     provides="ess.content.techreport.INameFromDate"
-	     factory="ess.content.techreport.NameFromDate"
+    <adapter for="ess.content.technote.ITechnote"
+	     provides="ess.content.technote.INameFromDate"
+	     factory="ess.content.technote.NameFromDate"
 	     />
   
 </configure>

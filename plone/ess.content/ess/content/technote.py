@@ -42,13 +42,13 @@ class NameFromDate(object):
     def title(self):
         return self.context.start.strftime("%y%m%d")
 
-class ITechreport(form.Schema):
+class ITechnote(form.Schema):
     """
     A short summary about a piece of work
     """
 
     start = schema.Date(
-        title = _(u"Techreport date"),
+        title = _(u"Technote date"),
         description = _(u"Used as its reference ID"),
         )
 
@@ -78,19 +78,19 @@ class ITechreport(form.Schema):
 # methods and properties. Put methods that are mainly useful for rendering
 # in separate view classes.
 
-class Techreport(dexterity.Item):
-    grok.implements(ITechreport)
+class Technote(dexterity.Item):
+    grok.implements(ITechnote)
 
     # Add your class methods and properties here
 
 
 class View(dexterity.DisplayForm):
     """Default view (called "@@view"") for tech report
-    The associated template is found in techreport_templates/view.pt.
+    The associated template is found in technote_templates/view.pt.
     """
 
-    implements(ITechreport)
-    grok.context(ITechreport)
+    implements(ITechnote)
+    grok.context(ITechnote)
     grok.require('zope2.View')
 
     def update(self):
@@ -98,6 +98,6 @@ class View(dexterity.DisplayForm):
         self.idFormatted = self.context.start.strftime("%y%m%d")
 
 
-@form.default_value(field=ITechreport['start'])
+@form.default_value(field=ITechnote['start'])
 def startDefaultValue(data):
     return datetime.datetime.today()

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="ess.content.techreport"
+<object name="ess.content.technote"
    meta_type="Dexterity FTI"
    i18n:domain="ess.content" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
@@ -8,15 +8,15 @@
   <property name="description"
     i18n:translate="">A short summary about a piece of work</property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
-  <property name="factory">ess.content.techreport</property>
+  <property name="factory">ess.content.technote</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types" />
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">ess.content.techreport.ITechreport</property>
-  <property name="klass">ess.content.techreport.Techreport</property>
+  <property name="schema">ess.content.technote.ITechnote</property>
+  <property name="klass">ess.content.technote.Technote</property>
 
   <property name="behaviors">
      <!-- element value="plone.app.content.interfaces.INameFromTitle" / -->
