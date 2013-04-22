@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<site>
+ <property name="title">plone.esss.lu.se</property>
+ <property name="description">ess plone server</property>
+</site>
