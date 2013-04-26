@@ -48,27 +48,30 @@ class ITechnote(form.Schema):
     """
 
     start = schema.Date(
-        title = _(u"Technote date"),
+        title = _(u"Release date"),
         description = _(u"Used as its reference ID"),
+        required = True,
         )
 
     # dexteritytextindexer.searchable('description')
     # details = schema.Text(
     #     title = _(u"Abstract1"),
-    #     description = _(u"A short summary about this report"),
+    #     description = _(u"A short summary about this note"),
     #     required = True,
     #     )
 
+    dexteritytextindexer.searchable('doc')
     doc = NamedBlobFile(
         title = _(u"Document"),
         description = _(u"File with technical note"),
         required = True,
         )
 
+    dexteritytextindexer.searchable('attachment')
     attachment = NamedBlobFile(
         title = _(u"Attachment"),
-        description = _("Include relevant data, input, source files necessary to understand the report. Multiple files should be added as an archive."),
-        required = True,
+        description = _("Include relevant data, input, source files necessary to understand the note. Multiple files should be added as an archive."),
+        required = False,
         )
     
     
@@ -85,7 +88,7 @@ class Technote(dexterity.Item):
 
 
 class View(dexterity.DisplayForm):
-    """Default view (called "@@view"") for tech report
+    """Default view (called "@@view"") for tech note
     The associated template is found in technote_templates/view.pt.
     """
 

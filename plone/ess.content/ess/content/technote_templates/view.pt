@@ -18,20 +18,20 @@
     <table align="left" class="vertical listing" summary="documents">
       <tbody>
 	<tr>
-	  <th class="type"><span i18n:translate="label_report_id">Id</span></th>
+	  <th class="type"><span i18n:translate="label_note_id">Id</span></th>
 	  <td class="value"> 
-            <span id="report_id" tal:content="view/idFormatted" />
+            <span id="note_id" tal:content="view/idFormatted" />
 	  </td>
 	</tr>
 	<tr>
-	  <th class="type"><span i18n:translate="label_report">Report</span></th>
+	  <th class="type"><span i18n:translate="label_note">Note</span></th>
 	  <td class="value"> 
 	    <a tal:attributes="href string:${context/absolute_url}/@@download/doc/${context/doc/filename}">
 	      <span tal:replace="context/doc/filename" /> 
 	    </a> 
 	  </td>
 	</tr>
-	<tr>
+	<tr tal:condition="context/attachment">
 	  <th class="type"><span i18n:translate="label_attachment">Attachment</span></th>
 	  <td class="value"> 
 	    <a tal:attributes="href string:${context/absolute_url}/@@download/attachment/${context/attachment/filename}">
