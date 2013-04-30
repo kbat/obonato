@@ -26,22 +26,23 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from kbat.content import _
 
+from zope.interface import implements
+from zope.interface import Interface
+
+
 class INameFromDate(INameFromTitle):
     def title():
         """Return a processed title"""
-        
+
 class NameFromDate(object):
-    grok.implements(INameFromDate)
+    implements(INameFromDate)
 
     def __init__(self, context):
-        print "NameFromDate: init called"
         self.context = context
 
     @property
     def title(self):
-        print "NameFromDate: title property set"
-        return u"custom title" #self.context.start.strftime("%y%m%d")
-
+        return self.context.start.strftime("%y%m%d")
 
 # Interface class; used to define content-type schema.
 
