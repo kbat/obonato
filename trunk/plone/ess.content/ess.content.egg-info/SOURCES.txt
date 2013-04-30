@@ -24,4 +24,4 @@ ess/content/models/technote.xml
 ess/content/profiles/default/metadata.xml
 ess/content/profiles/default/types.xml
 ess/content/profiles/default/types/ess.content.technote.xml
-ess/content/technote_templates/sampleview.pt
+ess/content/technote_templates/view.pt
