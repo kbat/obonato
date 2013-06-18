@@ -27,6 +27,7 @@ from zope.interface import implements
 from zope.interface import Interface
 
 from plone.app.content.interfaces import INameFromTitle
+from re import search # for validation
 
 class INameFromDate(INameFromTitle):
     def title():
@@ -63,14 +64,15 @@ class ITechnote(form.Schema):
     dexteritytextindexer.searchable('doc')
     doc = NamedBlobFile(
         title = _(u"Document"),
-        description = _(u"File with technical note"),
+        description = _(u"File with technical note. The file name will be prefixed with the technote id of the form 'yymmdd' if not already done so."),
         required = True,
+#        validator = validateDocFilename(),
         )
 
     dexteritytextindexer.searchable('attachment')
     attachment = NamedBlobFile(
         title = _(u"Attachment"),
-        description = _("Include relevant data, input, source files necessary to understand the note. Multiple files should be added as an archive."),
+        description = _("Include relevant data, input, source files necessary to understand the note. Multiple files should be added as an archive. The file name will be prefixed with the technote id of the form 'yymmdd' if not already done so."),
         required = False,
         )
     
@@ -99,8 +101,20 @@ class View(dexterity.DisplayForm):
     def update(self):
         self.startFormatted = self.context.start.strftime("%d %b %Y")
         self.idFormatted = self.context.start.strftime("%y%m%d")
+        # check if the prefix is the date in the form yymmdd:
+        if not search("\A(1[3-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", self.context.doc.filename):
+            self.context.doc.filename = _(u"%s-%s" % (self.idFormatted, self.context.doc.filename))
+        if self.context.attachment and not search("\A(1[3-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", self.context.attachment.filename):
+            self.context.attachment.filename = _(u"%s-%s" % (self.idFormatted, self.context.attachment.filename))
 
 
 @form.default_value(field=ITechnote['start'])
 def startDefaultValue(data):
     return datetime.datetime.today()
+
+# @form.validator(field=ITechnote['doc'])
+# def validateDocFilename(value):
+#     if not search("\A(1[3-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", value.filename):
+#         print value.filename
+#         raise schema.ValidationError(u"Technote file name should start with the date in the format 'yymmdd'");
+    

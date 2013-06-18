@@ -7,44 +7,15 @@
       i18n:domain="ess.content">
 <body>
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-</tal:comment>
-
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
-
-    <table align="left" class="vertical listing" summary="documents">
-      <tbody>
-	<tr>
-	  <th class="type"><span i18n:translate="label_note_id">Id</span></th>
-	  <td class="value"> 
-            <span id="note_id" tal:content="view/idFormatted" />
-	  </td>
-	</tr>
-	<tr>
-	  <th class="type"><span i18n:translate="label_note">Note</span></th>
-	  <td class="value"> 
-	    <a tal:attributes="href string:${context/absolute_url}/@@download/doc/${context/doc/filename}">
-	      <span tal:replace="context/doc/filename" /> 
-	    </a> 
-	  </td>
-	</tr>
-	<tr tal:condition="context/attachment">
-	  <th class="type"><span i18n:translate="label_attachment">Attachment</span></th>
-	  <td class="value"> 
-	    <a tal:attributes="href string:${context/absolute_url}/@@download/attachment/${context/attachment/filename}">
-	      <span tal:replace="context/attachment/filename" /> 
-	    </a> 
-	  </td>
-	</tr>
-      </tbody>
-    </table>
-  
-
-
-    <!-- div tal:content="context/Description">Title inserted here</div -->
+    <br/>
+    <div>
+      <a tal:attributes="href string:${context/absolute_url}/@@download/doc/${context/doc/filename}"><span tal:replace="context/doc/filename" /></a> 
+    </div>
+    <div tal:condition="context/attachment">
+      <a tal:attributes="href string:${context/absolute_url}/@@download/attachment/${context/attachment/filename}"><span tal:replace="context/attachment/filename" /></a> 
+    </div>
 
   </metal:content-core>
 </metal:main>
