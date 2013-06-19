@@ -259,7 +259,7 @@
 	<xi:include href="portlet-rules.xml"/>
       </xsl:for-each>
       <div style="display:hidden">
-	<a href="http://www.lizardie.com/contact-info">Contact</a>
+	<a href="contact-info">Contact</a>
       </div>
     </replace>
 
