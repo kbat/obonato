@@ -1,0 +1,8 @@
+<div id="portal-colophon"
+     metal:define-macro="colophon">
+  <metal:slot define-slot="colophon" />
+  <!-- div class="colophonWrapper">
+    <img src="www/footer-image/image_preview"/>
+  </div -->
+</div>
+
