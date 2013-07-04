@@ -70,6 +70,7 @@ esstheme/bootstrap/static/html5slides/template/images/example-graph.png
 esstheme/bootstrap/static/img/arrowDown.png
 esstheme/bootstrap/static/img/arrowLeft.png
 esstheme/bootstrap/static/img/arrowRight.png
+esstheme/bootstrap/static/img/cnr-logo.png
 esstheme/bootstrap/static/img/contenttypes-sprite.png
 esstheme/bootstrap/static/img/home.png
 esstheme/bootstrap/static/img/inigologo.png
