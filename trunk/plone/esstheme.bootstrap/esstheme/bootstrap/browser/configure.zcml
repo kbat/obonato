@@ -1,0 +1,42 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="custom_i18n_domain">
+
+  <!-- The customized logo -->
+<!-- see http://plone.org/documentation/kb/customizing-main-template-viewlets/adding-a-viewlet/ -->
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="esstheme.bootstrap"
+      />
+  
+  <browser:viewlet
+      name="plone.logo"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class="plone.app.layout.viewlets.common.LogoViewlet"
+      layer=".interfaces.IThemeSpecific"
+      template="logo.pt"
+      permission="zope2.View"
+      />
+
+<!--      class="plone.app.layout.viewlets.common.LogoViewlet" -->
+
+
+  <browser:viewlet
+      name="plone.footer"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class="plone.app.layout.viewlets.common.FooterViewlet"
+      template="footer.pt"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="plone.colophon"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class="plone.app.layout.viewlets.common.FooterViewlet"
+      template="colophon.pt"
+      permission="zope2.View"
+      />
+  
+</configure>
