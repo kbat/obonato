@@ -47,6 +47,7 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     email = schema.TextLine(
         title=u"E-mail",
+        description=u"We respect your privacy, and will not give the address away to any third paries or expose it anywhere.",
         required=True,
     )
 
@@ -64,13 +65,13 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     poster_title = schema.TextLine(
         title=u"Poster title",
-        description=u"If you want to present a poster, please specify its title",
+        description=u"If you want to present a poster, please specify its title.",
         required=False,
         )
 
     poster_abstract = schema.Text(
         title=u'Poster abstract',
-        description=u"If you want to present a poster, please specify its abstract",
+        description=u"If you are presenting a poster, please provide its abstract.",
         required=False
     )
 
@@ -125,7 +126,7 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     comment = schema.Text(
         title=u'Comments',
-        description=u'Fill in this field with things you need the organizers to know',
+        description=u'Fill in this field with things you need the organizers to know.',
         required=False
     )
 
