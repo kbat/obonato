@@ -70,6 +70,7 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     poster_title = schema.TextLine(
         title=u"Poster title",
+        description=u"Specify the poster title if you are going to present it",
         required=False,
         )
 
