@@ -59,7 +59,7 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     organization = schema.TextLine(
         title=u"Affiliation",
-        required=False,
+        required=True,
     )
 
     poster_title = schema.TextLine(
