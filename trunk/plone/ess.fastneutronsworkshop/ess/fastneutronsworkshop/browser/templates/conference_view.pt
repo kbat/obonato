@@ -13,7 +13,8 @@
    <div metal:fill-slot="content-description"></div>
    <div metal:fill-slot="content-core">
 
-	 <div tal:content="structure context/text/output" />
+     <tal:comment replace="nothing">
+     <div tal:content="structure context/text/output" />
 
 
       <div class="row-fluid banner"
@@ -44,6 +45,7 @@
             </div>
 	 </tal:comment>
       </div>
+      </tal:comment>
       <!--div class="row-fluid">
          <div class="span12" style="padding-top:20px;">
             <div style="float:right;padding-top:20px;margin:15px 40px;"
