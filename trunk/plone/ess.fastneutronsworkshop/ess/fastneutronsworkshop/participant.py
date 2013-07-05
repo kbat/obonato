@@ -125,9 +125,7 @@ class IParticipant(form.Schema, IImageScaleTraversable):
 
     comment = schema.Text(
         title=u'Comments',
-        description=u'''Fill in this field with things you need the organizers
-        to know. If you are roomsharing and already have a roommate, please
-        mention your roommate's name here''',
+        description=u'Fill in this field with things you need the organizers to know',
         required=False
     )
 
