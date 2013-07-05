@@ -68,6 +68,11 @@ class IParticipant(form.Schema, IImageScaleTraversable):
         required=False,
         )
 
+    poster_abstract = schema.Text(
+        title=u'Poster abstract',
+        description=u"If you want to present a poster, please specify its abstract",
+        required=False
+    )
 
     date_arrive = schema.Date(
         title = _(u"Arrival"),

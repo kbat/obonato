@@ -79,6 +79,7 @@ class RegistrationForm(form.SchemaAddForm):
                      'sender_from_address': data['email'],
                      'affiliation' : data['organization'],
                      'poster_title' : data['poster_title'],
+                     'poster_abstract' : data['poster_abstract'],
                      'date_arrive' : data['date_arrive'],
                      'date_departure' : data['date_departure'],
                      'message' : data['comment'],
