@@ -62,12 +62,6 @@ class IParticipant(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
-    is_poster = schema.Bool(
-        title=u"Poster",
-        description=u"Mark here if you are going to present a poster",
-        required=False
-    )
-
     poster_title = schema.TextLine(
         title=u"Poster title",
         description=u"Specify the poster title if you are going to present it",
@@ -85,15 +79,15 @@ class IParticipant(form.Schema, IImageScaleTraversable):
         required = True,
         )
 
-    need_accommodation = schema.Bool(
-            title=u'Accommodation',
-            description=u'Mark here if you need accommodation', required=False)
+    # need_accommodation = schema.Bool(
+    #         title=u'Accommodation',
+    #         description=u'Mark here if you need accommodation', required=False)
 
-    room_single_double = schema.Choice(
-        title=u"Room size",
-        vocabulary="ess.fastneutronsworkshop.vocabulary.roomsize",
-        required=False
-    )
+    # room_size = schema.Choice(
+    #     title=u"Room size",
+    #     vocabulary="ess.fastneutronsworkshop.vocabulary.roomsize",
+    #     required=False
+    # )
 
 
     # country = schema.Choice(
@@ -156,6 +150,14 @@ def emailValidator(value):
         return checkEmailAddress(value)
     except:
         raise Invalid(u"Invalid email address")
+
+# @form.validator(field=IParticipant['is_poster'], )
+# def is_posterValidator(value):
+#     print value, self.context.poster_title
+#     if value and not self.context.poster_title:
+#         raise Invalid(u"wrong is_poster")
+
+
 
 class Participant(dexterity.Item):
     grok.implements(IParticipant)
