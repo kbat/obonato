@@ -10,6 +10,8 @@ from zope.globalrequest import getRequest
 from zope import schema
 from z3c.form.error import ErrorViewSnippet
 
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFCore.utils import getToolByName
 
@@ -73,20 +75,25 @@ class RegistrationForm(form.SchemaAddForm):
         obj.reindexObject()
 
 # email form
-        variables = {'sender_from_address': "kbat@mail.ru",
-                     'sender_fullname' : "Konstantin",
-                     'url' : 'http://plone.esss.lu.se/fast-neutrons-workshop',
+        variables = {'sender_fullname' : data['title'],
+                     'sender_from_address': data['email'],
+                     'affiliation' : data['organization'],
+                     'poster_title' : data['poster_title'],
+                     'date_arrive' : data['date_arrive'],
+                     'date_departure' : data['date_departure'],
+                     'message' : data['comment'],
                      'subject' : 'workshop registration',
-                     'affiliation' : 'ESS',
-                     'message' : 'etotest'}
+                     'url' : 'http://plone.esss.lu.se/fast-neutrons-workshop'}
 
-        message = self.context.site_feedback_template(self.context, **variables)
         urltool = getToolByName(self.context, 'portal_url')
         portal = urltool.getPortalObject()
+
+        message = self.context.registration_mail(self.context, **variables) # currently taken from the custom folder - fix it
         encoding = portal.getProperty('email_charset')
         message = message.encode(encoding)
         host = self.context.MailHost
-        result = host.send(message, 'kbat@yandex.ru', 'kbat@yandex.ru', subject='workshop registration', charset=encoding)
+        result = host.send(message, 'kbat@yandex.ru', 'Konstantin Batkov <kbat@yandex.ru>', subject='workshop registration', charset=encoding)
+#        result = host.send(message, data['email'], 'Konstantin Batkov <kbat@yandex.ru>', subject='Fast neutrons workshop registration', charset=encoding)
 
         IStatusMessage(self.request).addStatusMessage(
             'Thank you. Your application has been submitted. You will be contacted by the workshop organizers.'
@@ -95,3 +102,4 @@ class RegistrationForm(form.SchemaAddForm):
 
     def add(self, obj):
         pass
+

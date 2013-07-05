@@ -54,7 +54,7 @@ class PosterListingView(grok.View):
         })
         objs = [ i.getObject() for i in brains ]
         return TableListingProvider(self.request, IParticipantList, [
-            i for i in objs if i.is_poster
+            i for i in objs if i.poster_title
         ])
 
 
