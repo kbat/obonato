@@ -7,7 +7,7 @@ class RoomSize(object):
 
     def __call__(self, context):
         return SimpleVocabulary.fromValues(
-            ['Single', 'Double', 'Tenda da campo']
+            ['Single', 'Double']
         )
 
 grok.global_utility(RoomSize, IVocabularyFactory,
