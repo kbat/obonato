@@ -1,0 +1,17 @@
+ess.fastneutronsworkshop Installation
+----------------------------------
+
+To install ess.fastneutronsworkshop using zc.buildout and the plone.recipe.zope2instance
+recipe to manage your project, you can do this:
+
+* Add ``ess.fastneutronsworkshop`` to the list of eggs to install, e.g.:
+
+    [buildout]
+    ...
+    eggs =
+        ...
+        ess.fastneutronsworkshop
+       
+* Re-run buildout, e.g. with:
+
+    $ ./bin/buildout

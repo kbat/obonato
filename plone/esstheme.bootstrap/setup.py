@@ -25,6 +25,7 @@ setup(name='esstheme.bootstrap',
           'setuptools',
           # -*- Extra requirements: -*-
           'plone.app.theming',
+          'plone.app.themingplugins', # for overriding templates
       ],
       entry_points="""
       # -*- Entry points: -*-
