@@ -89,7 +89,7 @@ class RegistrationForm(form.SchemaAddForm):
         result = host.send(message, 'kbat@yandex.ru', 'kbat@yandex.ru', subject='workshop registration', charset=encoding)
 
         IStatusMessage(self.request).addStatusMessage(
-            'Thank you. You are now registered.'
+            'Thank you. Your application has been submitted. You will be contacted by the workshop organizers.'
         )
         return obj
 
