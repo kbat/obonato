@@ -25,6 +25,11 @@ esstheme/bootstrap/browser/logo.pt
 esstheme/bootstrap/profiles/default/cssregistry.xml
 esstheme/bootstrap/profiles/default/metadata.xml
 esstheme/bootstrap/profiles/default/theme.xml
+esstheme/bootstrap/resources/overrides/Products.CMFPlone.skins.plone_templates.contact-info.cpt
+esstheme/bootstrap/resources/overrides/contact-info.cpt
+esstheme/bootstrap/resources/overrides/contact-info.pt
+esstheme/bootstrap/resources/overrides/contact-info.pt~
+esstheme/bootstrap/resources/overrides/plone.app.layout.viewlets.path_bar.pt
 esstheme/bootstrap/static/404.html
 esstheme/bootstrap/static/apple-touch-icon-114x114-precomposed.png
 esstheme/bootstrap/static/apple-touch-icon-57x57-precomposed.png
