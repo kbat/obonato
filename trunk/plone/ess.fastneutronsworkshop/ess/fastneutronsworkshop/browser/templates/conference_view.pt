@@ -12,14 +12,19 @@
    <div metal:fill-slot="content-title"></div>
    <div metal:fill-slot="content-description"></div>
    <div metal:fill-slot="content-core">
+
+	 <div tal:content="structure context/text/output" />
+
+
       <div class="row-fluid banner"
          tal:define="text_to_html nocall:here/@@ess-fastneutronsworkshop-macros/text_to_html">
          <div class="span1">&nbsp;</div>
+         
+
          <div class="span6">
             <!-- h1 tal:content="context/title"></h1 -->
             <p tal:replace="structure python:text_to_html(context.description)"></p>
 
-            <div tal:content="structure context/text/output" />
 
 
 	    <tal:comment replace="nothing">
