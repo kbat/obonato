@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object>
- <default_language value="se"/>
+ <default_language value="sv"/>
  <use_path_negotiation value="False"/>
  <use_cookie_negotiation value="True"/>
  <use_request_negotiation value="False"/>
@@ -9,7 +9,7 @@
  <display_flags value="True"/>
  <start_neutral value="False"/>
  <supported_langs>
-  <element value="se"/>
+  <element value="sv"/>
   <element value="en"/>
  </supported_langs>
 </object>

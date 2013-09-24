@@ -2,7 +2,7 @@
 
 <object name="portal_properties" meta_type="Plone Properties Tool">
    <object name="site_properties" meta_type="Plone Property Sheet">
-      <property name="default_language" type="string">se</property>
+      <property name="default_language" type="string">sv</property>
       <property name="allowAnonymousViewAbout" type="boolean">false</property>
       <property name="enable_sitemap" type="boolean">true</property>
    </object>

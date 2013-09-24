@@ -1,0 +1,34 @@
+<dl class="portlet portletFeatured"
+    i18n:domain="irwilot.content">
+  
+  <dt class="portletHeader">
+    <span class="portletTopLeft"></span>
+    Random image
+    <span class="portletTopRight"></span>
+  </dt>
+  
+  <tal:items tal:repeat="item view/featureditems">
+    <dd class="portletItem"
+	tal:define="oddrow repeat/item/odd;"
+	tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+	<a href="" tal:attributes="href string:${item/url}?random; title item/title;">
+	  <img tal:define="image item/mainimage"
+	       tal:attributes="src string:${image/getURL}/image_mini; title image/Description" />
+	  <!-- <span class="portletFeaturedDetails"
+	       tal:content="item/summary"
+	       >Featured summary</span> -->
+	</a>
+    </dd>
+  </tal:items>
+  
+  
+  <dd class="portletFeatured odd">
+    Body text
+  </dd>
+  
+  <dd class="portletFooter">
+    <span class="portletBottomLeft"></span>
+    <span class="portletBottomRight"></span>
+  </dd>
+  
+</dl>
