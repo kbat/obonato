@@ -30,32 +30,23 @@
         <div tal:condition="context/details" tal:content="structure context/details/output" />
 
 	<h3 tal:condition="python: context.type_of_items == 'featured'">Featured items</h3>
-	<h3 tal:condition="python: context.type_of_items == 'recent'">Recent items</h3>
+	<!-- h3 tal:condition="python: context.type_of_items == 'recent'">Recent items</h3 -->
         
 <div class="photoAlbum">
         <dl>
             <tal:block repeat="item view/items">
                 <dt>
 		  <div class="photoAlbumEntry photoAlbumFolder">
-                    <a title="" tal:attributes="href item/getURL"
-		       tal:define="obj item/getObject">
-
-		      <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.doll'">
-			<span class="photoAlbumEntryWrapper"
-			      tal:condition="python: obj.restrictedTraverse('@@view').images()">
-			  <img tal:define="image python: obj.restrictedTraverse('@@view').mainimage()"
-			       tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" />
-			</span>
-		      </div>
-
-		      <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.illustration'">
+		    <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.illustration'">
+                      <!-- a title="" tal:attributes="href item/getURL" -->
+                      <a rel='prettyPhoto[slideshow]' title="" tal:attributes="href string:${item/getURL}/@@download/picture"
+			 tal:define="obj item/getObject">
 			<span class="photoAlbumEntryWrapper">
 			  <img src="#" tal:replace="structure obj/@@images/picture/thumb" />
 			</span>
-		      </div>
-
-		      <span class="photoAlbumEntryTitle" tal:content="item/Title" />
-		    </a>
+		      </a>
+		    </div>
+		    <span class="photoAlbumEntryTitle" tal:content="item/Title" />
 		  </div>
                 </dt>
             </tal:block>
