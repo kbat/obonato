@@ -1,0 +1,112 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="irwilot.content">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+        
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription" tal:content="context/description" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+	<tal:comment tal:replace="nothing">
+	  needed in order to put everything below the current content:
+	</tal:comment>
+	<div class='visualClear'>
+	</div>
+
+
+	<div tal:define="picture nocall:context/picture"
+	     tal:condition="nocall:picture" align="center">
+	  <a class='prettyPhoto' tal:attributes="href string:${context/absolute_url}/@@download/picture">
+	    <img src="#" tal:replace="structure context/@@images/picture/preview" />
+	  </a>
+	</div>
+
+<!-- this is how it should be used according to the Dexterity manual
+	<div tal:define="picture nocall:context/picture"
+	     tal:condition="nocall:picture">
+	  <img tal:attributes="src string:${context/absolute_url}/@@download/picture/${picture/filename};
+			       height picture/_height | nothing;
+			       width picture/_width | nothing;"
+	       />
+	  </div>
+-->
+
+	<div align="left">
+          <label for="birthday" i18n:translate="label_illustration_birthday">Created:</label>
+          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
+	</div>
+	<div tal:condition="context/materials">
+	  <label for="materials" i18n:translate="label_doll_materials">Materials:</label>
+	  <tal:comment tal:replace="nothing">
+	    <!-- span id="materials" tal:content="view/materialsFormatted" / -->
+	    http://wiki.zope.org/zope2/PageTemplateStyleGuide:
+	  </tal:comment>
+	  <span tal:repeat="item python:sorted([x.strip() for x in str(context.materials).split(',')], key=str.lower)">
+	    <span class="discreet">
+	      <span tal:condition="not:repeat/item/end" tal:content="python:item+','">mat</span>
+	      <span tal:condition="repeat/item/end" tal:content="python:item">mat</span>
+	    </span>
+	  </span>
+	</div>
+	
+	<div tal:condition="python: context.width and context.height">
+	  <label for="height" i18n:translate="label_doll_dimensions">Dimensions:</label>
+	  <span class="discreet">
+            <span id="height" tal:content="context/height" />&nbsp;x&nbsp;<span id="width" tal:content="context/height" />&nbsp;cm
+	  </span>
+	</div>
+
+
+        <div tal:content="structure context/body/output|nothing" /> <!-- page 261 -->
+	
+	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
+
+	<div>
+	  <div tal:condition="python: checkPermission('Add portal content', context)"> <!-- !!! change it to 'View Doll additional info' -->
+	    <!-- label for="status" i18n:translate="label_doll_status">Additional info:</label -->
+	    
+            <div tal:condition="context/links" class="websites">
+              <h4 i18n:translate="label_other_links">Links:</h4>
+              <ul>
+		<li tal:repeat="website context/links">
+                  <a class='url' href="" 
+                     tal:attributes="href website"
+                     tal:content="website" />
+		</li>
+              </ul>              
+            </div>
+
+
+	    <p class="callout" id="notes" tal:condition="context/notes" tal:content="structure context/notes" />
+	  </div>
+        </div>
+
+<!--
+    comment this out because raises the 'attribute error' for content types without related items.
+    However, if add-and-delete a related item, the error does not appear
+	<fieldset id="related-items" tal:condition="context/relatedItems">
+	  <legend i18n:translate="related_items">Related items</legend>
+	  <tal:relateditems tal:content="structure view/w/IRelatedItems.relatedItems/render" />
+	</fieldset> 
+-->
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

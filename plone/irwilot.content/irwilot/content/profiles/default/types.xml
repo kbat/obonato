@@ -1,0 +1,5 @@
+<object name="portal_types">
+ <object name="irwilot.content.frontpage"  meta_type="Dexterity FTI" />
+ <object name="irwilot.content.illustration"  meta_type="Dexterity FTI" />
+ <object name="irwilot.content.illustrationfolder"  meta_type="Dexterity FTI" />
+</object>
