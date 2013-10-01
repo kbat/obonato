@@ -18,6 +18,15 @@ from zope.interface import implements
 from zope.interface import Interface
 from plone.memoize.instance import memoize
 
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
+genre_voc = SimpleVocabulary(
+    [   SimpleTerm(value=u'landscape', title=_(u'Landscape')),
+        SimpleTerm(value=u'portrait', title=_(u'Portrait')),
+        SimpleTerm(value=u'stilllife', title=_(u'Still life')) ]
+    )
+
+
 class IIllustration(form.Schema):
     """An illustration. Illustrations are managed inside Illustration Folder.
     """
@@ -39,6 +48,29 @@ class IIllustration(form.Schema):
         required = True,
         )
 
+    width = schema.Int(
+        title=_(u"Width"),
+        description=_(u"in centimeters"),
+        required=True,
+        min = 1,
+        )
+
+    height = schema.Int(
+        title=_(u"Height"),
+        description=_(u"in centimeters"),
+        required=True,
+        min = 1,
+        )
+
+    genre = schema.Choice(
+        title = _(u"Genre"),
+        description = _(u"Genre of the illustration"),
+        vocabulary = genre_voc,
+        required = True,
+        )
+
+
+
     dexteritytextindexer.searchable('body')
     body = RichText(
         title=_(u"Description"),
@@ -50,30 +82,6 @@ class IIllustration(form.Schema):
     notes = schema.Text(
         title = _(u"Notes"),
         description = _(u"Visible to registered users only"),
-        required = False,
-        )
-
-    # Properties fieldset
-    form.fieldset('nondigital', label=_(u"Non-digital"), description=_(u"Properties of non-digital images"), fields=['width', 'height', 'materials'])
-
-    width = schema.Int(
-        title=_(u"Width"),
-        description=_(u"in centimeters"),
-        required=False,
-        min = 1,
-        )
-
-    height = schema.Int(
-        title=_(u"Height"),
-        description=_(u"in centimeters"),
-        required=False,
-        min = 1,
-        )
-
-    dexteritytextindexer.searchable('materials')
-    materials = schema.Text(
-        title = _(u"Materials"),
-        description = _(u"Comma-separated list of materials"),
         required = False,
         )
 
@@ -107,10 +115,8 @@ class View(dexterity.DisplayForm):
         """Prepare information for the template
         """
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
-        self.materialsFormatted = None
-        if self.context.materials: self.materialsFormatted = self.context.materials.split(",").sort()
 #        self.context.image = self.context.picture # to be able to treat illustration as image in TinyMCE
-        self.context.picture = self.context.image # temporary before I fixed templates
+#        self.context.picture = self.context.image # temporary before I fixed templates
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view
@@ -118,7 +124,7 @@ class View(dexterity.DisplayForm):
            [page 182]
         """
 
-        return self.context.picture
+        return self.context.image
 
 @form.default_value(field=IIllustration['start'])
 def startDefaultValue(data):
