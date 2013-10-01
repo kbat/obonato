@@ -48,6 +48,12 @@ class IIllustration(form.Schema):
         required = True
         )
     
+    # description = schema.Text(
+    #     title = _(u"Description"),
+    #     description = _(u"test of Description"),
+    #     required = False,
+    #     )
+
     start = schema.Date(
         title = _(u"Birthday"),
         required = True,
@@ -93,6 +99,7 @@ class IIllustration(form.Schema):
         required = True,
         )
 
+    form.fieldset('details', label=_(u"Details"), fields=['body', 'notes'])
 
     dexteritytextindexer.searchable('body')
     body = RichText(
@@ -109,9 +116,10 @@ class IIllustration(form.Schema):
         )
 
 
+
     # Links fieldset
 
-    form.fieldset('links', label=_(u"Links"), fields=['links'])
+    form.fieldset('web', label=_(u"Web"), fields=['links'])
 
     form.widget(links=TextLinesFieldWidget)
     links = schema.List(
