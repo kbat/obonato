@@ -26,6 +26,16 @@ genre_voc = SimpleVocabulary(
         SimpleTerm(value=u'stilllife', title=_(u'Still life')) ]
     )
 
+style_voc = SimpleVocabulary(
+    [   SimpleTerm(value=u'realism', title=_(u'Realism')),
+        SimpleTerm(value=u'impressionism', title=_(u'Impressionism'))  ]
+    )
+
+technique_voc = SimpleVocabulary(
+    [   SimpleTerm(value=u'oil', title=_(u'Oil')),
+        SimpleTerm(value=u'watercolour', title=_(u'Water-colour'))  ]
+    )
+
 
 class IIllustration(form.Schema):
     """An illustration. Illustrations are managed inside Illustration Folder.
@@ -69,6 +79,19 @@ class IIllustration(form.Schema):
         required = True,
         )
 
+    style = schema.Choice(
+        title = _(u"Style"),
+        description = _(u"Style of the illustration"),
+        vocabulary = style_voc,
+        required = True,
+        )
+
+    technique = schema.Choice(
+        title = _(u"Technique"),
+        description = _(u"Technique of the illustration"),
+        vocabulary = technique_voc,
+        required = True,
+        )
 
 
     dexteritytextindexer.searchable('body')
