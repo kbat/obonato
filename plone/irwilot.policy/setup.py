@@ -26,7 +26,7 @@ setup(name='irwilot.policy',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'Products.PloneFormGen',
+#          'Products.PloneFormGen',
           'irwilot.content',
 #          'irwilottheme.bootstrap',
           'collective.prettyphoto', # for the pop-up effect
