@@ -36,17 +36,14 @@
         <dl>
             <tal:block repeat="item view/items">
                 <dt>
-		  <div class="photoAlbumEntry photoAlbumFolder">
+		  <div class="myPhotoAlbum">
 		    <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.illustration'">
-                      <!-- a title="" tal:attributes="href item/getURL" -->
                       <a rel='prettyPhoto[slideshow]' title="" tal:attributes="href string:${item/getURL}/@@download/image"
 			 tal:define="obj item/getObject">
-			<span class="photoAlbumEntryWrapper">
-			  <img src="#" tal:replace="structure obj/@@images/image/thumb" />
-			</span>
+			  <img src="#" tal:replace="structure obj/@@images/image/preview" />
 		      </a>
-		    </div>
 		    <span class="photoAlbumEntryTitle" tal:content="item/Title" />
+		    </div>
 		  </div>
                 </dt>
             </tal:block>

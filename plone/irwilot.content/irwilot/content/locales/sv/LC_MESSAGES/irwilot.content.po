@@ -46,8 +46,11 @@ msgid "An illustration"
 msgstr "[sv] An illustration"
 
 #: ./illustration.py:58
+msgid "Birthday_year"
+msgstr "Skapat år"
+
 msgid "Birthday"
-msgstr "[sv] Birthday"
+msgstr "Skapat datum"
 
 #: ./frontpage.py:38
 msgid "Choose type of items to show"
@@ -55,11 +58,11 @@ msgstr "[sv] Choose type of items to show"
 
 #: ./illustration.py:106
 msgid "Description"
-msgstr "[sv] Description"
+msgstr "Beskrivning"
 
 #: ./illustration.py:102
 msgid "Details"
-msgstr "[sv] Details"
+msgstr "Detaljer"
 
 #: ./portlets/featured.py:207
 msgid "Edit featured items portlet"
@@ -76,11 +79,8 @@ msgstr "[sv] Front Page"
 
 #: ./illustration.py:82
 msgid "Genre"
-msgstr "[sv] Genre"
+msgstr "Genre"
 
-#: ./illustration.py:83
-msgid "Genre of the illustration"
-msgstr "[sv] Genre of the illustration"
 
 #: ./illustration.py:75
 msgid "Height"
@@ -108,7 +108,7 @@ msgstr "[sv] Illustration Folder"
 
 #: ./illustration.py:24
 msgid "Landscape"
-msgstr "[sv] Landscape"
+msgstr "Landskap"
 
 #: ./illustration.py:126
 msgid "Links"
@@ -140,7 +140,7 @@ msgstr "[sv] Picture"
 
 #: ./illustration.py:25
 msgid "Portrait"
-msgstr "[sv] Portrait"
+msgstr "Porträtt"
 
 #: ./portlets/featured.py:54
 msgid "Randomize featured items"
@@ -168,7 +168,13 @@ msgstr ""
 
 #: ./illustration.py:26
 msgid "Still life"
-msgstr ""
+msgstr "Stilleben"
+
+msgid "Fantasy"
+msgstr "Fantasi"
+
+msgid "Composition"
+msgstr "Komposition"
 
 #: ./illustration.py:89
 msgid "Style"
@@ -203,11 +209,11 @@ msgstr ""
 #: ./illustration.py:47
 #: ./illustrationfolder.py:18
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: ./illustration.py:127
-msgid "Various links with this illustration, one per line"
-msgstr ""
+msgid "Various links to this illustration, one per line"
+msgstr "Olika lankar till bild, en per råd"
 
 #: ./illustration.py:114
 msgid "Visible to registered users only"
@@ -247,15 +253,15 @@ msgstr "[sv] Genre"
 #. Default: "Style:"
 #: ./illustration_templates/view.pt:58
 msgid "label_illustration_style"
-msgstr "[sv] Style"
+msgstr "Stil"
 
 #. Default: "Technique:"
 #: ./illustration_templates/view.pt:63
 msgid "label_illustration_technique"
-msgstr "[sv] Technique"
+msgstr "Teknik"
 
 #. Default: "Links:"
 #: ./illustration_templates/view.pt:84
 msgid "label_other_links"
-msgstr "[sv] Other links"
+msgstr "Länkar"
 
