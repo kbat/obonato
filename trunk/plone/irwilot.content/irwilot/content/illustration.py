@@ -23,7 +23,9 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 genre_voc = SimpleVocabulary(
     [   SimpleTerm(value=u'landscape', title=_(u'Landscape')),
         SimpleTerm(value=u'portrait', title=_(u'Portrait')),
-        SimpleTerm(value=u'stilllife', title=_(u'Still life')) ]
+        SimpleTerm(value=u'stilllife', title=_(u'Still life')),
+        SimpleTerm(value=u'fantasy', title=_(u'Fantasy')),
+        SimpleTerm(value=u'composition', title=_(u'Composition')) ]
     )
 
 style_voc = SimpleVocabulary(
@@ -80,7 +82,6 @@ class IIllustration(form.Schema):
 
     genre = schema.Choice(
         title = _(u"Genre"),
-        description = _(u"Genre of the illustration"),
         vocabulary = genre_voc,
         required = True,
         )
