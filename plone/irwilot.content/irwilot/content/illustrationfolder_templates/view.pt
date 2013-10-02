@@ -46,7 +46,7 @@
 		  <a tal:attributes="href illustration/getURL" title="">
 		    <span class="photoAlbumEntryWrapper"
 			  tal:define="obj illustration/getObject">
-		      <img src="#" tal:replace="structure obj/@@images/picture/thumb" />
+		      <img src="#" tal:replace="structure obj/@@images/image/thumb" />
 		    </span>
 		    <span class="photoAlbumEntryTitle" tal:content="illustration/Title" />
 		  </a>
