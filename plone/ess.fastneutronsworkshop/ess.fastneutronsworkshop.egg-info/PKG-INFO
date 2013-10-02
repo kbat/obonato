@@ -1,12 +1,14 @@
 Metadata-Version: 1.1
 Name: ess.fastneutronsworkshop
 Version: 2.0
-Summary: Conference management
-Home-page: https://github.com/inigoconsulting/ess.fastneutronsworkshop
-Author: Inigo Consulting
-Author-email: info@inigo-tech.com
+Summary: ESS fast neutrons workshop management
+Home-page: UNKNOWN
+Author: Based on collective.conference developed by Inigo Consulting
+Author-email: UNKNOWN
 License: GPLv2+
-Description: Conference Management Software on top of Plone
+Description: Based on collective.conference
+        
+        Conference Management Software on top of Plone
         ==============================================
         
         A simple conference management tool which can be

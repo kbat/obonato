@@ -24,7 +24,7 @@ irwilot/content/tests.py
 irwilot/content/frontpage_templates/view.pt
 irwilot/content/illustration_templates/view.pt
 irwilot/content/illustrationfolder_templates/view.pt
-irwilot/content/locales/sv/irwilot.content.po
+irwilot/content/locales/sv/LC_MESSAGES/irwilot.content.po
 irwilot/content/portlets/__init__.py
 irwilot/content/portlets/configure.zcml
 irwilot/content/portlets/featured.pt

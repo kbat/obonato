@@ -29,7 +29,8 @@ setup(name='irwilot.policy',
 #          'Products.PloneFormGen',
           'irwilot.content',
 #          'irwilottheme.bootstrap',
-          'collective.prettyphoto', # for the pop-up effect
+#          'collective.prettyphoto', # for the pop-up effect
+          'irwilot.prettyphoto'
       ],
       entry_points="""
       # -*- Entry points: -*-
