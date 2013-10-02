@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+    <object name="irwilot_prettyphoto"
+            meta_type="Filesystem Directory View"
+            directory="irwilot.prettyphoto:skins/irwilot_prettyphoto" />
+    <skin-path name="*">
+        <layer name="irwilot_prettyphoto" insert-after="custom" />
+    </skin-path>
+</object>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="irwilot.prettyphoto"
+           interface="irwilot.prettyphoto.interfaces.IPrettyPhotoSpecific" />
+</layers>

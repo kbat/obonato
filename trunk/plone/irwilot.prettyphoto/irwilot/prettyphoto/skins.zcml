@@ -1,0 +1,8 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="irwilot.prettyphoto">
+
+    <!-- File System Directory Views registration -->
+    <cmf:registerDirectory name="irwilot_prettyphoto"/>
+</configure>

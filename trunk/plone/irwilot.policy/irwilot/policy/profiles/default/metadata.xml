@@ -4,7 +4,7 @@
     <dependencies>
         <dependency>profile-Products.PloneFormGen:default</dependency>
         <dependency>profile-irwilot.content:default</dependency>
-	<dependency>profile-collective.prettyphoto:default</dependency>
+	<dependency>profile-irwilot.prettyphoto:default</dependency>
         <!-- dependency>profile-irwilottheme.bootstrap:default</dependency -->
     </dependencies>
 </metadata>

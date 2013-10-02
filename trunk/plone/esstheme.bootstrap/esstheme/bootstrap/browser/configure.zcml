@@ -1,7 +1,14 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="custom_i18n_domain">
+
+  <!-- Ensure Plone's portlets ZCML has already been processed; without
+       this, we may get a permission lookup error
+  -->
+  <include package="plone.app.portlets" />
+  <!-- -->
 
   <!-- The customized logo -->
 <!-- see http://plone.org/documentation/kb/customizing-main-template-viewlets/adding-a-viewlet/ -->
@@ -29,6 +36,13 @@
       class="plone.app.layout.viewlets.common.FooterViewlet"
       template="footer.pt"
       permission="zope2.View"
+      />
+
+
+  <plone:portletRenderer
+      portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+      layer=".interfaces.IThemeSpecific"
+      class=".navigation.MyRenderer"
       />
 
   <browser:viewlet
