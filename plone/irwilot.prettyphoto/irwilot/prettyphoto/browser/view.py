@@ -40,7 +40,6 @@ class JavaScript(BrowserView):
                     animation_speed: '%(speed)s', /* fast/slow/normal */
                     opacity: %(opacity)s, /* Value between 0 and 1 */
                     show_title: %(show_title)s, /* true/false */
-                    show_description: %(show_description)s, /* true/false */
                     counter_separator_label: '%(counter_sep)s', /* The separator for the gallery counter 1 "of" 2 */
                     theme: '%(theme)s',
                     autoplay: %(autoplay)s, /* Automatically start videos: true/false */
@@ -61,7 +60,6 @@ class JavaScript(BrowserView):
         """ % dict(speed=getattr(self.prettyphoto_properties, 'speed', 'normal'),
                    opacity=getattr(self.prettyphoto_properties, 'opacity', '0.80'),
                    show_title=getattr(self.prettyphoto_properties, 'show_title', True) and 'true' or 'false',
-                   show_description=getattr(self.prettyphoto_properties, 'show_description', True) and 'true' or 'false',
                    counter_sep=getattr(self.prettyphoto_properties, 'counter_sep', '/'),
                    theme=getattr(self.prettyphoto_properties, 'theme', 'light_rounded'),
                    autoplay=getattr(self.prettyphoto_properties, 'autoplay', True) and 'true' or 'false',
