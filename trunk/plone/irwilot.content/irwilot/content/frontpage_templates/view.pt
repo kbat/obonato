@@ -32,17 +32,17 @@
 	<h3 tal:condition="python: context.type_of_items == 'featured'">Featured items</h3>
 	<!-- h3 tal:condition="python: context.type_of_items == 'recent'">Recent items</h3 -->
         
-<div class="photoAlbum">
+<div class="photoAlbum"> <!-- see prettyPhoto_album_view.pt -->
         <dl>
             <tal:block repeat="item view/items">
                 <dt>
 		  <div class="myPhotoAlbum">
+		    <h2 tal:content="item/Title" />
 		    <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.illustration'">
-                      <a rel='prettyPhoto[slideshow]' title="" tal:attributes="href string:${item/getURL}/@@download/image"
+                      <a rel='prettyPhoto[slideshow]' title="" tal:attributes="href string:${item/getURL}/@@download/image;title item/Description"
 			 tal:define="obj item/getObject">
 			  <img src="#" tal:replace="structure obj/@@images/image/preview" />
 		      </a>
-		    <span class="photoAlbumEntryTitle" tal:content="item/Title" />
 		    </div>
 		  </div>
                 </dt>

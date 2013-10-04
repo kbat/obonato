@@ -16,7 +16,7 @@
         
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <p class="documentDescription" tal:content="context/description" />
+        <!-- p class="documentDescription" tal:content="context/description" / -->
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
@@ -29,10 +29,25 @@
 
 	<div tal:define="image nocall:context/image"
 	     tal:condition="nocall:image" align="center">
-	  <a class='prettyPhoto' tal:attributes="href string:${context/absolute_url}/@@download/image">
+	  <a class='prettyPhoto' tal:attributes="href string:${context/absolute_url}/@@download/image;
+						 title context/Description">
 	    <img src="#" tal:replace="structure context/@@images/image/preview" />
 	  </a>
 	</div>
+	
+	<tal:comment tal:replace="nothing">
+############### Alternative way to render an image: ###################
+	<div tal:define="image nocall:context/image;
+			 scales context/@@images;
+			 thumbnail python: scales.scale('image', scale='preview');"
+	     tal:condition="thumbnail">
+	  <a class='prettyPhoto'  tal:attributes="href string:${context/absolute_url}/@@download/image">
+	    <img tal:attributes="src thumbnail/url;
+				 width thumbnail/width;
+				 height thumbnail/height;" />
+	  </a>
+	</div>
+	</tal:comment>
 
 	<tal:comment tal:replace="nothing">
 ----- this is how it should be used according to the Dexterity manual -----
@@ -67,7 +82,7 @@
 	<div tal:condition="python: context.width and context.height">
 	  <label for="height" i18n:translate="label_illustration_dimensions">Dimensions:</label>
 	  <span class="discreet">
-            <span id="height" tal:content="context/height" />&nbsp;x&nbsp;<span id="width" tal:content="context/width" />&nbsp;cm
+	    <span tal:content="view/dimensions" />
 	  </span>
 	</div>
 
