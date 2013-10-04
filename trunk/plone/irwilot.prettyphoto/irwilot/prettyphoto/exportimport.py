@@ -9,6 +9,7 @@ _PROPERTIES = [
     dict(name='speed', type_='string', value='normal'),
     dict(name='opacity', type_='string', value='0.80'),
     dict(name='show_title', type_='boolean', value=True),
+    dict(name='show_description', type_='boolean', value=True),
     dict(name='counter_sep', type_='string', value='/'),
     dict(name='theme', type_='string', value='pp_default'),
     dict(name='autoplay', type_='boolean', value=True),
