@@ -1,6 +1,10 @@
 README.txt
 setup.cfg
 setup.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 irwilottheme/__init__.py
 irwilottheme.lostkatana.egg-info/PKG-INFO
 irwilottheme.lostkatana.egg-info/SOURCES.txt
@@ -12,4 +16,9 @@ irwilottheme.lostkatana.egg-info/paster_plugins.txt
 irwilottheme.lostkatana.egg-info/requires.txt
 irwilottheme.lostkatana.egg-info/top_level.txt
 irwilottheme/lostkatana/__init__.py
+irwilottheme/lostkatana/configure.zcml
 irwilottheme/lostkatana/tests.py
+irwilottheme/lostkatana/profiles/default/metadata.xml
+irwilottheme/lostkatana/profiles/default/theme.xml
+irwilottheme/lostkatana/static/function.js
+irwilottheme/lostkatana/static/style.css
