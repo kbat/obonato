@@ -5,6 +5,6 @@
         <dependency>profile-Products.PloneFormGen:default</dependency>
         <dependency>profile-irwilot.content:default</dependency>
 	<dependency>profile-irwilot.prettyphoto:default</dependency>
-        <!-- dependency>profile-irwilottheme.bootstrap:default</dependency -->
+	<dependency>profile-irwilottheme.lostkatana:default</dependency>
     </dependencies>
 </metadata>

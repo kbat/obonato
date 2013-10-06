@@ -30,7 +30,8 @@ setup(name='irwilot.policy',
           'irwilot.content',
 #          'irwilottheme.bootstrap',
 #          'collective.prettyphoto', # for the pop-up effect
-          'irwilot.prettyphoto'
+          'irwilot.prettyphoto',
+          'irwilottheme.lostkatana'
       ],
       entry_points="""
       # -*- Entry points: -*-
