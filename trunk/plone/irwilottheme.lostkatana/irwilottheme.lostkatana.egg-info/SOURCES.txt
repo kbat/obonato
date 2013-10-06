@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+irwilottheme/__init__.py
+irwilottheme.lostkatana.egg-info/PKG-INFO
+irwilottheme.lostkatana.egg-info/SOURCES.txt
+irwilottheme.lostkatana.egg-info/dependency_links.txt
+irwilottheme.lostkatana.egg-info/entry_points.txt
+irwilottheme.lostkatana.egg-info/namespace_packages.txt
+irwilottheme.lostkatana.egg-info/not-zip-safe
+irwilottheme.lostkatana.egg-info/paster_plugins.txt
+irwilottheme.lostkatana.egg-info/requires.txt
+irwilottheme.lostkatana.egg-info/top_level.txt
+irwilottheme/lostkatana/__init__.py
+irwilottheme/lostkatana/tests.py
