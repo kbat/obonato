@@ -1,24 +1,24 @@
 /*********************************************************
-beyondskins.Responsive - Diazo responsive theme for Plone
-Simples Consultoria - www.simplesconsultoria.com.br
+Theme inspired by beyondskins.lostkatana
+http://plonethemes.org/free-themes/beyondskins.lostkatana
 *********************************************************/
 
 /* reset */
 * {margin:0; padding:0; list-style:none; vertical-align:baseline;}
 
 /* Background images - Remove this lines for a clean layout */
-body {background: url(bg.jpg) top center repeat-x;}
+/* body {background: url(bg.jpg) top center repeat-x;}*/
 #header {
-background: transparent url(header.jpg) bottom center repeat-x;
+/*background: transparent url(header.jpg) bottom center repeat-x;
 padding: 0 5% 315px;
-position: relative;
+position: relative;*/
 }
 
 /****************** Basic Stuff ******************/
 
 /* Colors and fonts */
 body {
-background-color: #fbeccf;
+background-color: #F9FCFF;
 color: #000000; 
 font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; 
 font-size: 62.5%; /* with this 1em = 10px */
@@ -34,7 +34,7 @@ p {line-height: 1.8em; margin: 0 0 1em 0;}
 width:auto; 
 margin: 0 auto; 
 font-size: 1.2em;
-border-top: 10px solid #9f2200;
+border-top: 10px /*solid #9f2200*/;
 }
 #main {
 background: transparent; 
@@ -51,7 +51,7 @@ padding: 1em 5%;
 /* logo */
 #logo {padding: 2% 1%; float: left; width: 50%;}
 #logo img {max-width:100%;}
-#logo a {display:block; width:100%;}
+#logo a {display:block; width:100%;} 
 
 /* Personal tools */
 #portal-personaltools {font-size: 1.2em; background: #9f2200; color: #fff;}
@@ -84,7 +84,7 @@ margin-right: 3px;
 color: #b49b7e;
 }
 #searchGadget, .LSBox input.searchButton {padding: 0.1em 0.2em;}
-.LSBox input.searchButton {background: #734f33; border: none; padding: 0.4em 1em; color: #fff;}
+.LSBox input.searchButton {background: #f0ffff; border: none; padding: 0.4em 1em; color: #000;}
 #LSResult {z-index:1; margin-top: 0.5%;}
 
 
@@ -113,7 +113,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 
 /****************** FOOTER ******************/
 
-#footer {background: #734f33; color: #fff;}
+/*#footer {background: #734f33; color: #fff;}*/
 #footer a:link, #footer a:visited, #footer a:hover {color: #fff !important;}
 #footer {clear: left; padding: 1em 2em;}
 
@@ -212,3 +212,47 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 		margin: 0 auto 2%;
    }
 }
+
+/* @group Album view classes */
+.photoAlbumEntry {
+    float: left;
+    position:relative;
+    overflow: hidden;
+    height: 250px;
+    width: 250px;
+    margin: 0em;
+    padding: 0px 6px 0px 9px;
+    text-align: center;
+    background-image: none;
+    background-repeat: no-repeat;
+}
+.photoAlbumEntry img {
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+.photoAlbumEntryWrapper {
+    display: block; /* aligns title vertically*/
+    height: 200px;
+    width: 200px;
+    margin-bottom: 7px;
+}
+.photoAlbumEntry a {
+    display: block;
+    text-decoration: none;
+    font-size: 120%;
+    height: 169px;
+    width: 200px;
+    margin: 16px auto 0px;
+}
+.photoAlbumFolder {
+    background-repeat: no-repeat;
+}
+.photoAlbumEntryTitle {
+    color: #76797c;
+    display: block;
+    width: 128px;
+    height: 3.6em;
+}
+
+/* @end */

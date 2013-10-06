@@ -38,22 +38,18 @@
             </tal:block>
         </dl>
 -->
-        <div class="photoAlbum">
-	  <dl>
+        <div>
 	    <tal:block repeat="illustration view/illustrations">
-	      <dt>
-		<div class="photoAlbumEntry photoAlbumFolder">
-		  <a tal:attributes="href illustration/getURL" title="">
+		<div class="photoAlbumEntry">
+		  <a rel='prettyPhoto[slideshow]' tal:attributes="href string:${illustration/getURL}/@@download/image; title illustration/Description">
 		    <span class="photoAlbumEntryWrapper"
 			  tal:define="obj illustration/getObject">
-		      <img src="#" tal:replace="structure obj/@@images/image/thumb" />
+		      <img src="#" tal:replace="structure obj/@@images/image/mini" />
 		    </span>
 		    <span class="photoAlbumEntryTitle" tal:content="illustration/Title" />
 		  </a>
 		</div>
-	      </dt>
 	    </tal:block>
-	  </dl>
 	</div>
 <div tal:replace="structure provider:plone.belowcontentbody" />
 
