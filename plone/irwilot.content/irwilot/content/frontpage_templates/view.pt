@@ -5,21 +5,21 @@
       lang="sv"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="irwilot.content">
-<body>
+  <body>
 
-<metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main"
-        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-		    result python:context.atctListAlbum(images=1, folders=1, subimages=0, others=1);
-		    images result/images;
-		    albums result/folders">
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+		      tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+				  result python:context.atctListAlbum(images=1, folders=1, subimages=0, others=1);
+				  images result/images;
+				  albums result/folders">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-        <h1 class="documentFirstHeading" tal:content="context/title" />
+        <!-- h1 class="documentFirstHeading" tal:content="context/title" / -->
 
         <!--div class="discreet">
-	  discreet
-        </div-->
+	    discreet
+            </div-->
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
@@ -32,28 +32,29 @@
 	<h3 tal:condition="python: context.type_of_items == 'featured'">Featured items</h3>
 	<!-- h3 tal:condition="python: context.type_of_items == 'recent'">Recent items</h3 -->
         
-<div class="photoAlbum"> <!-- see prettyPhoto_album_view.pt -->
-        <dl>
+	<div tal:condition="python: context.type_of_items != 'nothing'"
+	     class="photoAlbum"> <!-- see prettyPhoto_album_view.pt -->
+          <dl>
             <tal:block repeat="item view/items">
-                <dt>
-		  <div class="myPhotoAlbum">
-		    <h2 tal:content="item/Title" />
-		    <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.illustration'">
-                      <a rel='prettyPhoto[slideshow]' title="" tal:attributes="href string:${item/getURL}/@@download/image;title item/Description"
-			 tal:define="obj item/getObject">
-			  <img src="#" tal:replace="structure obj/@@images/image/preview" />
-		      </a>
-		    </div>
+              <dt>
+		<div class="myPhotoAlbum">
+		  <h2 tal:content="item/Title" />
+		  <div tal:condition="python: getattr(item, 'portal_type', '') == 'irwilot.content.illustration'">
+                    <a rel='prettyPhoto[slideshow]' title="" tal:attributes="href string:${item/getURL}/@@download/image;title item/Description"
+		       tal:define="obj item/getObject">
+		      <img src="#" tal:replace="structure obj/@@images/image/preview" />
+		    </a>
 		  </div>
-                </dt>
+		</div>
+              </dt>
             </tal:block>
-        </dl>
-</div>
+          </dl>
+	</div>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
-    </tal:main-macro>
-</metal:main>
+      </tal:main-macro>
+    </metal:main>
 
-</body>
+  </body>
 </html>
 
