@@ -11,7 +11,8 @@ from Products.CMFCore.utils import getToolByName
 from irwilot.content import _
 
 type_of_items_voc = SimpleVocabulary(
-    [   SimpleTerm(value=u'recent', title=_(u'Recent items')),
+    [   SimpleTerm(value=u'nothing', title=_(u'Show nothing')),
+        SimpleTerm(value=u'recent', title=_(u'Recent items')),
         SimpleTerm(value=u'featured', title=_(u'Featured items')) ]
     )
 
