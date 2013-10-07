@@ -18,7 +18,7 @@ position: relative;*/
 
 /* Colors and fonts */
 body {
-background-color: #F9FCFF;
+background-color: #FFFFFF;
 color: #000000; 
 font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; 
 font-size: 62.5%; /* with this 1em = 10px */
@@ -54,10 +54,10 @@ padding: 1em 5%;
 #logo a {display:block; width:100%;} 
 
 /* Personal tools */
-#portal-personaltools {font-size: 1.2em; background: #9f2200; color: #fff;}
-#portal-personaltools dd {background: #9f2200; color: #fff;}
-#portal-personaltools dd a:hover {background: #734f33;}
-#portal-personaltools a, #portal-personaltools a:visited, #portal-personaltools a:hover {color: #fff !important;}
+#portal-personaltools {font-size: 1.2em; background: #e0e0e0; color: #000000;}
+#portal-personaltools dd {background: #e0e0e0; color: #000000;}
+#portal-personaltools dd a:hover {background: #505050;}
+#portal-personaltools a, #portal-personaltools a:visited, #portal-personaltools a:hover {color: #000000 !important;}
 
 /* Main navigation */
 #nav {
@@ -254,5 +254,78 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     width: 200px;
     height: 3.6em;
 }
+
+#edit-bar {
+    background-color: #e0e0e0;
+    border: 0.25em solid #e0e0e0;
+    font-size: 80%;
+    min-height: 2em;
+    margin-bottom: 1em;
+    padding-top: 0.05em;
+}
+
+#content-views {
+    float: left;
+    background-color: #e0e0e0;
+}
+
+#contentActionMenus dl.actionMenu a,
+#contentActionMenus dl.actionMenu.activated dd {
+    background-color: #e0e0e0;
+    color: Black;
+    z-index: 5;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+    border-bottom: 0.5em solid #e0e0e0;
+    right: -3px;
+}
+
+#contentActionMenus {
+    float: right;
+    background: #e0e0e0;
+    margin: 0;
+    position: relative;
+    top: -0.23em;
+    right:-0.24em;
+    padding: 0.1em 0.24em 0 0;
+    border-radius: 0.5em;
+    border-top-left-radius: 0;
+    -webkit-border-radius: 0.5em;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 0.5em;
+    -moz-border-radius-topleft: 0;
+}
+
+.state-published {
+	color: #a0a0a0;
+}
+
+#plone-contentmenu-workflow .state-published {
+	padding: 0 0.5em;
+	background-color: #a0a0a0;
+	border: 0.1em solid #909090;
+	color: White;
+	border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+}
+
+
+
+.state-private {
+	color: #b0b0b0;
+}
+
+#plone-contentmenu-workflow .state-private {
+	padding: 0 0.5em;
+	background-color: #b0b0b0;
+	border: 0.1em solid #a0a0a0;
+	color: White;
+	border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+}
+
+
 
 /* @end */
