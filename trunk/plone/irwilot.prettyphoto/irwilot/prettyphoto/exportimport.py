@@ -11,7 +11,7 @@ _PROPERTIES = [
     dict(name='show_title', type_='boolean', value=True),
     dict(name='show_description', type_='boolean', value=True),
     dict(name='counter_sep', type_='string', value='/'),
-    dict(name='theme', type_='string', value='pp_default'),
+    dict(name='theme', type_='string', value='dark_rounded'),
     dict(name='autoplay', type_='boolean', value=True),
     dict(name='autoplay_slideshow', type_='boolean', value=False),
     dict(name='iframe_width', type_='string', value='75%'),
@@ -19,9 +19,8 @@ _PROPERTIES = [
     dict(name='overlay_gallery', type_='boolean', value=False),
     dict(name='slideshow', type_='int', value=0),
     dict(name='deeplinking', type_='boolean', value=False),
-    dict(name='social_tools', type_='string', value=''),
+    dict(name='social_tools', type_='string', value=''), # social_tools example:   <div class="pp_social"><div class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div><div class="facebook"><iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&href='+location.href+'&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:23px;" allowTransparency="true"></iframe></div></div>
 ]
-
 
 def configureKupu(kupu):
 
