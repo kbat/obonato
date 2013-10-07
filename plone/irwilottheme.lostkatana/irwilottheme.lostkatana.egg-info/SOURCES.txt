@@ -20,5 +20,9 @@ irwilottheme/lostkatana/configure.zcml
 irwilottheme/lostkatana/tests.py
 irwilottheme/lostkatana/profiles/default/metadata.xml
 irwilottheme/lostkatana/profiles/default/theme.xml
+irwilottheme/lostkatana/static/favicon.ico
 irwilottheme/lostkatana/static/function.js
+irwilottheme/lostkatana/static/index.html
+irwilottheme/lostkatana/static/my-logo.png
+irwilottheme/lostkatana/static/rules.xml
 irwilottheme/lostkatana/static/style.css
