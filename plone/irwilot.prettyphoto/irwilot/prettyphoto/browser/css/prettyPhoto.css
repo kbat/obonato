@@ -103,13 +103,27 @@
         Dark Rounded Theme
     ----------------------------------- */
 
-    div.dark_rounded .pp_top .pp_left { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -88px -53px no-repeat; } /* Top left corner */
-    div.dark_rounded .pp_top .pp_middle { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat; } /* Top pattern/color */
-    div.dark_rounded .pp_top .pp_right { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -110px -53px no-repeat; } /* Top right corner */
+/* original:
+    div.dark_rounded .pp_top .pp_left { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -88px -53px no-repeat; }
+    div.dark_rounded .pp_top .pp_middle { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat; }
+    div.dark_rounded .pp_top .pp_right { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -110px -53px no-repeat; }
+    div.dark_rounded .pp_content_container .pp_left { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat-y; } 
+    div.dark_rounded .pp_content_container .pp_right { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top right repeat-y; }
+    div.dark_rounded .pp_bottom .pp_left { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -88px -80px no-repeat; } 
+    div.dark_rounded .pp_bottom .pp_right { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -110px -80px no-repeat; }
+    div.dark_rounded .pp_bottom .pp_middle { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat; }
+    div.dark_rounded .pp_content { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat; } 
+/* kbat: */
+    div.dark_rounded .pp_top .pp_left { ; } /* Top left corner */
+    div.dark_rounded .pp_top .pp_middle { ; } /* Top pattern/color */
+    div.dark_rounded .pp_top .pp_right { ; } /* Top right corner */
+    div.dark_rounded .pp_content_container .pp_left { ; } /* Left Content background */
+    div.dark_rounded .pp_content_container .pp_right { ; } /* Right Content background */
+    div.dark_rounded .pp_bottom .pp_left { ; } /* Bottom left corner */
+    div.dark_rounded .pp_bottom .pp_right { ; } /* Bottom right corner */
+    div.dark_rounded .pp_bottom .pp_middle { ; } /* Bottom pattern/color */
+    div.dark_rounded .pp_content { ; } /* Content background (for Description) */
 
-    div.dark_rounded .pp_content_container .pp_left { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat-y; } /* Left Content background */
-    div.dark_rounded .pp_content_container .pp_right { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top right repeat-y; } /* Right Content background */
-    div.dark_rounded .pp_content { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat; } /* Content background */
     div.dark_rounded .pp_next:hover { background: url(++resource++prettyPhoto.dark_rounded/btnNext.png) center right  no-repeat; cursor: pointer; } /* Next button */
     div.dark_rounded .pp_previous:hover { background: url(++resource++prettyPhoto.dark_rounded/btnPrevious.png) center left no-repeat; cursor: pointer; } /* Previous button */
     div.dark_rounded .pp_expand { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -31px -26px no-repeat; cursor: pointer; } /* Expand button */
@@ -132,9 +146,6 @@
     div.dark_rounded .pp_arrow_next { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -22px -71px no-repeat; } /* The next arrow in the bottom nav */
         div.dark_rounded .pp_arrow_next.disabled { background-position: -22px -87px; cursor: default; }
 
-    div.dark_rounded .pp_bottom .pp_left { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -88px -80px no-repeat; } /* Bottom left corner */
-    div.dark_rounded .pp_bottom .pp_middle { background: url(++resource++prettyPhoto.dark_rounded/contentPattern.png) top left repeat; } /* Bottom pattern/color */
-    div.dark_rounded .pp_bottom .pp_right { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -110px -80px no-repeat; } /* Bottom right corner */
 
     div.dark_rounded .pp_loaderIcon { background: url(++resource++prettyPhoto.dark_rounded/loader.gif) center center no-repeat; } /* Loader icon */
 
