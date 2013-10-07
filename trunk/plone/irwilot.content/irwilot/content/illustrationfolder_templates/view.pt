@@ -44,15 +44,18 @@
 		  <a rel='prettyPhoto[slideshow]' tal:attributes="href string:${illustration/getURL}/@@download/image; title illustration/Description">
 		    <span class="photoAlbumEntryWrapper"
 			  tal:define="obj illustration/getObject">
-		      <img src="#" tal:replace="structure obj/@@images/image/mini" />
+		      
+		      <img tal:define="scales obj/@@images"
+			   tal:replace="structure python:scales.scale('image', scale='mini', direction='down').tag()" />
+		      
 		    </span>
 		    <span class="photoAlbumEntryTitle" tal:content="illustration/Title" />
 		  </a>
 		</div>
 	    </tal:block>
 	</div>
-<div tal:replace="structure provider:plone.belowcontentbody" />
-
+	<div tal:replace="structure provider:plone.belowcontentbody" />
+	
     </tal:main-macro>
 </metal:main>
 
