@@ -19,15 +19,15 @@ position: relative;*/
 /* Colors and fonts */
 body {
 background-color: #FFFFFF;
-color: #000000; 
+color: #606060; 
 font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; 
-font-size: 62.5%; /* with this 1em = 10px */
+font-size: 100%; /* with this 1em = 10px */
 }
-a:link, #content a:link, dl.portlet a:link {color:#734f33;}
-a:visited, #content a:visited, dl.portlet a:visited {color: #734f33 !important;}
+a:link, #content a:link, dl.portlet a:link {color:#000000;}
+a:visited, #content a:visited, dl.portlet a:visited {color: #000000;}
 #content a:hover, dl.portlet a:hover {color: #9f2200 !important;}
-h1 {color: #9f2200; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
-h2, h3, h4, h5, h6 {color: #734f33; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
+h1 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
+h2, h3, h4, h5, h6 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
 h1, h2, h3 {margin: 0.5em 0 0.5em;}
 p {line-height: 1.8em; margin: 0 0 1em 0;}
 #wrapper { 
@@ -132,12 +132,12 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 	#logo {min-width:140px;}	
 	
 	/*Columns*/
-	#portal-column-one, 
+	#portal-column-one,
 	#portal-column-two,
 	#portal-column-content {clear: both; width: 97.75%; margin-left: -98.875%;}
 
 	/*Search*/
-    #portal-searchbox  {display:none;}
+	#portal-searchbox  {display:none;}
 
 	/*Global navigation*/
 	#nav {padding:0;width:100%;
@@ -202,18 +202,26 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 }
 
 @media screen and (max-width: 480px) {
-
-	#portal-breadcrumbs {display:none;}
-	
-	#portal-searchbox {
-	    float: none;
+    #portal-breadcrumbs {display:none;}
+    #portal-searchbox {
+	float: none;
         width:80%;
-		clear:both;
-		margin: 0 auto 2%;
-   }
+	clear:both;
+	margin: 0 auto 2%;
+    }
 }
 
 /* @group Album view classes */
+.imageLeft {
+    float: left;
+    position:relative;
+    overflow: hidden;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    padding: 0px 6px 0px 9px;
+}
+
+
 .photoAlbumEntry {
     float: left;
     position:relative;
