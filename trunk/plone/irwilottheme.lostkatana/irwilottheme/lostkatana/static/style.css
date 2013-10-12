@@ -281,6 +281,10 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     background-color: #e0e0e0;
 }
 
+#content-views a {
+    color: Black;
+}
+
 #contentActionMenus dl.actionMenu a,
 #contentActionMenus dl.actionMenu.activated dd {
     background-color: #e0e0e0;
