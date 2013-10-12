@@ -20,8 +20,8 @@ position: relative;*/
 body {
 background-color: #FFFFFF;
 color: #606060; 
-font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; 
-font-size: 100%; /* with this 1em = 10px */
+font-family: Georgia, Georgia, serif; 
+font-size: 80%; /* with this 1em = 10px */
 }
 a:link, #content a:link, dl.portlet a:link {color:#000000;}
 a:visited, #content a:visited, dl.portlet a:visited {color: #000000;}
@@ -30,6 +30,10 @@ h1 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-seri
 h2, h3, h4, h5, h6 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
 h1, h2, h3 {margin: 0.5em 0 0.5em;}
 p {line-height: 1.8em; margin: 0 0 1em 0;}
+.wellcome {
+    font-size:1.5em;
+    text-align:center;
+}
 #wrapper { 
 width:auto; 
 margin: 0 auto; 
@@ -49,7 +53,7 @@ padding: 1em 5%;
 /****************** HEADER ******************/
 
 /* logo */
-#logo {padding: 2% 1%; float: left; width: 50%;}
+#logo {padding: 1% 1%; margin-left:auto; margin-right:auto; width: 30%;}
 #logo img {max-width:100%;}
 #logo a {display:block; width:100%;} 
 
