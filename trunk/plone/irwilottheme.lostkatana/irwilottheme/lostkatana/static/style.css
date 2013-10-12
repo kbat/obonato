@@ -61,12 +61,17 @@ padding: 1em 5%;
 
 /* Main navigation */
 #nav {
-background: transparent;
+background-color: #e0e0e0;
 color: #fff;
 font-size: 1.2em;
+text-align:center;
+width:50%;
+margin-left:auto;
+margin-right:auto;
 }
+
 #nav a {
-color: #000000; 
+color: #Black; 
 font-weight: bold;
 padding: 0.2em 1em; 
 text-decoration: none; 
@@ -75,8 +80,20 @@ display: inline-block;
 }
 
 #nav a:hover{
-color:#ff0000
+color:#Black;
 }
+
+#nav li.selected {
+    background: White;
+    color: Black;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    -webkit-border-top-right-radius: 0.5em;
+    -webkit-border-top-left-radius: 0.5em;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-topright: 0.5em;
+}
+
 
 /* Searchbox */
 #portal-searchbox {float: right; margin-top: 3.5%;}
@@ -144,8 +161,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 	#portal-searchbox  {display:none;}
 
 	/*Global navigation*/
-	#nav {padding:0;width:100%;
-	}
+	#nav {padding:0;width:100%;}
 	
 	#searchbt {display:block; float:right;width:14%;}
 	
@@ -185,13 +201,22 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 		width:100%;
 		padding:0 2.5%;
 		line-height: 3em;
-      display: block;
-      width: 95% !important;
+		display: block;
+		width: 95% !important;
 	}
 	
 	#nav:hover li:hover {background: #9f2200;}
 	#nav:hover li a:hover,
-	#nav:hover li.selected a {background: transparent;}
+	#nav:hover li.selected a {
+	    background: White;
+	    color: Red;
+	    border-top-right-radius: 0.5em;
+	    border-top-left-radius: 0.5em;
+	    -webkit-border-top-right-radius: 0.5em;
+	    -webkit-border-top-left-radius: 0.5em;
+	    -moz-border-radius-topleft: 0.5em;
+	    -moz-border-radius-topright: 0.5em;
+    	}
 	
 .overlay.overlay-ajax {top: 10px !Important;}
 .overlay.overlay-ajax input.searchPage {
@@ -341,6 +366,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 }
+
 
 
 
