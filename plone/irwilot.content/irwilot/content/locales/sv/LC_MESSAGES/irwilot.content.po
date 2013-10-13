@@ -238,30 +238,30 @@ msgstr "i centimeter"
 #. Default: "Created:"
 #: ./illustration_templates/view.pt:49
 msgid "label_illustration_birthday"
-msgstr "Etikett bild skapat år"
+msgstr "Skapat år"
 
 #. Default: "Dimensions:"
 #: ./illustration_templates/view.pt:68
 msgid "label_illustration_dimensions"
-msgstr "Etikett bild dimensioner"
+msgstr "Dimensioner"
 
 #. Default: "Genre:"
 #: ./illustration_templates/view.pt:53
 msgid "label_illustration_genre"
-msgstr "Etikett bild genre"
+msgstr "Genre"
 
 #. Default: "Style:"
 #: ./illustration_templates/view.pt:58
 msgid "label_illustration_style"
-msgstr "Etikett bild stil"
+msgstr "Stil"
 
 #. Default: "Technique:"
 #: ./illustration_templates/view.pt:63
 msgid "label_illustration_technique"
-msgstr "Etikett bild teknik"
+msgstr "Teknik"
 
 #. Default: "Links:"
 #: ./illustration_templates/view.pt:84
 msgid "label_other_links"
-msgstr "Etikett andra länkar"
+msgstr "Länkar"
 
