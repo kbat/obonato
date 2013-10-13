@@ -34,8 +34,10 @@ style_voc = SimpleVocabulary(
     )
 
 technique_voc = SimpleVocabulary(
-    [   SimpleTerm(value=u'oil', title=_(u'Oil')),
-        SimpleTerm(value=u'watercolour', title=_(u'Water-colour'))  ]
+    [   SimpleTerm(value=u'none', title=_(u'-')),
+        SimpleTerm(value=u'oil', title=_(u'Oil')),
+        SimpleTerm(value=u'watercolour', title=_(u'Water-colour')),
+        SimpleTerm(value=u'pencil', title=_(u'Pencil'))  ]
     )
 
 
