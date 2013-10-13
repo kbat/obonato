@@ -31,19 +31,19 @@ msgstr "5"
 
 #: ./profiles/default/types/irwilot.content.illustrationfolder.xml
 msgid "A folder to keep illustrations"
-msgstr "[sv] A folder to keep illustrations"
+msgstr "En mapp för att hålla bilder"
 
 #: ./illustration.py:107
 msgid "A story about this illustration"
-msgstr "[sv] A story about this illustration"
+msgstr "En berättelse om den här bilden"
 
 #: ./portlets/featured.py:193
 msgid "Add featured items portlet"
-msgstr "[sv] Add featured items portlet"
+msgstr "Lägg till portlet av utvalda objekt"
 
 #: ./profiles/default/types/irwilot.content.illustration.xml
 msgid "An illustration"
-msgstr "[sv] An illustration"
+msgstr "En bild"
 
 #: ./illustration.py:58
 msgid "Birthday_year"
@@ -54,7 +54,7 @@ msgstr "Skapat datum"
 
 #: ./frontpage.py:38
 msgid "Choose type of items to show"
-msgstr "[sv] Choose type of items to show"
+msgstr "Välj typ av objekt att visa"
 
 #: ./illustration.py:106
 msgid "Description"
@@ -66,16 +66,16 @@ msgstr "Detaljer"
 
 #: ./portlets/featured.py:207
 msgid "Edit featured items portlet"
-msgstr "[sv] Edit featured items portlet"
+msgstr "Redigera portlet av utvalda objekt"
 
 #: ./frontpage.py:15
 #: ./portlets/featured.py:95
 msgid "Featured items"
-msgstr "[sv] Featured items"
+msgstr "Utvalda objekt"
 
 #: ./profiles/default/types/irwilot.content.frontpage.xml
 msgid "Front Page"
-msgstr "[sv] Front Page"
+msgstr "Titelsida"
 
 #: ./illustration.py:82
 msgid "Genre"
@@ -84,7 +84,7 @@ msgstr "Genre"
 
 #: ./illustration.py:75
 msgid "Height"
-msgstr "[sv] Height"
+msgstr "Höjd"
 
 #: ./portlets/featured.py:63
 msgid "If enabled, featured items from across the site will be found. If disabled, only featured items in this folder and its subfolders are eligible."
@@ -96,15 +96,15 @@ msgstr "[sv] If enabled, featured items to show willbe picked randomly. If disab
 
 #: ./profiles/default/types/irwilot.content.illustration.xml
 msgid "Illustration"
-msgstr "[sv] Illustration"
+msgstr "Bild"
 
 #: ./profiles/default/types/irwilot.content.illustrationfolder.xml
 msgid "Illustration Folder"
-msgstr ""
+msgstr "Bildmapp"
 
 #: ./illustration.py:31
 msgid "Impressionism"
-msgstr "[sv] Illustration Folder"
+msgstr "Impressionism"
 
 #: ./illustration.py:24
 msgid "Landscape"
@@ -112,31 +112,31 @@ msgstr "Landskap"
 
 #: ./illustration.py:126
 msgid "Links"
-msgstr "[sv] Links"
+msgstr "Länkar"
 
 #: ./portlets/featured.py:48
 msgid "Maximum number of featured items to show"
-msgstr "[sv] Maximum number of featured items to show"
+msgstr "Maximalt antal utvalda objekt att visa"
 
 #: ./illustration.py:113
 msgid "Notes"
-msgstr "[sv] Notes"
+msgstr "Anteckningar"
 
 #: ./portlets/featured.py:47
 msgid "Number of featured items to display"
-msgstr "[sv] Number of featured items to display"
+msgstr "Antalet utvalda objekt att visa"
 
 #: ./frontpage.py:45
 msgid "Number of images"
-msgstr "[sv] Number of images"
+msgstr "Antal bilder"
 
 #: ./illustration.py:35
 msgid "Oil"
-msgstr "[sv] Oil"
+msgstr "Olja"
 
 #: ./illustration.py:63
 msgid "Picture"
-msgstr "[sv] Picture"
+msgstr "Bild"
 
 #: ./illustration.py:25
 msgid "Portrait"
@@ -144,27 +144,27 @@ msgstr "Porträtt"
 
 #: ./portlets/featured.py:54
 msgid "Randomize featured items"
-msgstr "[sv] Randomize featured items"
+msgstr "Slumpa utvalda objekt"
 
 #: ./illustration.py:30
 msgid "Realism"
-msgstr "[sv] Realism"
+msgstr "Realism"
 
 #: ./frontpage.py:14
 msgid "Recent items"
-msgstr "[sv] Recent items"
+msgstr "Nya objekt"
 
 #: ./portlets/featured.py:62
 msgid "Sitewide featured items"
-msgstr "[sv] Sitewide featured items"
+msgstr "Vidsträcka utvalda objekt"
 
 #: ./frontpage.py:46
 msgid "Specify number of images to show in the bottom of the page"
-msgstr "[sv] Specify number of images to show in the bottom of the page"
+msgstr "Ange antal bilder att visa i botten på sidan"
 
 #: ./frontpage.py:39
 msgid "Specify which kind of items to show in the bottom of the page"
-msgstr ""
+msgstr "Ange vilken typ av objekt att visa i botten på sidan"
 
 #: ./illustration.py:26
 msgid "Still life"
@@ -178,32 +178,32 @@ msgstr "Komposition"
 
 #: ./illustration.py:89
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 #: ./illustration.py:90
 msgid "Style of the illustration"
-msgstr ""
+msgstr "Stil av bilden"
 
 #: ./illustration.py:96
 msgid "Technique"
-msgstr ""
+msgstr "Teknik"
 
 #: ./illustration.py:97
 msgid "Technique of the illustration"
-msgstr ""
+msgstr "Teknik av bilden"
 
 #: ./frontpage.py:33
 #: ./illustrationfolder.py:22
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ./profiles/default/types/irwilot.content.frontpage.xml
 msgid "The Front Page"
-msgstr ""
+msgstr "Titelsida"
 
 #: ./portlets/featured.py:194
 msgid "This portlet displays featured items."
-msgstr ""
+msgstr "Denna portlet visar utvalda objekt"
 
 #: ./frontpage.py:29
 #: ./illustration.py:47
@@ -213,55 +213,55 @@ msgstr "Titel"
 
 #: ./illustration.py:127
 msgid "Various links to this illustration, one per line"
-msgstr "Olika lankar till bild, en per råd"
+msgstr "Olika lankar till bild, en per rad"
 
 #: ./illustration.py:114
 msgid "Visible to registered users only"
-msgstr ""
+msgstr "Synlig för registrerade användare"
 
 #: ./illustration.py:36
 msgid "Water-colour"
-msgstr ""
+msgstr "Akvarell"
 
 #: ./illustration.py:122
 msgid "Web"
-msgstr ""
+msgstr "Webb"
 
 #: ./illustration.py:68
 msgid "Width"
-msgstr ""
+msgstr "Bredd"
 
 #: ./illustration.py:69
 msgid "in centimeters"
-msgstr "[sv] in centimeters"
+msgstr "i centimeter"
 
 #. Default: "Created:"
 #: ./illustration_templates/view.pt:49
 msgid "label_illustration_birthday"
-msgstr "[sv] Birthday"
+msgstr "Etikett bild skapat år"
 
 #. Default: "Dimensions:"
 #: ./illustration_templates/view.pt:68
 msgid "label_illustration_dimensions"
-msgstr "[sv] Dimensions"
+msgstr "Etikett bild dimensioner"
 
 #. Default: "Genre:"
 #: ./illustration_templates/view.pt:53
 msgid "label_illustration_genre"
-msgstr "[sv] Genre"
+msgstr "Etikett bild genre"
 
 #. Default: "Style:"
 #: ./illustration_templates/view.pt:58
 msgid "label_illustration_style"
-msgstr "Stil"
+msgstr "Etikett bild stil"
 
 #. Default: "Technique:"
 #: ./illustration_templates/view.pt:63
 msgid "label_illustration_technique"
-msgstr "Teknik"
+msgstr "Etikett bild teknik"
 
 #. Default: "Links:"
 #: ./illustration_templates/view.pt:84
 msgid "label_other_links"
-msgstr "Länkar"
+msgstr "Etikett andra länkar"
 
