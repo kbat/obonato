@@ -82,7 +82,7 @@
 	<div tal:condition="python: context.width and context.height">
 	  <label for="height" i18n:translate="label_illustration_dimensions">Dimensions:</label>
 	  <span class="discreet">
-	    <span tal:content="view/dimensions" />
+	    <span tal:content="structure view/dimensions" />
 	  </span>
 	</div>
 
