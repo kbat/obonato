@@ -153,9 +153,8 @@ class View(dexterity.DisplayForm):
         self.dimensions = "%d&nbsp;&times;&nbsp;%d&nbsp;cm" % (self.context.height, self.context.width)
 #        self.context.image = self.context.picture # to be able to treat illustration as image in TinyMCE
 #        self.context.picture = self.context.image # temporary before I fixed templates
-        self.context.description = "%s  %s %s %s %d" % (self.dimensions, self.context.genre, self.context.style, self.context.technique, self.context.start.year)
-
-        self.context.description = "%s &bull; %s &bull; %d" % (self.context.technique, self.dimensions, self.context.start.year)
+#        self.context.description = "%s  %s %s %s %d" % (self.dimensions, self.context.genre, self.context.style, self.context.technique, self.context.start.year)
+        self.context.description = "%s &bull; %s &bull; %d" % (self.context.technique.title, self.dimensions, self.context.start.year)
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view
