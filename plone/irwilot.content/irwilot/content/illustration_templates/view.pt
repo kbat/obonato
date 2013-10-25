@@ -60,25 +60,35 @@
 	  </div>
 	</tal:comment>
 
-	<div align="left">
-          <label for="birthday" i18n:translate="label_illustration_birthday">Created:</label>
+     <div class="art-info">
+        <div align="center">
+          <label for="birthday" i18n:translate="label_illustration_birthday">Created</label>:
           <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
-	</div>
-	<div align="left">
-          <label for="genre" i18n:translate="label_illustration_genre">Genre:</label>
+        </div>
+        <div align="center">
+          <label for="genre" i18n:translate="label_illustration_genre">Genre</label>:
           <span class="discreet" id="genre" tal:content="context/genre/title|nothing" />
-	</div>
+        </div>
 
-	<div align="left">
-          <label for="style" i18n:translate="label_illustration_style">Style:</label>
+        <div align="center">
+          <label for="style" i18n:translate="label_illustration_style">Style</label>:
           <span class="discreet" id="style" tal:content="context/style/title|nothing" />
-	</div>
+        </div>
 
-	<div align="left">
-          <label for="technique" i18n:translate="label_illustration_technique">Technique:</label>
+        <div align="center">
+          <label for="technique" i18n:translate="label_illustration_technique">Technique</label>:
           <span class="discreet" id="technique" tal:content="context/technique/title|nothing" />
-	</div>
+        </div>
 
+       <div align="center" tal:condition="python: context.width and context.height">
+          <label for="height" i18n:translate="label_illustration_dimensions">Dimensions</label>:
+          <span class="discreet">
+            <span tal:content="structure view/dimensions" />
+          </span>
+        </div>
+     </div>
+
+ 
 	<div tal:condition="python: context.width and context.height">
 	  <label for="height" i18n:translate="label_illustration_dimensions">Dimensions:</label>
 	  <span class="discreet">
