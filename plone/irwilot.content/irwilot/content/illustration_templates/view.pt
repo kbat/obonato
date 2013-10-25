@@ -64,7 +64,8 @@
        <table border=0>
         <tr>
           <td align="right"><label for="birthday" i18n:translate="label_illustration_birthday">Created</label>:</td>
-          <td align="left">&nbsp;<span class="discreet" id="birthday" tal:content="view/birthdayFormatted" /></td>
+          <!-- td align="left">&nbsp;<span class="discreet" id="birthday" tal:content="view/birthdayFormatted" /></td -->
+          <td align="left">&nbsp;<span class="discreet id="birthday" tal:content="context/start/year" /></td>
         </tr>
         <tr>
           <td align="right"><label i18n:translate="label_illustration_genre">Genre</label>:</td>
