@@ -300,8 +300,8 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 }
 
 #edit-bar {
-    background-color: #e0e0e0;
-    border: 0.25em solid #e0e0e0;
+    background-color: white;
+    border: 0.25em solid white;
     font-size: 80%;
     min-height: 2em;
     margin-bottom: 1em;
@@ -310,7 +310,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 
 #content-views {
     float: left;
-    background-color: #e0e0e0;
+    background-color: white;
 }
 
 #content-views a {
