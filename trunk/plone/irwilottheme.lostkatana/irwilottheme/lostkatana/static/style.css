@@ -65,7 +65,7 @@ padding: 1em 5%;
 
 /* Main navigation */
 #nav {
-background-color: #e0e0e0;
+background-color: white;
 color: #fff;
 font-size: 1.2em;
 text-align:center;
@@ -75,7 +75,7 @@ margin-right:auto;
 }
 
 #nav a {
-color: #Black; 
+color: black; 
 font-weight: bold;
 padding: 0.2em 1em; 
 text-decoration: none; 
@@ -83,9 +83,9 @@ min-width: 3em;
 display: inline-block;
 }
 
-#nav a:hover{
-color:#Black;
-}
+/*#nav a:hover{
+    color: red;
+}*/
 
 #nav li.selected {
     background: White;
@@ -98,6 +98,9 @@ color:#Black;
     -moz-border-radius-topright: 0.5em;*/
 }
 
+#nav li.selected a{
+    color: #C5C4C4;
+}
 
 /* Searchbox */
 #portal-searchbox {float: right; margin-top: 3.5%;}
