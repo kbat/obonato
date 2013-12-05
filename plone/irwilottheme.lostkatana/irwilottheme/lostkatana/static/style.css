@@ -319,7 +319,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 
 #contentActionMenus dl.actionMenu a,
 #contentActionMenus dl.actionMenu.activated dd {
-    background-color: #e0e0e0;
+    background-color: white;
     color: Black;
     z-index: 5;
 }
@@ -330,7 +330,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 
 #contentActionMenus {
     float: right;
-    background: #e0e0e0;
+    background: white;
     margin: 0;
     position: relative;
     top: -0.23em;
