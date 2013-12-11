@@ -31,7 +31,7 @@ h2, h3, h4, h5, h6 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helv
 h1, h2, h3 {margin: 0.5em 0 0.5em;}
 p {line-height: 1.8em; margin: 0 0 1em 0;}
 .wellcome {
-    font-size:1.5em;
+    font-size:1.0em;
     text-align:center;
 }
 #wrapper { 
