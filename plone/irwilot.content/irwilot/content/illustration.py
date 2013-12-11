@@ -152,11 +152,11 @@ class View(dexterity.DisplayForm):
         """
         self.birthdayFormatted = self.context.start.strftime("%d %b %Y")
         self.birthdayYear = self.context.start.year
-        self.dimensions = "%d&nbsp;&times;&nbsp;%d&nbsp;cm" % (self.context.height, self.context.width)
+        self.dimensions = "%d&nbsp;&times;&nbsp;%d&nbsp;cm" % (self.context.width, self.context.height)
 #        self.context.image = self.context.picture # to be able to treat illustration as image in TinyMCE
 #        self.context.picture = self.context.image # temporary before I fixed templates
 #        self.context.description = "%s  %s %s %s %d" % (self.dimensions, self.context.genre, self.context.style, self.context.technique, self.context.start.year)
-        self.context.description = "%s &bull; %s &bull; %d" % (self.context.technique.capitalize(), self.dimensions, self.context.start.year)
+        self.context.description = "%s &emsp;&nbsp; %s &emsp;&nbsp; %d" % (self.context.technique.capitalize(), self.dimensions, self.context.start.year)
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view
