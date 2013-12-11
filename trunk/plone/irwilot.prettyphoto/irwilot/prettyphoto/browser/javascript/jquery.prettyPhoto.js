@@ -37,11 +37,12 @@
 			ie6_fallback: true,
 			markup: '<div class="pp_pic_holder"> \
 						<div class="ppt">&nbsp;</div> \
-						<div class="pp_top"> \
+                                                        <div class="pp_top"> \
 							<div class="pp_left"></div> \
 							<div class="pp_middle"></div> \
 							<div class="pp_right"></div> \
 						</div> \
+<a class="pp_close" href="#">Close</a> \
 						<div class="pp_content_container"> \
 							<div class="pp_left"> \
 							<div class="pp_right"> \
@@ -62,7 +63,6 @@
 											</div --> \
 <p class="pp_description"></p> \
 <div class="pp_social">{pp_social}</div> \
-<a class="pp_close" href="#">Close</a> \
 										</div> \
 									</div> \
 								</div> \
