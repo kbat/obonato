@@ -32,7 +32,8 @@ genre_voc = SimpleVocabulary(
 style_voc = SimpleVocabulary(
     [   SimpleTerm(value=u'none', title=_(u'-')),
         SimpleTerm(value=u'realism', title=_(u'Realism')),
-        SimpleTerm(value=u'impressionism', title=_(u'Impressionism'))  ]
+        SimpleTerm(value=u'impressionism', title=_(u'Impressionism')),
+        SimpleTerm(value=u'symbolism', title=_(u'Symbolism')) ]
     )
 
 technique_voc = SimpleVocabulary(
