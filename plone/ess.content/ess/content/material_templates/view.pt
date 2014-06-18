@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ess.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+    <table cols="2" border="1" cellspacing="10" cellpadding="5">
+      <tr>
+	<td>M<span tal:replace="context/ID"/></td>
+	<td tal:content="context/mcnp_string">MCNP string</td>
+      </tr>
+      <tr>
+	<td>MT<span tal:replace="context/ID"/></td>
+	<td tal:content="context/mcnp_mt">MT card</td>
+      </tr>
+      <tr>
+	<td>MX<span tal:replace="context/ID"/></td>
+	<td tal:content="context/mcnp_mx">MX card</td>
+      </tr>
+    </table>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
