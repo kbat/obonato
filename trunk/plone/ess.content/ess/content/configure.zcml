@@ -24,5 +24,10 @@
 	     provides="ess.content.technote.INameFromDate"
 	     factory="ess.content.technote.NameFromDate"
 	     />
+
+    <adapter for="ess.content.material.IMaterial"
+	     provides="ess.content.material.INameFromID"
+	     factory="ess.content.material.NameFromID"
+	     />
   
 </configure>
