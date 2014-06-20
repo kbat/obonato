@@ -36,13 +36,11 @@ ess/fastneutronsworkshop/browser/agenda.py
 ess/fastneutronsworkshop/browser/conference_listing.py
 ess/fastneutronsworkshop/browser/conference_view.py
 ess/fastneutronsworkshop/browser/listings.py
-ess/fastneutronsworkshop/browser/listings.py~
 ess/fastneutronsworkshop/browser/macros.py
 ess/fastneutronsworkshop/browser/participant_view.py
 ess/fastneutronsworkshop/browser/profile_listing.py
 ess/fastneutronsworkshop/browser/propose.py
 ess/fastneutronsworkshop/browser/register.py
-ess/fastneutronsworkshop/browser/register.py~
 ess/fastneutronsworkshop/browser/session_listing.py
 ess/fastneutronsworkshop/browser/session_view.py
 ess/fastneutronsworkshop/browser/speaker_listing.py
@@ -60,8 +58,6 @@ ess/fastneutronsworkshop/browser/templates/macros.pt
 ess/fastneutronsworkshop/browser/templates/navigation_viewlet.pt
 ess/fastneutronsworkshop/browser/templates/participant_view.pt
 ess/fastneutronsworkshop/browser/templates/profile_listing.pt
-ess/fastneutronsworkshop/browser/templates/registration_mail.pt
-ess/fastneutronsworkshop/browser/templates/registration_mail.pt~
 ess/fastneutronsworkshop/browser/templates/session_listing.pt
 ess/fastneutronsworkshop/browser/templates/session_view.pt
 ess/fastneutronsworkshop/browser/templates/speaker_listing.pt
