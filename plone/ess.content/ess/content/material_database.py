@@ -53,7 +53,7 @@ class MaterialDatabase(Container):
 # of this type by uncommenting the grok.name line below or by
 # changing the view class name and template filename to View / view.pt.
 
-class SampleView(grok.View):
+class View(grok.View):
     """ sample view class """
 
     grok.context(IMaterialDatabase)

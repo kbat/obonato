@@ -15,6 +15,10 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
+    <div>Density: <span tal:replace="context/density" />&nbsp;g/cm3</div>
+    <pre>
+      <pre tal:content="context/mcnp_string">MCNP string</pre>
+    </pre>
     <table cols="2" border="1" cellspacing="10" cellpadding="5">
       <tr>
 	<td>M<span tal:replace="context/ID"/></td>
