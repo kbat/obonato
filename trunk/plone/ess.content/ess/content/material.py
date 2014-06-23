@@ -51,7 +51,7 @@ class IMaterial(form.Schema):
     #     required = True
     #     )
 
-    ID = schema.ASCII(
+    ID = schema.ASCIILine(
         title = _(u"Material ID"),
         required = True,
         )
@@ -66,6 +66,7 @@ class IMaterial(form.Schema):
     dexteritytextindexer.searchable('mcnp_string')
     mcnp_string = schema.ASCII(
         title = _(u"MCNP string"),
+        description = _(u"Use as many lines as necessary"),
         required = False,
         )
 
@@ -76,8 +77,9 @@ class IMaterial(form.Schema):
         )
 
     dexteritytextindexer.searchable('mcnp_mx')
-    mcnp_mx = schema.ASCIILine(
+    mcnp_mx = schema.ASCII(
         title = _(u"MCNPX MX"),
+        description = _(u"Example: ':h model j model'. Use as many lines as necessary."),
         required = False,
         )
 
@@ -85,6 +87,7 @@ class IMaterial(form.Schema):
     dexteritytextindexer.searchable('fluka_string')
     fluka_string = schema.ASCII(
         title = _(u"FLUKA string"),
+        description = _(u"Use free format."),
         required = False,
         )
 
@@ -116,10 +119,50 @@ class View(grok.View):
     grok.context(IMaterial)
     grok.require('zope2.View')
 
-    def update(self):
-        print "M%s     " % self.context.ID,
+#    def update(self):
+#        print self.mcnp()
+
+    def comments(self):
+        """ prints comments before material definition """
+        out = "c %s\n" % self.context.title
+        out = out + "c %s\n" % self.context.description
+        out = out + "c rho = %g g/cm3\n" % self.context.density
+        return out
+
+    def mcnp(self):
+        """ prints MCNP material definition """
+        if not self.context.mcnp_string:
+            return "Not defined yet."
+
+        N = 6 # number of spaces between material ID and next number
+        N1 = len(self.context.ID) + 1 + 6
+        N2 = N - 1 # number of spaces in the MT card (T=1 symbol)
+        N3 = N2 - 3 # number of spaces in the MX card (':h' = 2 symbols)
+        # comments
+        out = self.comments()
+        # isotope strings
+        out = out + "M%s" % self.context.ID + " "*N
         for i, l in enumerate(self.context.mcnp_string.split('\n')):
             if i==0:
-                print l
+                out = out + l
             else:
-                print " "*11, l
+                out = out + " "*N1 + l
+
+        if self.context.mcnp_mt:
+            out = out + "\n" + "MT" + self.context.ID + " "*N2 + self.context.mcnp_mt
+
+        if self.context.mcnp_mx:
+            out = out + "\n"
+            for l in self.context.mcnp_mx.split('\n'):
+                out = out + "MX" + self.context.ID + l[0:2] + " "*N3 + l[2:]
+        return out
+
+    def fluka(self):
+        """ prints FLUKA material definition """
+        # comments
+        if not self.context.fluka_string:
+            return "Not defined yet."
+
+        out = self.comments()
+        out = out + self.context.fluka_string
+        return out
