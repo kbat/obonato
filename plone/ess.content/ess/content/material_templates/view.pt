@@ -16,24 +16,15 @@
   <metal:content-core define-macro="content-core">
 
     <div>Density: <span tal:replace="context/density" />&nbsp;g/cm3</div>
-    <pre>
-      <pre tal:content="context/mcnp_string">MCNP string</pre>
-    </pre>
-    <table cols="2" border="1" cellspacing="10" cellpadding="5">
-      <tr>
-	<td>M<span tal:replace="context/ID"/></td>
-	<td tal:content="context/mcnp_string">MCNP string</td>
-      </tr>
-      <tr>
-	<td>MT<span tal:replace="context/ID"/></td>
-	<td tal:content="context/mcnp_mt">MT card</td>
-      </tr>
-      <tr>
-	<td>MX<span tal:replace="context/ID"/></td>
-	<td tal:content="context/mcnp_mx">MX card</td>
-      </tr>
-    </table>
+    <h3>MCNP</h3>
+    <pre tal:content="view/mcnp">MCNP definition</pre>
+    <h3>FLUKA</h3>
+    <pre tal:content="view/fluka">FLUKA definition</pre>
 
+    <div>
+      MATERIAL 0.0 0.0 <span tal:replace="context/density" /> <span tal:replace="context/ID" /> ? 
+    </div>
+    
   </metal:content-core>
 </metal:main>
 
