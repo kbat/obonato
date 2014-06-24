@@ -61,6 +61,8 @@ def MCNPStringConstraint(value):
         w = l.strip().split()
         if len(w) and len(w) != 2:
             raise Invalid("Number of records in the line '%s' is wrong." % l)
+        if not re.search("\..", w[0]):
+            raise Invalid("Library is not specified in the entry '%s' of the line '%s'" % (w[0], l))
         try:
             a = float(w[1])
         except ValueError:
