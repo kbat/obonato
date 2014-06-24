@@ -20,6 +20,8 @@
     <pre tal:content="view/mcnp">MCNP definition</pre>
     <h3>FLUKA</h3>
     <pre tal:content="view/fluka">FLUKA definition</pre>
+    <h3>CombLayer</h3>
+    <pre tal:content="view/CombLayer">CombLayer definition</pre>
 
     <div>
       MATERIAL 0.0 0.0 <span tal:replace="context/density" /> <span tal:replace="context/ID" /> ? 
