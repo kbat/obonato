@@ -105,7 +105,13 @@ class IMaterial(form.Schema):
         min = 0.0,
         )
 
-    form.fieldset('mcnp', label=_(u"MCNP"), fields=['mcnp_string', 'mcnp_mt', 'mcnp_mx'])
+    temperature = schema.Float(
+        title = _(u"Material temperature [K]"),
+        required = False,
+        min = 0.0,
+        )
+
+    form.fieldset('mcnp', label=_(u"MCNP"), fields=['mcnp_string', 'mcnp_mt', 'mcnp_mx', 'mcnp_reference'])
 
     dexteritytextindexer.searchable('mcnp_string')
     mcnp_string = schema.ASCII(
@@ -129,11 +135,26 @@ class IMaterial(form.Schema):
         constraint = MXConstraint,
         )
 
-    form.fieldset('fluka', label=_(u"FLUKA"), fields=['fluka_string'])
+    dexteritytextindexer.searchable('mcnp_reference')
+    mcnp_reference = schema.ASCII(
+        title = _(u"Reference"),
+        description = _(u"Specify the sources of information about this material."),
+        required = False,
+        )
+
+
+    form.fieldset('fluka', label=_(u"FLUKA"), fields=['fluka_string', 'fluka_reference'])
     dexteritytextindexer.searchable('fluka_string')
     fluka_string = schema.ASCII(
         title = _(u"FLUKA string"),
         description = _(u"Use free format."),
+        required = False,
+        )
+
+    dexteritytextindexer.searchable('fluka_reference')
+    fluka_reference = schema.ASCII(
+        title = _(u"Reference"),
+        description = _(u"Specify the sources of information about this material."),
         required = False,
         )
 
@@ -179,11 +200,23 @@ class View(grok.View):
 #    def update(self):
 #        print self.mcnp()
 
-    def comments(self, comsign="c "):
+    def comments(self, code="mcnp"):
         """ prints comments before material definition """
+        comsign = "c "
+        code = code.lower()
+        if code == "CombLayer":
+            comsign = "// "
+        
         out = comsign + "%s\n" % self.context.title
         out += comsign + "%s\n" % self.context.description
-        out += comsign + "rho = %g g/cm3\n" % self.context.density
+        if code != "CombLayer":
+            out += comsign + "Density = %g g/cm3\n" % self.context.density
+        if self.context.temperature != None: out += comsign + "Temperature = %g K\n" % self.context.temperature
+        out += comsign + "Reference: "
+        if code == "fluka":
+            out += "%s\n" % self.context.fluka_reference
+        else:
+            out += "%s\n" % self.context.mcnp_reference
         return out
 
     def mcnp(self):
@@ -196,7 +229,7 @@ class View(grok.View):
         N2 = N - 1 # number of spaces in the MT card (T=1 symbol)
         N3 = N2 - 3 # number of spaces in the MX card (':h' = 2 symbols)
         # comments
-        out = self.comments()
+        out = self.comments("mcnp")
         # isotope strings
         out = out + "M%s" % self.context.ID + " "*N
         for i, l in enumerate(self.context.mcnp_string.split('\n')):
@@ -220,7 +253,7 @@ class View(grok.View):
         if not self.context.fluka_string:
             return "Not defined yet."
 
-        out = self.comments()
+        out = self.comments("fluka")
         out = out + self.context.fluka_string
         return out
 
@@ -230,7 +263,7 @@ class View(grok.View):
             return "Not defined yet."
 
         clID = re.sub('^0+', '', self.context.ID)
-        out = self.comments("// ")
+        out = self.comments("CombLayer")
         out += "MObj.setMaterial(%s, \"M%s\",\n" % (clID, self.context.ID)
         for l in self.context.mcnp_string.split('\n'):
             out += " "*17 + "\" " + l.strip() + " \"\n"

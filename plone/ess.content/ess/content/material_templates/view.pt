@@ -16,12 +16,20 @@
   <metal:content-core define-macro="content-core">
 
     <div>Density: <span tal:replace="context/density" />&nbsp;g/cm3</div>
-    <h3>MCNP</h3>
-    <pre tal:content="view/mcnp">MCNP definition</pre>
-    <h3>FLUKA</h3>
-    <pre tal:content="view/fluka">FLUKA definition</pre>
-    <h3>CombLayer</h3>
-    <pre tal:content="view/CombLayer">CombLayer definition</pre>
+    <div tal:condition="context/temperature">Temperature: <span tal:replace="context/temperature" />&nbsp;K</div>
+
+    <div tal:condition="context/mcnp_string">
+      <h3>MCNP</h3>
+      <pre tal:content="view/mcnp">MCNP definition</pre>
+    </div>
+    <div tal:condition="context/fluka_string">
+      <h3>FLUKA</h3>
+      <pre tal:content="view/fluka">FLUKA definition</pre>
+    </div>
+    <div tal:condition="context/mcnp_string">
+      <h3>CombLayer</h3>
+      <pre tal:content="view/CombLayer">CombLayer definition</pre>
+    </div>
 
     
   </metal:content-core>
