@@ -14,12 +14,17 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 
-from ess.content import MessageFactory as _
+#from ess.content import MessageFactory as _
+from ess.content import  _
+
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+from ess.content.material import IMaterial
 
 
 # Interface class; used to define content-type schema.
 
-class IMaterialDatabase(form.Schema, IImageScaleTraversable):
+class IMaterialDatabase(form.Schema):
     """
     Database of materials
     """
@@ -59,6 +64,14 @@ class View(grok.View):
     grok.context(IMaterialDatabase)
     grok.require('zope2.View')
 
-    # grok.name('view')
+    def materials(self):
+        """ Return a catalog search result of materials to show """
 
-    # Add view methods here
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+        
+        return catalog(object_provides=IMaterial.__identifier__,
+                       path='/'.join(context.getPhysicalPath()),
+                       sort_on='sortable_title',
+                       sort_order='acsending')
+
