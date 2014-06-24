@@ -22,7 +22,7 @@ from zope.interface import implements
 from zope.interface import Interface
 
 from plone.app.content.interfaces import INameFromTitle
-from re import search # for validation
+import re
 
 class INameFromID(INameFromTitle):
     def title():
@@ -39,6 +39,43 @@ class NameFromID(object):
         return self.context.ID
 
 
+# constraints
+def IDConstraint(value):
+    """ checks whether ID has only digits """
+    if not value.isdigit():
+        raise Invalid("Material ID must contain only digits.")
+    if len(value)>8:
+        raise Invalid("Material ID is too long. It should contain 8 or less digits.")
+    return True
+
+def MXConstraint(value):
+    """ checks the mcnp_mx field """
+    for l in value.split('\n'):
+        if l[0] != ':':
+            raise Invalid("Line '%s' is wrong." % l)
+    return True
+
+def MCNPStringConstraint(value):
+    """ checks the mcnp_string field """
+    for l in value.split('\n'):
+        w = l.strip().split()
+        if len(w) and len(w) != 2:
+            raise Invalid("Number of records in the line '%s' is wrong." % l)
+        try:
+            a = float(w[1])
+        except ValueError:
+            raise Invalid("Entry '%s' in the line '%s' must be a float number." % (w[1], l))
+        else:
+            pass
+#        if not isinstance(w[1], float):
+#            print "here: _%s_" % w[1]
+#            raise Invalid("Second entry %s in the line '%s' must be a float number." % (w[1], l))
+    return True
+
+
+#class MCNPStringMT(Invalid):
+#    __doc__ = _(u"MCNP string and MT record do not match.")
+
 # Interface class; used to define content-type schema.
 
 class IMaterial(form.Schema):
@@ -51,14 +88,19 @@ class IMaterial(form.Schema):
     #     required = True
     #     )
 
+#    form.mode(ID="display")
     ID = schema.ASCIILine(
         title = _(u"Material ID"),
+        description = _(u"Use 8 or less digits."),
         required = True,
+        constraint = IDConstraint,
+#        readonly = True,
         )
 
     density = schema.Float(
         title = _(u"Material density [g/cm3]"),
         required = True,
+        min = 0.0,
         )
 
     form.fieldset('mcnp', label=_(u"MCNP"), fields=['mcnp_string', 'mcnp_mt', 'mcnp_mx'])
@@ -66,8 +108,9 @@ class IMaterial(form.Schema):
     dexteritytextindexer.searchable('mcnp_string')
     mcnp_string = schema.ASCII(
         title = _(u"MCNP string"),
-        description = _(u"Use as many lines as necessary"),
+        description = _(u"Use as many lines as necessary. Each line should contain only 2 entries: isotope id and its atomic fraction."),
         required = False,
+        constraint = MCNPStringConstraint,
         )
 
     dexteritytextindexer.searchable('mcnp_mt')
@@ -79,8 +122,9 @@ class IMaterial(form.Schema):
     dexteritytextindexer.searchable('mcnp_mx')
     mcnp_mx = schema.ASCII(
         title = _(u"MCNPX MX"),
-        description = _(u"Example: ':h model j model'. Use as many lines as necessary."),
+        description = _(u"Use as many lines as necessary. Each MX record should start with colon followed by a particle ID. Example: ':h model j model'."),
         required = False,
+        constraint = MXConstraint,
         )
 
     form.fieldset('fluka', label=_(u"FLUKA"), fields=['fluka_string'])
@@ -90,6 +134,17 @@ class IMaterial(form.Schema):
         description = _(u"Use free format."),
         required = False,
         )
+
+
+    # does not work with 2 filed sets (MCNPX and FLUKA)
+    # @invariant
+    # def validateMCNPStringMT(data):
+    #     """ checks whether number of entries in the MT record is > than the lines in the MCNP string """
+    #     nmt = len(data.mcnp_mt.split())
+    #     nstring = len(data.mcnp_string.split('\n'))
+    #     if nstring < nmt:
+    #         raise MCNPStringMT("The MT record contains more records (%d) than number of lines in the MCNP string (%d)." % (nmt, nstring))
+    #     return True
 
 
 # Custom content-type class; objects created for this content type will
@@ -165,4 +220,19 @@ class View(grok.View):
 
         out = self.comments()
         out = out + self.context.fluka_string
+        return out
+
+    def CombLayer(self):
+        """ prints CombLayer material definition """
+        if not self.context.mcnp_string:
+            return "Not defined yet."
+
+        clID = re.sub('^0+', '', self.context.ID)
+        out  = "MObj.setMaterial(%s, \"M%s\",\n" % (clID, self.context.ID)
+        for l in self.context.mcnp_string.split('\n'):
+            out += " "*17 + "\" " + l.strip() + " \"\n"
+        out = out.strip()
+        out += ", \"%s\", MLib);\n" % self.context.mcnp_mt
+        out += "MObj.setDensity(%g);\n" % self.context.density
+        out += "MDB.resetMaterial(MObj);\n"
         return out
