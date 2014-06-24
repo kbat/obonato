@@ -179,11 +179,11 @@ class View(grok.View):
 #    def update(self):
 #        print self.mcnp()
 
-    def comments(self):
+    def comments(self, comsign="c "):
         """ prints comments before material definition """
-        out = "c %s\n" % self.context.title
-        out = out + "c %s\n" % self.context.description
-        out = out + "c rho = %g g/cm3\n" % self.context.density
+        out = comsign + "%s\n" % self.context.title
+        out += comsign + "%s\n" % self.context.description
+        out += comsign + "rho = %g g/cm3\n" % self.context.density
         return out
 
     def mcnp(self):
@@ -230,11 +230,18 @@ class View(grok.View):
             return "Not defined yet."
 
         clID = re.sub('^0+', '', self.context.ID)
-        out  = "MObj.setMaterial(%s, \"M%s\",\n" % (clID, self.context.ID)
+        out = self.comments("// ")
+        out += "MObj.setMaterial(%s, \"M%s\",\n" % (clID, self.context.ID)
         for l in self.context.mcnp_string.split('\n'):
             out += " "*17 + "\" " + l.strip() + " \"\n"
         out = out.strip()
         out += ", \"%s\", MLib);\n" % self.context.mcnp_mt
-        out += "MObj.setDensity(%g);\n" % self.context.density
+        if self.context.mcnp_mx:
+            for i,l in enumerate(self.context.mcnp_string.split('\n')):
+                w = l.strip().split()
+                nuclide = w[0].split('.')
+                for p in self.context.mcnp_mx.split('\n'):
+                    out += "MObj.setMXitem(%s, %s, '%s', '%s');\n" % (nuclide[0], nuclide[1][0:-1], nuclide[1][-1], p[1])
+        out += "MObj.setDensity(%g);\n" % -self.context.density
         out += "MDB.resetMaterial(MObj);\n"
         return out
