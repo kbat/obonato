@@ -23,9 +23,6 @@
     <h3>CombLayer</h3>
     <pre tal:content="view/CombLayer">CombLayer definition</pre>
 
-    <div>
-      MATERIAL 0.0 0.0 <span tal:replace="context/density" /> <span tal:replace="context/ID" /> ? 
-    </div>
     
   </metal:content-core>
 </metal:main>
