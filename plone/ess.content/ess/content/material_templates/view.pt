@@ -15,8 +15,19 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <div>Density: <span tal:replace="context/density" />&nbsp;g/cm3</div>
-    <div tal:condition="context/temperature">Temperature: <span tal:replace="context/temperature" />&nbsp;K</div>
+    <table class="vertical listing" summary="high level parameters">
+      <tbody>
+	<tr>
+	  <th>Density</th><td><span tal:replace="context/density" />&nbsp;g/cm3</td>
+	</tr>
+	<tr tal:condition="context/temperature">
+	  <th>Temperature</th><td><span tal:replace="context/temperature" />&nbsp;K</td>
+	</tr>
+	<tr>
+	  <th>Reference</th><td><span tal:replace="context/reference" /></td>
+	</tr>
+      </tbody>
+    </table>
 
     <div tal:condition="context/mcnp_string">
       <h3>MCNP</h3>

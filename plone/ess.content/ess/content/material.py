@@ -23,6 +23,7 @@ from zope.interface import Interface
 
 from plone.app.content.interfaces import INameFromTitle
 import re
+import textwrap
 
 class INameFromID(INameFromTitle):
     def title():
@@ -111,7 +112,14 @@ class IMaterial(form.Schema):
         min = 0.0,
         )
 
-    form.fieldset('mcnp', label=_(u"MCNP"), fields=['mcnp_string', 'mcnp_mt', 'mcnp_mx', 'mcnp_reference'])
+    dexteritytextindexer.searchable('reference')
+    reference = schema.ASCII(
+        title = _(u"Reference"),
+        description = _(u"Specify the sources of information about this material."),
+        required = True,
+        )
+
+    form.fieldset('mcnp', label=_(u"MCNP"), fields=['mcnp_string', 'mcnp_mt', 'mcnp_mx'])
 
     dexteritytextindexer.searchable('mcnp_string')
     mcnp_string = schema.ASCII(
@@ -135,29 +143,14 @@ class IMaterial(form.Schema):
         constraint = MXConstraint,
         )
 
-    dexteritytextindexer.searchable('mcnp_reference')
-    mcnp_reference = schema.ASCII(
-        title = _(u"Reference"),
-        description = _(u"Specify the sources of information about this material."),
-        required = False,
-        )
 
-
-    form.fieldset('fluka', label=_(u"FLUKA"), fields=['fluka_string', 'fluka_reference'])
+    form.fieldset('fluka', label=_(u"FLUKA"), fields=['fluka_string'])
     dexteritytextindexer.searchable('fluka_string')
     fluka_string = schema.ASCII(
         title = _(u"FLUKA string"),
         description = _(u"Use free format."),
         required = False,
         )
-
-    dexteritytextindexer.searchable('fluka_reference')
-    fluka_reference = schema.ASCII(
-        title = _(u"Reference"),
-        description = _(u"Specify the sources of information about this material."),
-        required = False,
-        )
-
 
     # does not work with 2 filed sets (MCNPX and FLUKA)
     # @invariant
@@ -200,23 +193,21 @@ class View(grok.View):
 #    def update(self):
 #        print self.mcnp()
 
-    def comments(self, code="mcnp"):
+    def comments(self, code="MCNP"):
         """ prints comments before material definition """
         comsign = "c "
-        code = code.lower()
         if code == "CombLayer":
             comsign = "// "
         
         out = comsign + "%s\n" % self.context.title
-        out += comsign + "%s\n" % self.context.description
+        out += comsign + "%s\n" % textwrap.fill(self.context.description, width=75, subsequent_indent=comsign)
         if code != "CombLayer":
             out += comsign + "Density = %g g/cm3\n" % self.context.density
         if self.context.temperature != None: out += comsign + "Temperature = %g K\n" % self.context.temperature
-        out += comsign + "Reference: "
-        if code == "fluka":
-            out += "%s\n" % self.context.fluka_reference
-        else:
-            out += "%s\n" % self.context.mcnp_reference
+        if self.context.reference != None:
+            out += comsign + "Reference: "
+            out += "%s\n" % textwrap.fill(self.context.reference, width=75, subsequent_indent=comsign)
+
         return out
 
     def mcnp(self):
@@ -229,7 +220,7 @@ class View(grok.View):
         N2 = N - 1 # number of spaces in the MT card (T=1 symbol)
         N3 = N2 - 3 # number of spaces in the MX card (':h' = 2 symbols)
         # comments
-        out = self.comments("mcnp")
+        out = self.comments("MCNP")
         # isotope strings
         out = out + "M%s" % self.context.ID + " "*N
         for i, l in enumerate(self.context.mcnp_string.split('\n')):
@@ -253,7 +244,7 @@ class View(grok.View):
         if not self.context.fluka_string:
             return "Not defined yet."
 
-        out = self.comments("fluka")
+        out = self.comments("FLUKA")
         out = out + self.context.fluka_string
         return out
 
