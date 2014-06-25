@@ -268,7 +268,7 @@ class View(grok.View):
         for l in self.context.mcnp_string.split('\n'):
             out += " "*17 + "\" " + l.strip() + " \"\n"
         out = out.strip()
-        out += ", \"%s\", MLib);\n" % self.context.mcnp_mt
+        out += ", \"%s\", MLib);\n" % (self.context.mcnp_mt or "") # same as ('' if self.context.mcnp_mt is None else str(self.context.mcnp_mt))
         if self.context.mcnp_mx:
             for i,l in enumerate(self.context.mcnp_string.split('\n')):
                 w = l.strip().split()
