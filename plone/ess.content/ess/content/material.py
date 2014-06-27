@@ -57,19 +57,24 @@ def MXConstraint(value):
     return True
 
 def MCNPStringConstraint(value):
-    """ checks the mcnp_string field """
-    for l in value.split('\n'):
+    """ checks the mcnp_string field. TODO: add possibility to include nlib, pnlib and plib, see Manual 3-122 """
+    lines = value.split('\n')
+    nlines = len(lines)
+    for i,l in enumerate(lines):
         w = l.strip().split()
-        if len(w) and len(w) != 2:
-            raise Invalid("Number of records in the line '%s' is wrong." % l)
-        if not re.search("\..", w[0]):
-            raise Invalid("Library is not specified in the entry '%s' of the line '%s'" % (w[0], l))
-        try:
-            a = float(w[1])
-        except ValueError:
-            raise Invalid("Entry '%s' in the line '%s' must be a float number." % (w[1], l))
-        else:
-            pass
+        if not len(w):
+            raise Invalid("Material definition should not contain empty lines")
+        if i!=nlines-1:
+            if len(w) != 2:
+                raise Invalid("Number of records in the line '%s' is wrong." % l)
+            if not re.search("\..", w[0]):
+                raise Invalid("Library identifier is not specified in the entry '%s' of the line '%s'" % (w[0], l))
+            try:
+                a = float(w[1])
+            except ValueError:
+                raise Invalid("Entry '%s' in the line '%s' must be a float number." % (w[1], l))
+            else:
+                pass
 #        if not isinstance(w[1], float):
 #            print "here: _%s_" % w[1]
 #            raise Invalid("Second entry %s in the line '%s' must be a float number." % (w[1], l))
@@ -124,7 +129,7 @@ class IMaterial(form.Schema):
     dexteritytextindexer.searchable('mcnp_string')
     mcnp_string = schema.ASCII(
         title = _(u"MCNP string"),
-        description = _(u"Use as many lines as necessary. Each line should contain only 2 entries: isotope id and its atomic fraction."),
+        description = _(u"Use as many lines as necessary. Each line should contain only 2 entries: isotope id and its atomic fraction. Last line may contain material card keywords."),
         required = False,
         constraint = MCNPStringConstraint,
         )
@@ -202,8 +207,8 @@ class View(grok.View):
         out = comsign + "%s\n" % self.context.title
         out += comsign + "%s\n" % textwrap.fill(self.context.description, width=75, subsequent_indent=comsign)
         if code != "CombLayer":
-            out += comsign + "Density = %g g/cm3\n" % self.context.density
-        if self.context.temperature != None: out += comsign + "Temperature = %g K\n" % self.context.temperature
+            out += comsign + "Density:    %g g/cm3\n" % self.context.density
+        if self.context.temperature != None: out += comsign + "Temperature: %g K\n" % self.context.temperature
         if self.context.reference != None:
             out += comsign + "Reference: "
             out += "%s\n" % textwrap.fill(self.context.reference, width=75, subsequent_indent=comsign)
