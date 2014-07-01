@@ -54,9 +54,11 @@ def IDConstraint(value):
     if len(value)>8:
         raise Invalid("Material ID is too long. It should contain 8 or less digits.")
 
-    md = api.content.get(path='/eval/docs/neutronics/materials/database')
-    if md.has_key(value):
-        raise Invalid("Database already contains material with this ID")
+#    md = api.content.get(path='/eval/docs/neutronics/materials/database') or api.content.get(path='/Plone/materials/')
+#    for m in md.objectValues():
+#        print m.ID, m.CreationDate()
+#    if md.has_key(value):
+#        raise Invalid("Database already contains material with this ID") # fails when trying to edit an existing material
     return True
 
 def MXConstraint(value):
