@@ -25,6 +25,12 @@ from plone.app.content.interfaces import INameFromTitle
 import re
 import textwrap
 
+# ID validation
+from plone import api
+#from zope.lifecycleevent.interfaces import IObjectCreatedEvent, IObjectAddedEvent
+#from Products.CMFCore.interfaces import IContentish # a non-folderish object
+
+
 class INameFromID(INameFromTitle):
     def title():
         """Return a processed material ID"""
@@ -47,6 +53,10 @@ def IDConstraint(value):
         raise Invalid("Material ID must contain only digits.")
     if len(value)>8:
         raise Invalid("Material ID is too long. It should contain 8 or less digits.")
+
+    md = api.content.get(path='/Plone/materials')
+    if md.has_key(value):
+        raise Invalid("Database already contains material with this ID")
     return True
 
 def MXConstraint(value):
@@ -128,7 +138,7 @@ class IMaterial(form.Schema):
 
     dexteritytextindexer.searchable('mcnp_string')
     mcnp_string = schema.ASCII(
-        title = _(u"MCNP string"),
+        title = _(u"M card"),
         description = _(u"Use as many lines as necessary. Each line should contain only 2 entries: isotope id and its atomic fraction. Last line may contain material card keywords."),
         required = False,
         constraint = MCNPStringConstraint,
@@ -136,13 +146,13 @@ class IMaterial(form.Schema):
 
     dexteritytextindexer.searchable('mcnp_mt')
     mcnp_mt = schema.ASCIILine(
-        title = _(u"MCNP MT"),
+        title = _(u"MT card"),
         required = False,
         )
 
     dexteritytextindexer.searchable('mcnp_mx')
     mcnp_mx = schema.ASCII(
-        title = _(u"MCNPX MX"),
+        title = _(u"MX card"),
         description = _(u"Use as many lines as necessary. Each MX record should start with colon followed by a particle ID. Example: ':h model j model'."),
         required = False,
         constraint = MXConstraint,
@@ -274,3 +284,11 @@ class View(grok.View):
         out += "MObj.setDensity(%g);\n" % -self.context.density
         out += "MDB.resetMaterial(MObj);\n"
         return out
+
+
+# @grok.subscribe(IMaterial, IObjectAddedEvent)
+# def printMessage(obj, event):
+#     print "Received event for ", obj.ID , " added to ", event.newParent
+#     if event.newParent.has_key(obj.ID):
+#         print "Object with ID", obj.ID, " exists in the current folder"
+#         raise Invalid("Material ID is not unique.")

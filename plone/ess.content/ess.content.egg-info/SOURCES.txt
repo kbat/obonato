@@ -17,6 +17,8 @@ ess.content.egg-info/requires.txt
 ess.content.egg-info/top_level.txt
 ess/content/__init__.py
 ess/content/configure.zcml
+ess/content/material.py
+ess/content/material_database.py
 ess/content/technote.py
 ess/content/technote.txt
 ess/content/tests.py
