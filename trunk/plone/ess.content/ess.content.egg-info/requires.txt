@@ -5,3 +5,4 @@ plone.app.referenceablebehavior
 plone.app.relationfield
 plone.namedfile [blobs]
 collective.dexteritytextindexer
+plone.api

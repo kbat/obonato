@@ -32,6 +32,7 @@ setup(name='ess.content',
         'plone.app.relationfield',
         'plone.namedfile [blobs]',
         'collective.dexteritytextindexer',
+        'plone.api',
       ],
       entry_points="""
       # -*- Entry points: -*-
