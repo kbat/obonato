@@ -54,7 +54,7 @@ def IDConstraint(value):
     if len(value)>8:
         raise Invalid("Material ID is too long. It should contain 8 or less digits.")
 
-    md = api.content.get(path='/Plone/materials')
+    md = api.content.get(path='/eval/docs/neutronics/materials/database')
     if md.has_key(value):
         raise Invalid("Database already contains material with this ID")
     return True
