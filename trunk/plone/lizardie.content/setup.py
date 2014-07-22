@@ -34,6 +34,7 @@ setup(name='lizardie.content',
           'plone.namedfile[blobs]',
           'plone.formwidget.namedfile',
           'collective.dexteritytextindexer',
+          'BeautifulSoup', # for pickle in tender.py
 #          'cioppino.twothumbs',
       ],
       entry_points="""
