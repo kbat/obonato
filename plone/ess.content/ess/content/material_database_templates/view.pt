@@ -23,7 +23,7 @@
     <table align="center" class="listing">
       <thead>
       <tr>
-	<th>ID</th><th>Title</th><th>Description</th><th>Density</th><th>Temperature</th>
+	<th>ID</th><th>Title</th><th>Description</th><th>Density</th><th>Temperature</th><th>Author</th>
       </tr>
       </thead>
       <tbody>
@@ -36,6 +36,7 @@
 	    <td tal:content="material/Description"/>
 	    <td tal:content="obj/density"/>
 	    <td tal:content="obj/temperature|none"/>
+	    <td tal:content="material/Creator|none"/>
 	  </tr>
         </tal:block>
       </tbody>
