@@ -23,7 +23,7 @@
     <table align="center" class="listing">
       <thead>
       <tr>
-	<th>ID</th><th>Title</th><th>Description</th><th>Density</th><th>Temperature</th><th>Author</th>
+	<th>ID</th><th>Title</th><th>Description</th><th>&rho;</th><th>T</th><th>Author</th>
       </tr>
       </thead>
       <tbody>
