@@ -16,8 +16,8 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 from lizardie.content import MessageFactory as _
 
-from lizardie.content.TradeItem import TradeItem as  Item
-import pickle
+from lizardie.content.TradeItem import TradeItem as Item
+import pickle, sys
 from BeautifulSoup import BeautifulSoup
 
 # Interface class; used to define content-type schema.
@@ -61,13 +61,22 @@ class View(grok.View):
 
     grok.context(ITender)
     grok.require('zope2.View')
+
+    def td(self, name, href):
+        """ Generates a td record"""
+        out = ""
+        if href:
+            out += "<td><a href='%s'>%s</a></td>" % (href, name)
+        else:
+            out += '<td>' + name + '</td>'
+        return out
     
     def table(self):
         with open("/home/kbat/prog/tender/data.pickle") as fb:
             items = pickle.load(fb)
 
         out = """
-<table align='center' class='listing'>
+<table align='center' class='listing' cols="10">
 <thead>
  <tr>
   <th>&#8470;</th><th>Auction</th><th>Lot &#8470;</th><th>Lot</th><th>Start price</th><th>Organizer</th><th>Application end date</th><th>Auction date</th><th>State</th><th>Winner</th>
@@ -75,14 +84,16 @@ class View(grok.View):
 </thead>
 <tbody>
 """
+#        print os.environ['PYTHONPATH'].split(os.pathsep)
+#        print sys.path
         for i in items:
             out += '<tr>'
-            out += '<td>' + i.n + '</td>'
-            out += '<td>' + i.auction + '</td>'
-            out += '<td>' + i.nlot + '</td>'
-            out += '<td>' + i.lot + '</td>'
+            out += self.td(i.n, i.n_link) #'<td>' + i.n + '</td>'
+            out += self.td(i.auction, i.auction_link)
+            out += self.td(i.nlot, i.nlot_link)
+            out += self.td(i.lot, i.lot_link)
             out += '<td>' + i.startPrice + '</td>'
-            out += '<td>' + i.organizer + '</td>'
+            out += self.td(i.organizer, i.organizer_link)
             out += '<td>' + i.applicationEndDate + '</td>'
             out += '<td>' + i.date + '</td>'
             out += '<td>' + i.state + '</td>'
@@ -95,6 +106,3 @@ class View(grok.View):
         out += "</tbody></table>"
         return out
 
-    # grok.name('view')
-
-    # Add view methods here
