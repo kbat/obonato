@@ -73,7 +73,7 @@ class ITechnote(form.Schema):
     attachment = NamedBlobFile(
         title = _(u"Attachment"),
         description = _("Include relevant data, input, source files necessary to understand the note. Multiple files should be added as an archive. The file name will be prefixed with the technote id of the form 'yymmdd' if not already done so."),
-        required = False,
+        required = True,
         )
     
     
