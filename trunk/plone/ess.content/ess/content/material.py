@@ -119,6 +119,7 @@ class IMaterial(form.Schema):
 
     density = schema.Float(
         title = _(u"Material density [g/cm3]"),
+        description_("A float number with max 3 digits after the point."),
         required = True,
         min = 0.0,
         )
