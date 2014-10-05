@@ -298,6 +298,7 @@ validator.WidgetValidatorDiscriminators(IDValidator, field=IMaterial['ID'])
 grok.global_adapter(IDValidator)
 
 # rename material if ID was changed (actually, the INameFromID is not needed with this function):
+# this method is called after View::update()
 @grok.subscribe(IMaterial, IObjectModifiedEvent)
 def rename(obj, event):
     oldid = obj.getId()
