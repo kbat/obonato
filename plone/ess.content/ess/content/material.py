@@ -1,6 +1,6 @@
 from five import grok
 
-from z3c.form import group, field
+from z3c.form import group, field, validator
 from zope import schema
 from zope.interface import invariant, Invalid
 from zope.schema.interfaces import IContextSourceBinder
@@ -12,6 +12,7 @@ from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.namedfile.interfaces import IImageScaleTraversable
+
 
 from ess.content import _
 #MessageFactory as _
@@ -27,8 +28,9 @@ import textwrap
 
 # ID validation
 from plone import api
-#from zope.lifecycleevent.interfaces import IObjectCreatedEvent, IObjectAddedEvent
+from zope.lifecycleevent.interfaces import IObjectCreatedEvent, IObjectAddedEvent
 #from Products.CMFCore.interfaces import IContentish # a non-folderish object
+from plone.supermodel import model
 
 
 class INameFromID(INameFromTitle):
@@ -45,21 +47,6 @@ class NameFromID(object):
     def title(self):
         return self.context.ID
 
-
-# constraints
-def IDConstraint(value):
-    """ checks whether ID has only digits """
-    if not value.isdigit():
-        raise Invalid("Material ID must contain only digits.")
-    if len(value)>8:
-        raise Invalid("Material ID is too long. It should contain 8 or less digits.")
-
-#    md = api.content.get(path='/eval/docs/neutronics/materials/database') or api.content.get(path='/Plone/materials/')
-#    for m in md.objectValues():
-#        print m.ID, m.CreationDate()
-#    if md.has_key(value):
-#        raise Invalid("Database already contains material with this ID") # fails when trying to edit an existing material
-    return True
 
 def MXConstraint(value):
     """ checks the mcnp_mx field """
@@ -108,18 +95,19 @@ class IMaterial(form.Schema):
     #     required = True
     #     )
 
-#    form.mode(ID="display")
+#    theid = schema.Id(
+#        title = _("id"),
+#        )
+
     ID = schema.ASCIILine(
         title = _(u"Material ID"),
         description = _(u"Use 8 or less digits."),
         required = True,
-        constraint = IDConstraint,
-#        readonly = True,
         )
 
     density = schema.Float(
         title = _(u"Material density [g/cm3]"),
-        description_("A float number with max 3 digits after the point."),
+        description = _("A float number with max 3 digits after the point."),
         required = True,
         min = 0.0,
         )
@@ -188,6 +176,7 @@ class IMaterial(form.Schema):
 
 class Material(Container):
     grok.implements(IMaterial)
+    isAdded = False # true if this object already exists
 
     # Add your class methods and properties here
 
@@ -289,9 +278,22 @@ class View(grok.View):
         return out
 
 
-# @grok.subscribe(IMaterial, IObjectAddedEvent)
-# def printMessage(obj, event):
-#     print "Received event for ", obj.ID , " added to ", event.newParent
-#     if event.newParent.has_key(obj.ID):
-#         print "Object with ID", obj.ID, " exists in the current folder"
-#         raise Invalid("Material ID is not unique.")
+class IDValidator(validator.SimpleFieldValidator):
+    """ checks whether ID is valid """
+    def validate(self, value):
+        super(IDValidator, self).validate(value)
+
+        if not value.isdigit():
+            raise Invalid("Material ID must contain only digits.")
+        if len(value)>8:
+            raise Invalid("Material ID is too long. It should contain 8 or less digits.")
+
+        md = api.content.get(path='/eval/docs/neutronics/materials/database') or api.content.get(path='/Plone/materials/')
+        for key,val in md.items():
+            if key == value and val != self.context:
+                raise Invalid("Material with ID %s already exists" % value)
+
+
+validator.WidgetValidatorDiscriminators(IDValidator, field=IMaterial['ID'])
+grok.global_adapter(IDValidator)
+
