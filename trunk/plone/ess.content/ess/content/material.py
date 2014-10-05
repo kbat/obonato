@@ -28,7 +28,7 @@ import textwrap
 
 # ID validation
 from plone import api
-from zope.lifecycleevent.interfaces import IObjectCreatedEvent, IObjectAddedEvent
+from zope.lifecycleevent.interfaces import IObjectModifiedEvent #IObjectCreatedEvent, IObjectAddedEvent
 #from Products.CMFCore.interfaces import IContentish # a non-folderish object
 from plone.supermodel import model
 
@@ -297,3 +297,11 @@ class IDValidator(validator.SimpleFieldValidator):
 validator.WidgetValidatorDiscriminators(IDValidator, field=IMaterial['ID'])
 grok.global_adapter(IDValidator)
 
+# rename material if ID was changed (actually, the INameFromID is not needed with this function):
+@grok.subscribe(IMaterial, IObjectModifiedEvent)
+def rename(obj, event):
+    oldid = obj.getId()
+    newid = obj.ID
+    if oldid != newid:
+        parent = obj.aq_parent
+        parent.manage_renameObject(oldid, newid)
