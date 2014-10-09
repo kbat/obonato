@@ -102,9 +102,9 @@ class View(dexterity.DisplayForm):
         self.startFormatted = self.context.start.strftime("%d %b %Y")
         self.idFormatted = self.context.start.strftime("%y%m%d")
         # check if the prefix is the date in the form yymmdd:
-        if not search("\A(1[3-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", self.context.doc.filename):
+        if not search("\A([0-9][0-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", self.context.doc.filename):
             self.context.doc.filename = _(u"%s-%s" % (self.idFormatted, self.context.doc.filename))
-        if self.context.attachment and not search("\A(1[3-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", self.context.attachment.filename):
+        if self.context.attachment and not search("\A([0-9][0-9])(1[0-2]|0[1-9])([012][0-9]|3[01])", self.context.attachment.filename):
             self.context.attachment.filename = _(u"%s-%s" % (self.idFormatted, self.context.attachment.filename))
 
 
