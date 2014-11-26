@@ -29,5 +29,11 @@
 	     provides="ess.content.material.INameFromID"
 	     factory="ess.content.material.NameFromID"
 	     />
+
+    <adapter for="ess.content.minutes.IMinutes"
+	     provides="ess.content.minutes.INameFromDate"
+	     factory="ess.content.minutes.NameFromDate"
+	     />
+
   
 </configure>
