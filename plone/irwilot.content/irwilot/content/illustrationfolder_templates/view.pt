@@ -41,7 +41,7 @@
         <div>
             <tal:block repeat="illustration view/illustrations">
                 <div class="photoAlbumEntry" tal:define="obj illustration/getObject; scales obj/@@images; fs python: scales.scale('image', width=1024, height=1024);">
-                  <a rel='prettyPhoto[slideshow]' tal:attributes="href fs/url; title illustration/Description">
+                  <a rel='prettyPhoto[slideshow]' tal:attributes="href fs/url; title obj/Description">
                     <span class="photoAlbumEntryWrapper">
                       <img  tal:replace="structure python:scales.scale('image', scale='mini', direction='down').tag()" />
                     </span>

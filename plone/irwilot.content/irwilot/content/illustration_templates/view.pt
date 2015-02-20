@@ -30,11 +30,11 @@
         <div tal:define="image nocall:context/image;
                          scales context/@@images;"
              tal:condition="nocall:image" align="center">
-<a class='prettyPhoto' tal:define="fs python: scales.scale('image', width=1024, height=1024);"
-   tal:condition="fs"
-   tal:attributes="href fs/url; title context/Description">
-<img src="#" tal:replace="structure context/@@images/image/preview" />
-</a>
+	  <a class='prettyPhoto' tal:define="fs python: scales.scale('image', width=1024, height=1024);"
+	     tal:condition="fs"
+	     tal:attributes="href fs/url; title context/Description">
+	    <img src="#" tal:replace="structure context/@@images/image/preview" />
+	  </a>
         </div>
 
 	
