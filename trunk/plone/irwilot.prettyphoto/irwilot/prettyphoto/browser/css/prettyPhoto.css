@@ -132,7 +132,7 @@
     div.dark_rounded .pp_contract:hover { background: url(++resource++prettyPhoto.dark_rounded/sprite.png) 0 -47px no-repeat; cursor: pointer; } /* Contract button hover */
     div.dark_rounded .pp_close { width: 75px; height: 22px; background: url(++resource++prettyPhoto.dark_rounded/sprite.png) -1px -1px no-repeat; cursor: pointer; } /* Close button */
     div.dark_rounded .pp_details { position: relative; }
-    div.dark_rounded .pp_description { width: 70%; margin-left: auto; margin-right: auto; text-align: center; }
+    div.dark_rounded .pp_description { width: 100%; margin-left: auto; margin-right: auto; text-align: center; }
     div.dark_rounded .currentTextHolder { color: #c4c4c4; }
     div.dark_rounded .pp_description { color: #fff; }
     div.dark_rounded #pp_full_res .pp_inline { color: #fff; }
