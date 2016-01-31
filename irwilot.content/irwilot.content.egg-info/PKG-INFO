@@ -1,9 +1,9 @@
-Metadata-Version: 1.1
+Metadata-Version: 1.2
 Name: irwilot.content
-Version: 1.1
+Version: 1.2
 Summary: irwilot content package
 Home-page: http://svn.plone.org/svn/collective/
-Author: UNKNOWN
+Author: Konstantin Batkov
 Author-email: UNKNOWN
 License: GPL
 Description: Introduction
