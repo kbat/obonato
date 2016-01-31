@@ -17,6 +17,8 @@ irwilot.content.egg-info/requires.txt
 irwilot.content.egg-info/top_level.txt
 irwilot/content/__init__.py
 irwilot/content/configure.zcml
+irwilot/content/exhibition.py
+irwilot/content/exhibitionfolder.py
 irwilot/content/frontpage.py
 irwilot/content/illustration.py
 irwilot/content/illustrationfolder.py

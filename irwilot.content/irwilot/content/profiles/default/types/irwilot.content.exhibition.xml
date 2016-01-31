@@ -5,15 +5,19 @@
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Exhibition</property>
  <property name="description" i18n:translate="">An exhibition</property>
- <property name="content_icon">document_icon.gif</property>
+ <property name="content_icon">folder_icon.gif</property>
  <property name="allow_discussion">False</property>
  <property name="global_allow">False</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+     <element value="Image" />
+ </property>
  
  <!-- schema interface -->
  <property name="schema">irwilot.content.exhibition.IExhibition</property> 
  
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Item</property>
+ <property name="klass">plone.dexterity.content.Container</property>
  
  <!-- add permission -->
  <property name="add_permission">cmf.AddPortalContent</property>

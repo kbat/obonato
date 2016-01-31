@@ -18,8 +18,6 @@ from zope.interface import implements
 from zope.interface import Interface
 from plone.memoize.instance import memoize
 
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-
 
 class IExhibition(form.Schema):
     """An exhibition. Exhibitions are managed inside Exhibition Folder.
@@ -102,6 +100,17 @@ class View(dexterity.DisplayForm):
         if self.context.body:
             body = self.context.body.output
         self.context.description = "%s, %s" % (self.context.location, self.period)
+
+    def images(self):
+        """Return catalog search results of images to show
+        """
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+        
+        return catalog(object_provides="Products.ATContentTypes.interfaces.image.IATImage",
+                       path='/'.join(context.getPhysicalPath()),
+                       sort_on='getObjPositionInParent')
+
         
 @form.default_value(field=IExhibition['start'])
 def startDefaultValue(data):
