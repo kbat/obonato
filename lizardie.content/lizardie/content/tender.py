@@ -1,3 +1,4 @@
+
 from five import grok
 
 from z3c.form import group, field
@@ -32,7 +33,7 @@ class ITender(form.Schema, IImageScaleTraversable):
     # If you want a model-based interface, edit
     # models/tender.xml to define the content type.
 
-    form.model("models/tender.xml")
+#    form.model("models/tender.xml")
 
 
 # Custom content-type class; objects created for this content type will

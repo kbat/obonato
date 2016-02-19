@@ -5,3 +5,5 @@ plone.app.relationfield
 plone.namedfile[blobs]
 plone.formwidget.namedfile
 collective.dexteritytextindexer
+BeautifulSoup
+sc.social.like

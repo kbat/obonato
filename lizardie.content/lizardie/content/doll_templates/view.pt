@@ -70,7 +70,7 @@
 	<span tal:condition="view/images" tal:content="structure view/mainimage" />
 	<!-- img src="" tal:replace="structure view/mainimage" / -->
 
-        <div tal:content="structure context/body/output" /> <!-- page 261 -->
+        <span tal:content="structure context/body/output" /> <!-- page 261 -->
 	
 	<div class='visualClear'><!-- needed in order to put everything below the current content --></div>
 
@@ -80,8 +80,8 @@
 	</div>
 
 	<div>
-          <label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
-          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" />
+          <!-- label for="birthday" i18n:translate="label_doll_birthday">Birthday:</label>
+          <span class="discreet" id="birthday" tal:content="view/birthdayFormatted" / -->
 
 	  <div tal:condition="python: checkPermission('Add portal content', context)"> <!-- !!! change it to 'View Doll additional info' -->
 	    <!-- label for="status" i18n:translate="label_doll_status">Additional info:</label -->

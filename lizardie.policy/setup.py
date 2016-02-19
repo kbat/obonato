@@ -30,6 +30,7 @@ setup(name='lizardie.policy',
           'lizardie.content',
           'lizardietheme.bootstrap',
           'collective.prettyphoto', # for the pop-up effect
+#	  'Products.RedirectionTool',
       ],
       entry_points="""
       # -*- Entry points: -*-
