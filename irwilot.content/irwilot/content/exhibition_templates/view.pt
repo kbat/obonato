@@ -14,11 +14,11 @@
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
         
+        <p class="documentDescription" tal:content="context/description" />
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <p class="documentDescription" tal:content="context/description" />
 
 	<tal:comment tal:replace="nothing">
 	  needed in order to put everything below the current content:
@@ -26,29 +26,25 @@
 	<div class='visualClear'>
 	</div>
 
-	<div>
-          <span tal:define="images python:context.restrictedTraverse('@@view').images()" tal:condition="images">
-	    <dl>
-	      <tal:block repeat="image images">
-		<dt>
-                  <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
-                  <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
-                  <div class="photoAlbumEntry">
-		    <a tal:condition="python: checkPermission('Add Portal Content', context)" 
-		       tal:attributes="href string:${image/getURL}/view; title image/Description">
-		      <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
-		    </a>
-                    <a tal:condition="not:python: checkPermission('Add Portal Content', context)" 
-                       tal:attributes="href string:${image/getURL}/image_view_fullscreen; title image/Description">
-                      <img tal:attributes="src string:${image/getURL}/image_thumb; title image/Description" /> 
-                    </a>
-                    <!-- span class="photoAlbumEntryTitle" tal:content="image/pretty_title_or_id">Title</span -->
-                  </div>
-		</dt>
-              </tal:block>
-            </dl>
-          </span>
-	</div>
+        <div tal:define="images python:context.restrictedTraverse('@@view').images()" tal:condition="images">
+	  <dl>
+	    <tal:block repeat="image images">
+	      <dt>
+                <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
+                <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
+                <div>
+		  <a tal:condition="python: checkPermission('Add Portal Content', context)" 
+		     tal:attributes="href string:${image/getURL}/view; title image/Description">
+		    <img tal:attributes="src string:${image/getURL}/image_preview; title image/Description" /> 
+		  </a>
+                  <img tal:condition="not:python: checkPermission('Add Portal Content', context)"
+		       tal:attributes="src string:${image/getURL}/image_preview; alt image/pretty_title_or_id" />
+                  <!-- span class="photoAlbumEntryTitle" tal:content="image/pretty_title_or_id">Title</span -->
+                </div>
+	      </dt>
+            </tal:block>
+          </dl>
+        </div>
 	<br/>
 
 
