@@ -12,9 +12,6 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 class="documentFirstHeading" tal:content="context/title" />
-        
-        <p class="documentDescription" tal:content="context/description" />
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
