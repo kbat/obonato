@@ -3,6 +3,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="irwilot.content">
 
     <!-- Include configuration for dependencies listed in setup.py -->
@@ -24,5 +25,10 @@
         description="Installs the irwilot.content package"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-        
+
+    <browser:resourceDirectory
+	name="irwilot.content"
+	directory="static"
+	/>
+    
 </configure>

@@ -5,7 +5,7 @@
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Exhibition</property>
  <property name="description" i18n:translate="">An exhibition</property>
- <property name="content_icon">folder_icon.gif</property>
+ <property name="content_icon">++resource++irwilot.content/exhibition_icon.gif</property>
  <property name="allow_discussion">False</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
