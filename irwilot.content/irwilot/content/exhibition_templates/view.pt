@@ -27,8 +27,8 @@
 	</div>
 
 	<div>
-          <span tal:condition="python:context.restrictedTraverse('@@view').images()">
-	    <dl tal:define="images python:context.restrictedTraverse('@@view').images()">
+          <span tal:define="images python:context.restrictedTraverse('@@view').images()" tal:condition="images">
+	    <dl>
 	      <tal:block repeat="image images">
 		<dt>
                   <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
