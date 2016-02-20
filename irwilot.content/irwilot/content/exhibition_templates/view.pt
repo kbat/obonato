@@ -27,16 +27,13 @@
 	  <dl>
 	    <tal:block repeat="image images">
 	      <dt>
-                <!-- div class="photoAlbumEntry" tal:attributes="href image/getURL" tal:content="image/Title" / -->
-                <!-- img src="" alt="" tal:replace="structure python:image.tag(scale='thumb')" / -->
-                <div>
+                <div tal:define="obj image/getObject; scales obj/@@images">
 		  <a tal:condition="python: checkPermission('Add Portal Content', context)" 
 		     tal:attributes="href string:${image/getURL}/view; title image/Description">
-		    <img tal:attributes="src string:${image/getURL}/image_preview; title image/Description" /> 
+		    <img tal:replace="structure python:scales.scale('image', width=400, direction='down').tag()" />
 		  </a>
                   <img tal:condition="not:python: checkPermission('Add Portal Content', context)"
-		       tal:attributes="src string:${image/getURL}/image_preview; alt image/pretty_title_or_id" />
-                  <!-- span class="photoAlbumEntryTitle" tal:content="image/pretty_title_or_id">Title</span -->
+		       tal:attributes="src string:${image/getURL}/image_mini; alt image/pretty_title_or_id" />
                 </div>
 	      </dt>
             </tal:block>
