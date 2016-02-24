@@ -12,13 +12,9 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 class="documentFirstHeading" tal:content="context/title" />
-        
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <!-- p class="documentDescription" tal:content="context/description" / -->
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
+        <div tal:replace="structure provider:plone.abovecontentbody"  /> 
 
 	<tal:comment tal:replace="nothing">
 	  needed in order to put everything below the current content:
