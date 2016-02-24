@@ -39,7 +39,7 @@
 		<img tal:replace="structure python:scales.scale('image', width=400, direction='down').tag()" />
 	      </a>
               <img tal:condition="not:python: checkPermission('Add Portal Content', context)"
-		   tal:attributes="src string:${image/getURL}/image_mini; alt image/pretty_title_or_id" />
+		   tal:replace="structure python:scales.scale('image', width=400, direction='down').tag()" />
             </span>
           </tal:block>
         </div>
