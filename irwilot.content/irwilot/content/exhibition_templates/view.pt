@@ -5,10 +5,18 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="irwilot.content">
-<body>
+  <head>
+    <metal:block fill-slot="style_slot">
+      <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++irwilot.content/style.css"
+            />
+    </metal:block>
+  </head>
+  <body>
 
-<metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -25,14 +33,14 @@
 
         <div tal:define="images python:context.restrictedTraverse('@@view').images()" tal:condition="images">
 	  <tal:block repeat="image images">
-            <div tal:define="obj image/getObject; scales obj/@@images">
+            <span class="exhibitionPhoto" tal:define="obj image/getObject; scales obj/@@images">
 	      <a tal:condition="python: checkPermission('Add Portal Content', context)" 
 		 tal:attributes="href string:${image/getURL}/view; title image/Description">
 		<img tal:replace="structure python:scales.scale('image', width=400, direction='down').tag()" />
 	      </a>
               <img tal:condition="not:python: checkPermission('Add Portal Content', context)"
 		   tal:attributes="src string:${image/getURL}/image_mini; alt image/pretty_title_or_id" />
-            </div>
+            </span>
           </tal:block>
         </div>
 	<br/>
@@ -40,8 +48,8 @@
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
-    </tal:main-macro>
-</metal:main>
+      </tal:main-macro>
+    </metal:main>
 
-</body>
+  </body>
 </html>

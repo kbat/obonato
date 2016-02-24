@@ -1,0 +1,8 @@
+.exhibitionPhoto img {
+    border: 1px solid #ccc;
+    display: inline;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
