@@ -92,14 +92,14 @@ class View(dexterity.DisplayForm):
         self.period = self.startFormatted + " - " + self.endFormatted
         if self.context.start.year == self.context.end.year:
             if self.context.start.month == self.context.end.month:
-                self.period = str(self.context.start.day) + " - " + str(self.context.end.day) + " " + self.context.start.strftime("%b") + ", " + str(self.context.start.year)
+                self.period = str(self.context.start.day) + " - " + str(self.context.end.day) + " " + self.context.start.strftime("%B %Y")
             else:
-                self.period = self.context.start.strftime("%d %b") + " - " + self.context.end.strftime("%d %b") + ", " + str(self.context.start.year)
+                self.period = self.context.start.strftime("%d %B") + " - " + self.context.end.strftime("%d %B %Y")
         
         body = ""
         if self.context.body:
             body = self.context.body.output
-        self.context.description = "%s, %s" % (self.context.location, self.period)
+        self.context.description = "%s %s" % (self.context.location, self.period)
 
     def images(self):
         """Return catalog search results of images to show

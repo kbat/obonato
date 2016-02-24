@@ -25,7 +25,7 @@
 	<ul>
           <tal:block repeat="exhibition view/exhibitions">
             <li>
-	      <a tal:attributes="href exhibition/getURL" tal:content="exhibition/Title" />
+	      <a tal:attributes="href exhibition/getURL" tal:content="exhibition/Title" />,
 	      <span tal:content="exhibition/Description" />
             </li>
           </tal:block>
