@@ -31,7 +31,7 @@
 	<div class='visualClear'>
 	</div>
 
-        <div tal:define="images python:context.restrictedTraverse('@@view').images()" tal:condition="images">
+        <div align="center" tal:define="images python:context.restrictedTraverse('@@view').images()" tal:condition="images">
 	  <tal:block repeat="image images">
             <span class="exhibitionPhoto" tal:define="obj image/getObject; scales obj/@@images">
 	      <a tal:condition="python: checkPermission('Add Portal Content', context)" 
