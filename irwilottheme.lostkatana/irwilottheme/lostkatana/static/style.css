@@ -192,7 +192,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     #nav:hover li {
 	display: block;
 	width:100%; 
-	border-top:1px solid #ffffff;;
+	border-bottom:1px solid #b0b0b0;;
 	display:block !Important;
 	padding:0;
     }
@@ -204,7 +204,7 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     }
     
     #nav:hover li a {
-	color: #ffffff;;
+	color: Black;;
 	width:100%;
 	padding:0 2.5%;
 	line-height: 3em;
@@ -212,11 +212,11 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 	width: 95% !important;
     }
     
-    #nav:hover li:hover {background: #9f2200;}
+    #nav:hover li:hover {background: White;}
     #nav:hover li a:hover,
     #nav:hover li.selected a {
-	background: White;
-	color: Red;
+	background: #b0b0b0;
+	color: Black;
 	border-top-right-radius: 0.5em;
 	border-top-left-radius: 0.5em;
 	-webkit-border-top-right-radius: 0.5em;
