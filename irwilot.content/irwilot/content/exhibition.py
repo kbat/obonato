@@ -86,8 +86,8 @@ class View(dexterity.DisplayForm):
     def update(self):
         """Prepare information for the template
         """
-        self.startFormatted = self.context.start.strftime("%d %b %Y")
-        self.endFormatted = self.context.end.strftime("%d %b %Y")
+        self.startFormatted = self.context.start.strftime("%-d %B %Y")
+        self.endFormatted = self.context.end.strftime("%-d %B %Y")
 
         self.period = self.startFormatted + " - " + self.endFormatted
         if self.context.start.year == self.context.end.year:
@@ -99,7 +99,7 @@ class View(dexterity.DisplayForm):
         body = ""
         if self.context.body:
             body = self.context.body.output
-        self.context.description = "%s %s" % (self.context.location, self.period)
+        self.context.description = "%s, %s" % (self.context.location, self.period)
 
     def images(self):
         """Return catalog search results of images to show
