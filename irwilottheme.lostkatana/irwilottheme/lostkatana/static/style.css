@@ -263,9 +263,9 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     position:relative;
     overflow: hidden;
     height: 250px;
-    width: 250px;
+    width: 200px;
     margin: 0em;
-    padding: 0px 6px 0px 9px;
+    padding: 0px 20px 0px 0px;
     text-align: center;
     background-image: none;
     background-repeat: no-repeat;
