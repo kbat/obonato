@@ -18,6 +18,12 @@ class IIllustrationFolder(form.Schema):
         title=_(u"Title"),
         )
     
+    description = schema.Text(
+        title = _(u"Description"),
+        description = _(u"Description"),
+        required = False,
+        )
+
     details = RichText(
         title=_(u"Text"),
         required=False
