@@ -375,7 +375,9 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     -moz-border-radius: 0.5em;
 }
 
-
+.documentDescription {
+	font-family: Georgia, serif;
+}
 
 
 /* @end */
