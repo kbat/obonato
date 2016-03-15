@@ -26,8 +26,8 @@ body {
 a:link, #content a:link, dl.portlet a:link {color:#000000;}
 a:visited, #content a:visited, dl.portlet a:visited {color: #000000;}
 #content a:hover, dl.portlet a:hover {color: #9f2200 !important;}
-h1 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
-h2, h3, h4, h5, h6 {color: #606060; font-family: "AvantGarde Md BT", Arial, Helvetica, sans-serif; }
+h1 {color: #606060; font-family: Georgia, serif; }
+h2, h3, h4, h5, h6 {color: #606060; font-family: Georgia, serif; }
 h1, h2, h3 {margin: 0.5em 0 0.5em;}
 p {line-height: 1.8em; margin: 0 0 1em 0;}
 .wellcome {
