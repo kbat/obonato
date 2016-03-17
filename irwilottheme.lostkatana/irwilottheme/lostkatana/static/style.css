@@ -382,5 +382,8 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
 	font-size: 1.1em;
 }
 
+label {
+    color: Black;
+}
 
 /* @end */
