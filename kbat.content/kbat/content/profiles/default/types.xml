@@ -3,4 +3,6 @@
  <object name="kbat.content.quotefolder" meta_type="Dexterity FTI" />
  <object name="kbat.content.blog" meta_type="Dexterity FTI" />
  <object name="kbat.content.post" meta_type="Dexterity FTI" />
+ <object name="kbat.content.location" meta_type="Dexterity FTI" />
+ <object name="kbat.content.trips" meta_type="Dexterity FTI" />
 </object>
