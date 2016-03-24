@@ -26,8 +26,6 @@ setup(name='kbat.policy',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'Products.PloneFormGen',
-          'diazotheme.bootstrap',
           'collective.plonetruegallery',
           'collective.prettyphoto',
           'kbat.content',

@@ -2,7 +2,7 @@
 <metadata>
     <version>1</version>
     <dependencies>
-        <dependency>profile-Products.PloneFormGen:default</dependency>
         <dependency>profile-kbat.content:default</dependency>
+        <dependency>profile-kbattheme.lostkatana:default</dependency>
     </dependencies>
 </metadata>
