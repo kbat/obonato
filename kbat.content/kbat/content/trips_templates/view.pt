@@ -5,31 +5,20 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="kbat.content">
-<body>
+  <body>
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-    
-    Note that we're using Plone 4 macros. Replace them with Plone 3 macros
-    if needed.
-</tal:comment>
+    <metal:main fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
 
-<metal:main fill-slot="content-core">
-  <metal:content-core define-macro="content-core">
-
-    <div class='visualClear'></div>
-
-    <div>
-      <tal:block repeat="location view/locations">
-        <a tal:attributes="href location/getURL" tal:content="location/Title" /> &rarr;
-      </tal:block>
-    </div>
+	<p>
+	  <tal:block repeat="location view/locations">
+            <a tal:attributes="href location/getURL" tal:content="location/Title" />&nbsp;&rarr;
+	  </tal:block>
+	</p>
 
 
-  </metal:content-core>
-</metal:main>
+      </metal:content-core>
+    </metal:main>
 
-</body>
+  </body>
 </html>
-

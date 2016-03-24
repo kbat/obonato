@@ -5,59 +5,22 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="kbat.content">
-<body>
+  <body>
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-    
-    Note that we're using Plone 4 macros. Replace them with Plone 3 macros
-    if needed.
-</tal:comment>
+    <metal:main fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
 
-<metal:main fill-slot="content-core">
-  <metal:content-core define-macro="content-core">
+	  <label for="date" i18n:translate="label_post_date">Date:</label>
+	  <span id="date" tal:content="view/dateFormatted" />
 
+	  <div tal:define="photo nocall:context/photo"
+	       tal:condition="nocall:photo" align="center">
+	    <img tal:replace="structure context/@@images/photo/preview"/>
+	  </div>
+	  
 
-    title:
-    <div tal:content="context/Title">Title inserted here</div>
+      </metal:content-core>
+    </metal:main>
 
-    <div>
-      <label for="date" i18n:translate="label_post_date">Date:</label>
-      <span class="discreet" id="date" tal:content="view/dateFormatted" />
-    </div>
-    
-
-
-    <div class='visualClear'></div>
-
-
-    <div tal:content="structure context/details/output|nothing" /> <!-- page 261 -->
-
-
-<!--    <blockquote class="pullquote">
-    <table class="vertical listing" summary="weather">
-      <tbody>
-        <tr tal:condition="context/tinside">
-          <th class="type"><span i18n:translate="label_post_tinside">Inside temperature</span></th>
-          <td class="value"><span tal:content="context/tinside">[t deg]</span>&thinsp;&deg;C</td>
-        </tr>
-        <tr tal:condition="context/toutside">
-          <th class="type"><span i18n:translate="label_post_toutside">Outside temperature</span></th>
-          <td class="value"><span tal:content="context/toutside">[t deg]</span>&thinsp;&deg;C</td>
-        </tr>
-        <tr tal:condition="context/humidity">
-          <th class="type"><span i18n:translate="label_post_humidity">Humidity</span></th>
-          <td class="value"><span tal:content="context/humidity">[h %]</span>&thinsp;%</td>
-        </tr>
-      </tbody>
-    </table>
-    <span tal:content="context/weather|nothing"/>
-    </blockquote> -->
-
-  </metal:content-core>
-</metal:main>
-
-</body>
+  </body>
 </html>
-

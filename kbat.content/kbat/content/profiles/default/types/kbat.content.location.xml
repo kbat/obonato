@@ -6,11 +6,10 @@
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Location</property>
   <property name="description"
-    i18n:translate="">Location of the Blog</property>
-  <property name="icon_expr">string:${portal_url}/page_icon.png</property>
+    i18n:translate="">A destination of a trip segment</property>
+  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
   <property name="factory">kbat.content.location</property>
   <property name="global_allow">False</property>
-
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
@@ -18,7 +17,6 @@
   <property name="klass">kbat.content.location.Location</property>
 
   <property name="behaviors">
-     <!-- element value="plone.app.content.interfaces.INameFromTitle" / -->
      <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
    </property>
 

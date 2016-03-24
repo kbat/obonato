@@ -11,8 +11,7 @@ from zope.interface import invariant, Invalid
 from z3c.form import group, field
 
 from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from plone.namedfile.field import NamedBlobImage
 
 from plone.app.textfield import RichText
 from plone.app.content.interfaces import INameFromTitle
@@ -61,12 +60,20 @@ class ILocation(form.Schema):
         required = True,
         )
 
+    photo = NamedBlobImage(
+        title = _(u"Photo"),
+        required = False,
+    )
+
+class Location(dexterity.Item):
+    grok.implements(ILocation)
+    
 class View(grok.View):
+    """ Default view @@view """
+    implements(ILocation)
     grok.context(ILocation)
     grok.require('zope2.View')
     
-    # grok.name('view')
-
     def update(self):
         self.dateFormatted = self.context.start.strftime("%d %b %Y")
 

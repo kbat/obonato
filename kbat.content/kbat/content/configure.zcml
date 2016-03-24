@@ -23,5 +23,10 @@
 	     provides="kbat.content.post.INameFromDate"
 	     factory="kbat.content.post.NameFromDate"
 	     />
-        
+
+    <adapter for="kbat.content.location.ILocation"
+             provides="kbat.content.location.INameFromDate"
+             factory="kbat.content.location.NameFromDate"
+             />
+
 </configure>
