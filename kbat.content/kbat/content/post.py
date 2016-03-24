@@ -22,7 +22,6 @@ from Products.CMFCore.utils import getToolByName
 
 
 from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from kbat.content import _
 

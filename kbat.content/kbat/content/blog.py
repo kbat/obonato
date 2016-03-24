@@ -6,7 +6,12 @@ from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 from zope.interface import invariant, Invalid, alsoProvides
-from zope.app.content.interfaces import IContentType
+try:
+    # plone 4
+    from zope.app.content.interfaces import IContentType
+except ImportError:
+    # plone 5
+    from plone.dexterity.interfaces import IContentType
 
 from z3c.form import group, field
 
@@ -17,7 +22,7 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.app.textfield import RichText
 
 from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
+#from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from kbat.content import MessageFactory as _
 
