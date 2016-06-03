@@ -81,4 +81,5 @@ class View(grok.View):
         catalog = getToolByName(context, 'portal_catalog')
 
         return catalog(object_provides=ILocation.__identifier__,
-                       path='/'.join(context.getPhysicalPath()))
+                       path='/'.join(context.getPhysicalPath()), sort_on='start')
+
