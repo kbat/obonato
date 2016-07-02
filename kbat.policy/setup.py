@@ -29,7 +29,7 @@ setup(name='kbat.policy',
           'collective.plonetruegallery',
           'collective.prettyphoto',
           'kbat.content',
-          'kbattheme.lostkatana'
+#          'kbattheme.lostkatana'
       ],
       entry_points="""
       # -*- Entry points: -*-
