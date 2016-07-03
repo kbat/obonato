@@ -36,7 +36,7 @@ setup(name='lizardie.content',
           'collective.dexteritytextindexer',
           'BeautifulSoup', # for pickle in tender.py
 #          'cioppino.twothumbs',
-          'sc.social.like',
+#          'sc.social.like',
       ],
       entry_points="""
       # -*- Entry points: -*-
