@@ -26,7 +26,7 @@ setup(name='lizardie.policy',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-#          'Products.PloneFormGen',
+          'Products.PloneFormGen',
           'lizardie.content',
           'lizardietheme.bootstrap',
           'collective.prettyphoto', # for the pop-up effect
