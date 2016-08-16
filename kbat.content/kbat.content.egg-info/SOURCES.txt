@@ -18,12 +18,13 @@ kbat.content.egg-info/top_level.txt
 kbat/content/__init__.py
 kbat/content/blog.py
 kbat/content/configure.zcml
+kbat/content/location.py
 kbat/content/post.py
 kbat/content/quote.py
 kbat/content/quotefolder.py
 kbat/content/tests.py
+kbat/content/trips.py
 kbat/content/blog_templates/sampleview.pt
-kbat/content/post_templates/sampleview.pt
 kbat/content/post_templates/view.pt
 kbat/content/profiles/default/cssregistry.xml
 kbat/content/profiles/default/metadata.xml

@@ -3,6 +3,6 @@
     <version>1</version>
     <dependencies>
         <dependency>profile-kbat.content:default</dependency>
-        <!-- dependency>profile-kbattheme.lostkatana:default</dependency -->
+        <dependency>profile-plone5theme.kbat:default</dependency>
     </dependencies>
 </metadata>

@@ -29,6 +29,7 @@ setup(name='kbat.policy',
           'collective.plonetruegallery',
           'collective.prettyphoto',
           'kbat.content',
+          'plone5theme.kbat'
 #          'kbattheme.lostkatana'
       ],
       entry_points="""
@@ -37,6 +38,6 @@ setup(name='kbat.policy',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
+#      setup_requires=["PasteScript"],
+#      paster_plugins=["ZopeSkel"],
       )
