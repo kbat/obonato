@@ -2,10 +2,18 @@
 @import "++theme++barceloneta/less/barceloneta.plone.less";
 
 /* Customize whatever you want */
-@plone-sitenav-bg: pink;
-@plone-sitenav-link-hover-bg: darken(pink, 20%);
 @plone-body-bg: #fbeccf;
+@plone-sitenav-bg: @plone-body-bg;
+@plone-sitenav-link-hover-bg: darken(@plone-sitenav-bg, 5%);
 @plone-headings-color: #9f2200;
+
+//*// BREADCRUMB
+@plone-breadcrumb-bg: @plone-sitenav-link-hover-bg;
+
+//*// PORTLETS
+@plone-portlet-header-bg: @plone-sitenav-link-hover-bg;
+@plone-portlet-content-bg: darken(@plone-sitenav-bg, 1%);
+@plone-portlet-footer-bg: @plone-portlet-header-bg;
 
 .plone-nav > li > a {
   color: @plone-text-color;
