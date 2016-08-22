@@ -3,9 +3,21 @@
 
 /* Customize whatever you want */
 @plone-body-bg: #fbeccf;
+@plone-headings-color: #9f2200;
+@plone-headings-small-color: #00ff00;
+@plone-link-color: #ff0000;
+@plone-link-color-on-dark: #ffffff;
+@plone-link-color-on-grey: @plone-headings-color;
+@plone-link-hover-color: @plone-headings-color;
+@plone-component-active-color: #ff0000;
+@plone-default-published-color: #0000ff;
+
+//*// NAVIGATION
 @plone-sitenav-bg: @plone-body-bg;
 @plone-sitenav-link-hover-bg: darken(@plone-sitenav-bg, 5%);
-@plone-headings-color: #9f2200;
+.plone-nav > li > a {
+  color: @plone-text-color;
+}
 
 //*// BREADCRUMB
 @plone-breadcrumb-bg: @plone-sitenav-link-hover-bg;
@@ -15,6 +27,6 @@
 @plone-portlet-content-bg: darken(@plone-sitenav-bg, 1%);
 @plone-portlet-footer-bg: @plone-portlet-header-bg;
 
-.plone-nav > li > a {
-  color: @plone-text-color;
-}
+
+//*// FOOTER
+@plone-footer-bg: #734f33;
