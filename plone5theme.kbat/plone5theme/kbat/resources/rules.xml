@@ -30,7 +30,10 @@
         <after css:theme-children="html body" css:content="html head script" />
 
         <!-- Insert your own rules here -->
-
+	<!-- remove logo and search box -->
+	<drop css:content="#portal-header" />
+	<!-- remove the huge Welcome! on the front page -->
+	<drop css:theme="#hero" />
     </rules>
 
 </rules>
