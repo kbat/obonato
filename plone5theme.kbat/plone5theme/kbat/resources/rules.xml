@@ -32,6 +32,10 @@
         <!-- Insert your own rules here -->
 	<!-- remove logo and search box -->
 	<drop css:content="#portal-header" />
+
+	<!-- Move search box after #hero-->
+	<after css:theme="#hero" css:content="#portal-searchbox" />
+
 	<!-- remove the huge Welcome! on the front page -->
 	<drop css:theme="#hero" />
     </rules>
