@@ -16,7 +16,6 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.app.textfield import RichText
 
 from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from ess.fastneutronsworkshop import MessageFactory as _
 

@@ -18,7 +18,6 @@ from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
 
 from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from ess.content import _
 from collective import dexteritytextindexer
