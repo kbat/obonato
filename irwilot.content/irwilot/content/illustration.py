@@ -22,10 +22,10 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 genre_voc = SimpleVocabulary(
     [   SimpleTerm(value=u'none', title=_(u'-')),
-        SimpleTerm(value=u'landscape', title=_(u'Landskap')),
-        SimpleTerm(value=u'portrait', title=_(u'Portratt')),
-        SimpleTerm(value=u'stilllife', title=_(u'Stilleben')),
-        SimpleTerm(value=u'fantasy', title=_(u'Fantasi')),
+        SimpleTerm(value=u'landscape', title=_(u'Landscape')),
+        SimpleTerm(value=u'portrait', title=_(u'Portrait')),
+        SimpleTerm(value=u'stilllife', title=_(u'Stilllife')),
+        SimpleTerm(value=u'fantasy', title=_(u'Fantasy')),
         SimpleTerm(value=u'composition', title=_(u'Composition')) ]
     )
 
@@ -39,9 +39,9 @@ style_voc = SimpleVocabulary(
 technique_voc = SimpleVocabulary(
     [   SimpleTerm(value=u'none', title=_(u'-')),
         SimpleTerm(value=u'akryl', title=_(u'Akryl')),
-        SimpleTerm(value=u'oil', title=_(u'Olja')),
-        SimpleTerm(value=u'watercolour', title=_(u'Akvarell')),
-        SimpleTerm(value=u'pencil', title=_(u'Blyerts'))  ]
+        SimpleTerm(value=u'oil', title=_(u'Oil')),
+        SimpleTerm(value=u'watercolour', title=_(u'Watercolour')),
+        SimpleTerm(value=u'pencil', title=_(u'Pencil'))  ]
     )
 
 
