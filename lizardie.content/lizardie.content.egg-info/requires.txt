@@ -1,9 +1,0 @@
-setuptools
-plone.app.dexterity [grok]
-plone.app.referenceablebehavior
-plone.app.relationfield
-plone.namedfile[blobs]
-plone.formwidget.namedfile
-collective.dexteritytextindexer
-BeautifulSoup
-sc.social.like

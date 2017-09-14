@@ -1,7 +1,0 @@
-setuptools
-Products.PloneFormGen
-diazotheme.bootstrap
-collective.plonetruegallery
-collective.prettyphoto
-kbat.content
-kbattheme.lostkatana

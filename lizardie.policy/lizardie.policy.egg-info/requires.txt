@@ -1,5 +1,0 @@
-setuptools
-Products.PloneFormGen
-lizardie.content
-lizardietheme.bootstrap
-collective.prettyphoto
