@@ -19,3 +19,17 @@ msgstr ""
 
 msgid "heading_contact_form"
 msgstr "Kontakt"
+
+msgid "image_keep"
+msgstr "Behålla den befintliga bilden"
+
+msgid "image_replace"
+msgstr "Ersätta med en ny bild"
+
+# Commented out since did not manage
+# to make it work:
+# msgid "Choose file"
+# msgstr  "Välj fil"
+#
+# msgid "No file chosen"
+# msgstr "Filen är inte vald"
