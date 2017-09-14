@@ -220,7 +220,7 @@ msgid "Visible to registered users only"
 msgstr "Synlig för registrerade användare"
 
 #: ./illustration.py:36
-msgid "Water-colour"
+msgid "Watercolour"
 msgstr "Akvarell"
 
 #: ./illustration.py:122
@@ -265,3 +265,5 @@ msgstr "Teknik"
 msgid "label_other_links"
 msgstr "Länkar"
 
+msgid "Pencil"
+msgstr "Blyerts"
