@@ -166,8 +166,8 @@ msgstr "Ange antal bilder att visa i botten på sidan"
 msgid "Specify which kind of items to show in the bottom of the page"
 msgstr "Ange vilken typ av objekt att visa i botten på sidan"
 
-#: ./illustration.py:26
-msgid "Still life"
+#: ./illustration.py:27
+msgid "Stilllife"
 msgstr "Stilleben"
 
 msgid "Fantasy"
