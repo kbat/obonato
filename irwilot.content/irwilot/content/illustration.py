@@ -24,7 +24,7 @@ genre_voc = SimpleVocabulary(
     [   SimpleTerm(value=u'none', title=_(u'-')),
         SimpleTerm(value=u'landscape', title=_(u'Landskap')),
         SimpleTerm(value=u'portrait', title=_(u'Portratt')),
-        SimpleTerm(value=u'stilllife', title=_(u'Stilliben')),
+        SimpleTerm(value=u'stilllife', title=_(u'Stilleben')),
         SimpleTerm(value=u'fantasy', title=_(u'Fantasi')),
         SimpleTerm(value=u'composition', title=_(u'Composition')) ]
     )
