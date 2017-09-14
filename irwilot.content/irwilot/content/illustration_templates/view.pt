@@ -72,15 +72,15 @@
         </tr>
         <tr>
           <td align="right"><label i18n:translate="label_illustration_genre">Genre</label>:</td>
-          <td align="left">&nbsp;<span class="discreet" id="genre" tal:content="context/genre/title|nothing" /></td>
+          <td align="left">&nbsp;<span class="discreet" id="genre" i18n:translate="" tal:content="context/genre/title|nothing" /></td>
         </tr>
         <tr>
           <td align="right"><label for="style" i18n:translate="label_illustration_style">Style</label>:</td>
-          <td align="left">&nbsp;<span class="discreet" id="style" tal:content="context/style/title|nothing" /></td>
+          <td align="left">&nbsp;<span class="discreet" id="style" i18n:translate="" tal:content="context/style/title|nothing" /></td>
         </tr>
         <tr>
           <td align="right"><label for="technique" i18n:translate="label_illustration_technique">Technique</label>:</td>
-          <td align="left">&nbsp;<span class="discreet" id="technique" tal:content="context/technique/title|nothing" /></td>
+          <td align="left">&nbsp;<span class="discreet" id="technique" i18n:translate="" tal:content="context/technique/title|nothing" /></td>
         </tr>
        <tr tal:condition="python: context.width and context.height">
           <td align="right"><label for="height" i18n:translate="label_illustration_dimensions">Dimensions</label>:</td>
