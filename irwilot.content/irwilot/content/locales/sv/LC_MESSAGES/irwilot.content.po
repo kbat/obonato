@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-10-02 15:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: Konstantin Batkov <kbat.plone @at@ lizardie.com>\n"
+"Last-Translator: Konstantin Batkov <batkov@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -267,3 +267,4 @@ msgstr "Länkar"
 
 msgid "Pencil"
 msgstr "Blyerts"
+
