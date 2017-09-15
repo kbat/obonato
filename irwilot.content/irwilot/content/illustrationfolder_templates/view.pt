@@ -8,20 +8,12 @@
 <body>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main"
-        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-		    result python:context.atctListAlbum(images=1, folders=1, subimages=0, others=1);
-		    images result/images;
-		    albums result/folders">
+    <tal:main-macro metal:define-macro="main">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
         
-        <!--div class="discreet">
-	  discreet
-        </div-->
-
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
         <p class="documentDescription" tal:content="context/description" />
@@ -30,14 +22,6 @@
 
         <div tal:condition="context/details" tal:content="structure context/details/output" />
         
-<!--        <dl>
-            <tal:block repeat="illustration view/illustrations">
-                <dt>
-                    <a tal:attributes="href illustration/getURL" tal:content="illustration/Title" />
-                </dt>
-            </tal:block>
-        </dl>
--->
         <div>
             <tal:block repeat="illustration view/illustrations">
                 <div class="photoAlbumEntry" tal:define="obj illustration/getObject; scales obj/@@images; fs python: scales.scale('image', width=1024, height=1024);">
@@ -45,7 +29,6 @@
                     <span class="photoAlbumEntryWrapper">
                       <img  tal:replace="structure python:scales.scale('image', scale='mini', direction='down').tag()" />
                     </span>
-                    <!-- span class="photoAlbumEntryTitle" tal:content="illustration/Title" /-->
                   </a>
                 </div>
             </tal:block>
