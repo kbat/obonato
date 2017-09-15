@@ -12,7 +12,7 @@
 		  tal:define="illustrations view/illustrations;
 			      Batch python:modules['Products.CMFPlone'].Batch;
 			      b_start python:request.get('b_start', 0);
-			      batch python:Batch(illustrations, 9, int(b_start), orphan=1)">
+			      batch python:Batch(illustrations, 8, int(b_start), orphan=1)">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
