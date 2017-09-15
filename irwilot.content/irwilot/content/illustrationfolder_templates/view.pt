@@ -8,7 +8,11 @@
 <body>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
+  <tal:main-macro metal:define-macro="main"
+		  tal:define="illustrations view/illustrations;
+			      Batch python:modules['Products.CMFPlone'].Batch;
+			      b_start python:request.get('b_start', 0);
+			      batch python:Batch(illustrations, 3, int(b_start), orphan=1)">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -22,17 +26,15 @@
 
         <div tal:condition="context/details" tal:content="structure context/details/output" />
         
-        <div>
-            <tal:block repeat="illustration view/illustrations">
-                <div class="photoAlbumEntry" tal:define="obj illustration/getObject; scales obj/@@images; fs python: scales.scale('image', width=1024, height=1024);">
-                  <a rel='prettyPhoto[slideshow]' tal:attributes="href fs/url; title obj/Description">
-                    <span class="photoAlbumEntryWrapper">
-                      <img  tal:replace="structure python:scales.scale('image', scale='mini', direction='down').tag()" />
-                    </span>
-                  </a>
-                </div>
-            </tal:block>
-        </div>
+        <tal:images tal:condition="batch" tal:repeat="illustration batch">
+          <div class="photoAlbumEntry" tal:define="obj illustration/getObject; scales obj/@@images; fs python: scales.scale('image', width=1024, height=1024);">
+            <a rel='prettyPhoto[slideshow]' tal:attributes="href fs/url; title obj/Description">
+              <span class="photoAlbumEntryWrapper">
+                <img  tal:replace="structure python:scales.scale('image', scale='mini', direction='down').tag()" />
+              </span>
+            </a>
+          </div>
+        </tal:images>
 
 	<div tal:replace="structure provider:plone.belowcontentbody" />
 	
