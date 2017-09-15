@@ -161,7 +161,7 @@ class View(dexterity.DisplayForm):
         body = ""
         if self.context.body:
             body = self.context.body.output
-        self.context.description = "%s &emsp;&nbsp; %s &emsp;&nbsp; %d %s" % (self.context.technique.capitalize(), self.dimensions, self.context.start.year, body)
+        self.context.description = "%s &emsp;&nbsp; %s &emsp;&nbsp; %d %s" % (self.context.translate(_(u'%s'% self.context.technique.capitalize())), self.dimensions, self.context.start.year, body)
         
     def mainimage(self):
         """Return image to show in IllustrationFolder view
