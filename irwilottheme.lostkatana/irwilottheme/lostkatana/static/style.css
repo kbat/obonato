@@ -299,14 +299,19 @@ dl.portlet dt, div.portletAssignments div.portletHeader {background: #e9d8bb;}
     height: 3.6em;
 }
 
-@media (max-width: 960px) and (min-width: 501px) {
-    .photoAlbumEntry { width: 45%; } /* Show 2 entries per row on medium devices (tablets, phones in landscape) */
+/* Show 2 entries per row on medium devices (tablets, phones in landscape) */
+@media (max-width: 960px) and (min-width: 481px) {
+    .photoAlbumEntry {
+	width: 45%;
+	margin: 0;
+    }
 }
 
-@media (max-width: 500px) {
+/* On small screens, show one entry per row */
+@media (max-width: 480px) {
     .photoAlbumEntry {
 	width: 100%;
-    } /* On small screens, show one entry per row */
+    }
 }
 
 
