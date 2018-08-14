@@ -258,6 +258,9 @@
     div.facebook .pp_bottom .pp_middle { background: url(++resource++prettyPhoto.facebook/contentPatternBottom.png) top left repeat-x; } /* Bottom pattern/color */
     div.facebook .pp_bottom .pp_right { background: url(++resource++prettyPhoto.facebook/sprite.png) -110px -80px no-repeat; } /* Bottom right corner */
 
+    .prettyPhoto img {
+	height: auto;
+    }
 
 /* ------------------------------------------------------------------------
     DO NOT CHANGE

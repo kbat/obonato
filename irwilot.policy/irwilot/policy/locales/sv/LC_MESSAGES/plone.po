@@ -26,6 +26,18 @@ msgstr "Behålla den befintliga bilden"
 msgid "image_replace"
 msgstr "Ersätta med en ny bild"
 
+msgid "batch_next_x_items"
+msgstr "Nästa"
+
+msgid "batch_previous_x_items"
+msgstr "Föregående"
+
+msgid "label_next_item"
+msgstr "Nästa"
+
+msgid "label_previous_item"
+msgstr "Föregående"
+
 # Commented out since did not manage
 # to make it work:
 # msgid "Choose file"
