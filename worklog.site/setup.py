@@ -31,7 +31,7 @@ setup(
     keywords='Python Plone',
     author='Konstantin Batkov',
     author_email='batkov@gmail.com',
-    url='https://github.com/collective/worklog.site',
+    url='https://github.com/kbat/obonato/worklog.site',
     project_urls={
         'PyPI': 'https://pypi.python.org/pypi/worklog.site',
         'Source': 'https://github.com/collective/worklog.site',
@@ -52,6 +52,8 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi',
         'plone.app.dexterity',
+        'collective.documentviewer',
+        'collective.celery'
     ],
     extras_require={
         'test': [
