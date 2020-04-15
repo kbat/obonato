@@ -26,6 +26,12 @@ from kbat.content import _
 from zope.interface import implements
 from zope.interface import Interface
 
+lighting_voc = SimpleVocabulary(
+    [ SimpleTerm(value=u'none', title=_(u'-')),
+      SimpleTerm(value=u'sun', title=_(u'Full light')),
+      SimpleTerm(value=u'prenumbra', title=_(u'Prenumbra')),
+      SimpleTerm(value=u'shadow', title=_(u'Shadow')) ]
+    )
 
 # Interface class; used to define content-type schema.
 
@@ -40,6 +46,12 @@ class IPlant(form.Schema):
     # models/plant.xml to define the content type
     # and add directives here as necessary.
     
+    lighting = schema.Choice(
+        title = _(u"Lighting"),
+        vocabulary = lighting_voc,
+        required = False,
+        )
+
     photo = NamedBlobImage(
         title = _(u"Photo"),
         required = False,
@@ -61,5 +73,5 @@ class View(grok.View):
     grok.context(IPlant)
     grok.require('zope2.View')
     
-    def update(self):
-        self.dateFormatted = self.context.start.strftime("%d %b %Y")
+#    def update(self):
+#        self.dateFormatted = self.context.start.strftime("%d %b %Y")

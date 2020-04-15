@@ -11,7 +11,7 @@
       <metal:content-core define-macro="content-core">
 
 	  <label for="date" i18n:translate="label_post_date">Date:</label>
-	  <span id="date" tal:content="view/dateFormatted" />
+	  <div id="lighting" i18n:translate="" tal:content="context/lighting/title|nothing" />
 
 	  <div tal:define="photo nocall:context/photo"
 	       tal:condition="nocall:photo" align="center">
