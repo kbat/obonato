@@ -5,4 +5,6 @@
  <object name="kbat.content.post" meta_type="Dexterity FTI" />
  <object name="kbat.content.location" meta_type="Dexterity FTI" />
  <object name="kbat.content.trips" meta_type="Dexterity FTI" />
+ <object name="kbat.content.plant" meta_type="Dexterity FTI" />
+ <object name="kbat.content.plantfolder" meta_type="Dexterity FTI" />
 </object>

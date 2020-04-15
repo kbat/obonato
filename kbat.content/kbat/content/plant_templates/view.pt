@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="kbat.content">
+  <body>
+
+    <metal:main fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+
+	  <label for="date" i18n:translate="label_post_date">Date:</label>
+	  <span id="date" tal:content="view/dateFormatted" />
+
+	  <div tal:define="photo nocall:context/photo"
+	       tal:condition="nocall:photo" align="center">
+	    <img tal:replace="structure context/@@images/photo/preview"/>
+	  </div>
+	  
+
+      </metal:content-core>
+    </metal:main>
+
+  </body>
+</html>
