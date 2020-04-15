@@ -40,15 +40,17 @@ class IPlant(form.Schema):
     # models/plant.xml to define the content type
     # and add directives here as necessary.
     
-    start = schema.Date(
-        title = _(u"Date"),
-        required = True,
-        )
-
     photo = NamedBlobImage(
         title = _(u"Photo"),
         required = False,
     )
+
+    form.fieldset('seeding', label=_(u"Seeding"), fields=['seeding_notes'])
+
+    seeding_notes = schema.Text(
+        title = _(u"Notes"),
+        description = _(u"Seeding notes"),
+        required = False)
 
 class Plant(dexterity.Item):
     grok.implements(IPlant)
@@ -61,7 +63,3 @@ class View(grok.View):
     
     def update(self):
         self.dateFormatted = self.context.start.strftime("%d %b %Y")
-
-@form.default_value(field=IPlant['start'])
-def startDefaultValue(data):
-    return datetime.datetime.today()
