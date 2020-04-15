@@ -19,7 +19,8 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
 
-from z3c.relationfield.schema import RelationList, RelationChoice
+from z3c.relationfield.schema import RelationChoice, RelationList
+from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from kbat.content import _
 
@@ -49,6 +50,14 @@ class IPlant(form.Schema):
     lighting = schema.Choice(
         title = _(u"Lighting"),
         vocabulary = lighting_voc,
+        required = False,
+        )
+
+    rel = RelationList(
+        title = _("GoodRel"),
+        default = [],
+        value_type=RelationChoice(title=_(u"Related"),
+                                  source=ObjPathSourceBinder()),
         required = False,
         )
 
