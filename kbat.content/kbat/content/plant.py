@@ -18,7 +18,6 @@ from plone.memoize.instance import memoize
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 
-
 from z3c.relationfield.schema import RelationChoice, RelationList
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
@@ -53,11 +52,14 @@ class IPlant(form.Schema):
         required = False,
         )
 
-    rel = RelationList(
-        title = _("GoodRel"),
+    allelopathic = RelationList(
+        title = _(u"Allelopathic plants"),
         default = [],
+# TODO: this is ugly since depends on absolute path:
         value_type=RelationChoice(title=_(u"Related"),
-                                  source=ObjPathSourceBinder()),
+#                                  source=ObjPathSourceBinder(navigation_tree_query={'path':{'query':'/kbat/test/rasteniya'},
+#                                                                                    'object_provides':'kbat.content.plant'})),
+                                  source=ObjPathSourceBinder(navigation_tree_query={'path':{'query':'/kbat/test/rasteniya'} })),
         required = False,
         )
 
