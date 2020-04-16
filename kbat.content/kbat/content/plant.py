@@ -12,6 +12,7 @@ from z3c.form import group, field
 
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.namedfile.field import NamedBlobImage
+from collective import dexteritytextindexer
 
 from plone.app.textfield import RichText
 from plone.memoize.instance import memoize
@@ -45,12 +46,17 @@ class IPlant(form.Schema):
     # If you want a model-based interface, edit
     # models/plant.xml to define the content type
     # and add directives here as necessary.
+
+    dexteritytextindexer.searchable('body')
+    body = RichText(
+        title = _(u"Notes"),
+        description=_(u"Notes about the plant"),
+        required = False)
     
     lighting = schema.Choice(
         title = _(u"Lighting"),
         vocabulary = lighting_voc,
-        required = False,
-        )
+        required = False)
 
     allelopathic = RelationList(
         title = _(u"Allelopathic plants"),

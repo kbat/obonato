@@ -7,17 +7,23 @@
       i18n:domain="kbat.content">
   <body>
 
-    <metal:main fill-slot="content-core">
-      <metal:content-core define-macro="content-core">
+    <metal:main fill-slot="main">
+      <metal:content-core define-macro="main">
 
-	  <label for="date" i18n:translate="label_post_date">Date:</label>
-	  <div id="lighting" i18n:translate="" tal:content="context/lighting/title|nothing" />
+	<div tal:replace="structure provider:plone.abovecontenttitle" />
+	<h1 class="documentFirstHeading" tal:content="context/title" />
+	<div tal:replace="structure provider:plone.belowcontenttitle" />
 
-	  <div tal:define="photo nocall:context/photo"
-	       tal:condition="nocall:photo" align="center">
-	    <img tal:replace="structure context/@@images/photo/preview"/>
-	  </div>
-	  
+	<div tal:content="structure context/body/output|nothing" />
+
+	<label for="date" i18n:translate="label_post_date">Date:</label>
+	<div id="lighting" i18n:translate="" tal:content="context/lighting/title|nothing" />
+
+	<div tal:define="photo nocall:context/photo"
+	     tal:condition="nocall:photo" align="center">
+	  <img tal:replace="structure context/@@images/photo/preview"/>
+	</div>
+	
 
       </metal:content-core>
     </metal:main>
