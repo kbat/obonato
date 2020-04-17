@@ -8,14 +8,24 @@
   <body>
 
     <metal:main fill-slot="content-core">
-      <metal:content-core define-macro="content-core">
+      <metal:content-core define-macro="content-core"
+			  tal:define="plants view/plants;
+				      Batch python:modules['Products.CMFPlone'].Batch;
+				      b_start python:request.get('b_start',0);
+				      batch python:Batch(plants, 8, int(b_start), orphan=1)">
 
-	<p>
-	  <tal:block repeat="location view/plants">
-            <a tal:attributes="href location/getURL" tal:content="location/Title" />&nbsp;
-	  </tal:block>
-	</p>
-
+	<table class="listing">
+	  <tbody>
+	  <tal:plants tal:condition="batch" tal:repeat="plant batch">
+	    <tr tal:define="obj plant/getObject">
+	      <td><a tal:attributes="href plant/getURL" tal:content="obj/Title" /></td>
+	      <td tal:content="obj/Description" />
+	      <td tal:content="obj/seeding_notes|nothing" />
+	      <td tal:content="obj/lighting/title|nothing" />
+	    </tr>
+	  </tal:plants>
+	  </tbody>
+	</table>
 
       </metal:content-core>
     </metal:main>
