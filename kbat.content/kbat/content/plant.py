@@ -28,11 +28,20 @@ from zope.interface import implements
 from zope.interface import Interface
 
 lighting_voc = SimpleVocabulary(
-    [ SimpleTerm(value=u'none', title=_(u'-')),
-      SimpleTerm(value=u'sun', title=_(u'Full light')),
+    [ SimpleTerm(value=u'sun', title=_(u'Full light')),
       SimpleTerm(value=u'prenumbra', title=_(u'Prenumbra')),
-      SimpleTerm(value=u'shadow', title=_(u'Shadow')) ]
-    )
+      SimpleTerm(value=u'shadow', title=_(u'Shadow')) ])
+
+stratification_voc = SimpleVocabulary(
+    [ SimpleTerm(value=u'required', title=_(u'Required')),
+      SimpleTerm(value=u'desirable', title=_(u'Desirable')),
+      SimpleTerm(value=u'irrelevant', title=_(u'Unnecessary')) ])
+
+vitality_voc = SimpleVocabulary(
+    [ SimpleTerm(value=u't', title=_(u'Termophilic')),
+      SimpleTerm(value=u'uv', title=_(u'Moderately cold resistant')),
+      SimpleTerm(value=u'v', title=_(u'Cold resistant')),
+      SimpleTerm(value=u'ov', title=_(u'Highly cold resistant')) ])
 
 # Interface class; used to define content-type schema.
 
@@ -40,7 +49,7 @@ class IPlant(form.Schema):
     """
     A plant in the garden
     """
-    
+
     # If you want a schema-defined interface, delete the form.model
     # line below and delete the matching file in the models sub-directory.
     # If you want a model-based interface, edit
@@ -52,7 +61,7 @@ class IPlant(form.Schema):
         title = _(u"Notes"),
         description=_(u"Notes about the plant"),
         required = False)
-    
+
     lighting = schema.Choice(
         title = _(u"Lighting"),
         vocabulary = lighting_voc,
@@ -66,29 +75,134 @@ class IPlant(form.Schema):
 #                                  source=ObjPathSourceBinder(navigation_tree_query={'path':{'query':'/kbat/test/rasteniya'},
 #                                                                                    'object_provides':'kbat.content.plant'})),
                                   source=ObjPathSourceBinder(navigation_tree_query={'path':{'query':'/kbat/test/rasteniya'} })),
-        required = False,
-        )
+        required = False)
 
     photo = NamedBlobImage(
         title = _(u"Photo"),
-        required = False,
-    )
+        required = False)
 
-    form.fieldset('seeding', label=_(u"Seeding"), fields=['seeding_notes'])
+    form.fieldset('seeds',
+                  label=_(u"Seeds"),
+                  fields=['seed_storage_period',
+                          'seed_density',
+                          'seed_demand',
+                          'seed_stratification',
+                          'seed_depth',
+                          'seed_min_distance',
+                          'seed_row',
+                          'seed_tmin',
+                          'seed_vitality',
+                          'seed_shoots'])
 
-    seeding_notes = schema.Text(
-        title = _(u"Notes"),
-        description = _(u"Seeding notes"),
+    seed_storage_period = schema.Float(
+        title=_(u"Storage period"),
+        description=_(u"Retention period of seeds [years]"),
+        required = False)
+
+    seed_density = schema.Int(
+        title=_(u"Number of seeds in 5 g"),
+        required = False)
+
+    seed_demand = schema.Int(
+        title=_(u"Number of seeds per a 10 m long row"),
+        required = False)
+
+    seed_stratification = schema.Choice(
+        title = _(u"Stratification"),
+        vocabulary = stratification_voc,
+        required = False)
+
+    seed_depth = schema.Float(
+        title = _(u"Seeding depth"),
+        description = _(u"[cm]"),
+        required = False)
+
+    seed_min_distance = schema.TextLine(
+        title = _(u"Minimal distance in a row"),
+        description = _(u"[cm]"),
+        required = False)
+
+    seed_row = schema.TextLine(
+        title = _(u"Distance between rows"),
+        description = _(u"[cm]"),
+        required = False)
+
+    seed_tmin = schema.Int(
+        title=_(u"Minimal soil temperature [deg C]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    seed_vitality = schema.Choice(
+        title = _(u"Cold resistance"),
+        vocabulary = vitality_voc,
+        required = False)
+
+    seed_shoots = schema.TextLine(
+        title = _(u"Shoots [days]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    form.fieldset('sprout', label=_(u"Sprouts"),
+                  fields=['sprout_depth',
+                          'sprout_min_distance',
+                          'sprout_temp',
+                          'sprout_shoots',
+                          'sprout_age',
+                          'sprout_min_distance_bed',
+                          'sprout_tmin_bed',
+                          'sprout_vitality',
+                          'sprout_notes'])
+
+    sprout_depth = schema.Float(
+        title = _(u"Sprout seeding depth [cm]"),
+        required = False)
+
+    sprout_min_distance = schema.Float(
+        title = _(u"Minimal distance between plants [cm]"),
+        required = False)
+
+    sprout_temp = schema.TextLine(
+        title = _(u"Soil temperature range [deg C]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    sprout_shoots = schema.TextLine(
+        title = _(u"Shoots [days]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    sprout_age = schema.TextLine(
+        title = _(u"Optimal sprout age when seeding [weeks]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    sprout_min_distance_bed = schema.Float(
+        title = _(u"Minimal distance in the bed [cm]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    sprout_tmin_bed = schema.Int(
+        title = _(u"Minimal temperature in the bed [deg C]"),
+        description=_(u"TODO: add description from the book"),
+        required = False)
+
+    sprout_vitality = schema.Choice(
+        title = _(u"Cold resistance"),
+        vocabulary = vitality_voc,
+        required = False)
+
+    sprout_notes = schema.Text(
+        title = _(u"Notes on sprouts"),
         required = False)
 
 class Plant(dexterity.Item):
     grok.implements(IPlant)
-    
+
 class View(grok.View):
     """ Default view @@view """
     implements(IPlant)
     grok.context(IPlant)
     grok.require('zope2.View')
-    
+
 #    def update(self):
 #        self.dateFormatted = self.context.start.strftime("%d %b %Y")

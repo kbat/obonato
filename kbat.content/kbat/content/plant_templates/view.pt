@@ -16,14 +16,97 @@
 
 	<div tal:content="structure context/body/output|nothing" />
 
-	<label for="date" i18n:translate="label_post_date">Date:</label>
 	<div id="lighting" i18n:translate="" tal:content="context/lighting/title|nothing" />
+
+	<h3>Seeds</h3>
+	<table class="listing">
+	  <tbody>
+	    <tr tal:condition="context/seed_storage_period">
+	      <td>Storage period [years]</td>
+	      <td tal:content="structure context/seed_storage_period" />
+	    </tr>
+	    <tr tal:condition="context/seed_density">
+	      <td>Number of seeds in 5 gr</td>
+	      <td tal:content="structure context/seed_density" />
+	    </tr>
+	    <tr tal:condition="context/seed_demand">
+	      <td>Number of seeds per 10 m long row</td>
+	      <td tal:content="structure context/seed_demand" />
+	    </tr>
+	    <tr tal:condition="context/seed_stratification">
+	      <td>Stratification</td>
+	      <td tal:content="structure context/seed_stratification/title" />
+	    </tr>
+	    <tr tal:condition="context/seed_depth">
+	      <td>Seeding depth [cm]</td>
+	      <td tal:content="structure context/seed_depth" />
+	    </tr>
+	    <tr tal:condition="context/seed_min_distance">
+	      <td>Minimal distance in a row</td>
+	      <td tal:content="structure context/seed_min_distance" />
+	    </tr>
+	    <tr tal:condition="context/seed_row">
+	      <td>Distance between rows [cm]</td>
+	      <td tal:content="structure context/seed_row" />
+	    </tr>
+	    <tr tal:condition="context/seed_tmin">
+	      <td>Minimal soil temperature [deg C]</td>
+	      <td tal:content="structure context/seed_tmin" />
+	    </tr>
+	    <tr tal:condition="context/seed_vitality">
+	      <td>Cold resistance</td>
+	      <td tal:content="structure context/seed_vitality/title" />
+	    </tr>
+	    <tr tal:condition="context/seed_shoots">
+	      <td>Shoots [days]</td>
+	      <td tal:content="structure context/seed_shoots" />
+	    </tr>
+	  </tbody>
+	</table>
+
+	<h3>Sprouts</h3>
+	<table class="listing">
+	  <tbody>
+	    <tr tal:condition="context/sprout_depth">
+	      <td>Sprout seeding depth [cm]</td>
+	      <td tal:content="structure context/sprout_depth" />
+	    </tr>
+	    <tr tal:condition="context/sprout_min_distance">
+	      <td>Minimal distance between plants in the seedings [cm]</td>
+	      <td tal:content="structure context/sprout_min_distance" />
+	    </tr>
+	    <tr tal:condition="context/sprout_temp">
+	      <td>Soil temperature range [deg C]</td>
+	      <td tal:content="structure context/sprout_temp" />
+	    </tr>
+	    <tr tal:condition="context/sprout_shoots">
+	      <td>Shoots [days]</td>
+	      <td tal:content="structure context/sprout_shoots" />
+	    </tr>
+	    <tr tal:condition="context/sprout_age">
+	      <td>Optimal sprout age when seeding [weeks]</td>
+	      <td tal:content="structure context/sprout_age" />
+	    </tr>
+	    <tr tal:condition="context/sprout_min_distance_bed">
+	      <td>Minimal distance in the bed [cm]</td>
+	      <td tal:content="structure context/sprout_min_distance_bed" />
+	    </tr>
+	    <tr tal:condition="context/sprout_tmin_bed">
+	      <td>Minimal distance in the bed [cm]</td>
+	      <td tal:content="structure context/sprout_tmin_bed" />
+	    </tr>
+	    <tr tal:condition="context/sprout_vitality">
+	      <td>Cold resistance</td>
+	      <td tal:content="structure context/sprout_vitality/title" />
+	    </tr>
+	  </tbody>
+	</table>
 
 	<div tal:define="photo nocall:context/photo"
 	     tal:condition="nocall:photo" align="center">
 	  <img tal:replace="structure context/@@images/photo/preview"/>
 	</div>
-	
+
 
       </metal:content-core>
     </metal:main>
