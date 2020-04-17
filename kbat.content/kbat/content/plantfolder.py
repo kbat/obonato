@@ -38,13 +38,13 @@ class IPlantFolder(form.Schema):
     """
     PlantFolder - a library of plants
     """
-    
+
     # If you want a schema-defined interface, delete the form.model
     # line below and delete the matching file in the models sub-directory.
     # If you want a model-based interface, edit
     # models/PlantFolder.xml to define the content type
     # and add directives here as necessary.
- 
+
 
 #    form.model("models/PlantFolder.xml")
 #alsoProvides(IPlantFolder, IContentType)
@@ -56,7 +56,7 @@ class IPlantFolder(form.Schema):
 
 class PlantFolder(dexterity.Container):
     grok.implements(IPlantFolder)
-    
+
     # Add your class methods and properties here
 
 
@@ -73,7 +73,7 @@ class PlantFolder(dexterity.Container):
 class View(grok.View):
     grok.context(IPlantFolder)
     grok.require('zope2.View')
-    
+
     # grok.name('view')
 
     def plants(self):
@@ -81,5 +81,6 @@ class View(grok.View):
         catalog = getToolByName(context, 'portal_catalog')
 
         return catalog(object_provides=IPlant.__identifier__,
-                       path='/'.join(context.getPhysicalPath()), sort_on='start')
-
+                       path='/'.join(context.getPhysicalPath()),
+                       sort_on='sortable_title',
+                       sort_order='ascending')
