@@ -205,13 +205,13 @@ class View(grok.View):
         comsign = "c "
         if code == "CombLayer":
             comsign = "// "
-        
+
         out = comsign + "%s\n" % self.context.title
         out += comsign + "%s\n" % textwrap.fill(self.context.description, width=75, subsequent_indent=comsign)
         if code != "CombLayer":
             out += comsign + "Density:    %g g/cm3\n" % self.context.density
-        if self.context.temperature != None: out += comsign + "Temperature: %g K\n" % self.context.temperature
-        if self.context.reference != None:
+        if self.context.temperature is not None: out += comsign + "Temperature: %g K\n" % self.context.temperature
+        if self.context.reference is not None:
             out += comsign + "Reference: "
             out += "%s\n" % textwrap.fill(self.context.reference, width=75, subsequent_indent=comsign)
 
