@@ -18,7 +18,7 @@ msgstr ""
 "Domain: kbat.content\n"
 
 msgid "PlantFolder"
-msgstr "Коллекция растений"
+msgstr "Каталог растений"
 
 msgid "Plant"
 msgstr "Растение"
