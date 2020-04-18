@@ -102,7 +102,7 @@ class IPlant(form.Schema):
         title=_(u"seed_density", default="Number of seeds in 5 g"),
         required = False)
 
-    seed_demand = schema.Int(
+    seed_demand = schema.TextLine(
         title=_(u"seed_demand", default="Number of seeds per a 10 m long row"),
         required = False)
 

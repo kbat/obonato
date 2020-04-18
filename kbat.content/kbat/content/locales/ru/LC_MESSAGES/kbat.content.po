@@ -105,7 +105,7 @@ msgid "shadow"
 msgstr "Тень"
 
 msgid "required"
-msgstr "Необходима"
+msgstr "Обязательна"
 
 msgid "desirable"
 msgstr "Желательна"
