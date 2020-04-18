@@ -28,20 +28,21 @@ from zope.interface import implements
 from zope.interface import Interface
 
 lighting_voc = SimpleVocabulary(
-    [ SimpleTerm(value=u'sun', title=_(u'Full light')),
-      SimpleTerm(value=u'prenumbra', title=_(u'Prenumbra')),
-      SimpleTerm(value=u'shadow', title=_(u'Shadow')) ])
+    [ SimpleTerm(value=u'full_light', title=_(u'full_light', default='Full light')),
+      SimpleTerm(value=u'prenumbra', title=_(u'prenumbra', default='Prenumbra')),
+      SimpleTerm(value=u'shadow', title=_(u'shadow', default='Shadow')) ])
 
 stratification_voc = SimpleVocabulary(
-    [ SimpleTerm(value=u'required', title=_(u'Required')),
-      SimpleTerm(value=u'desirable', title=_(u'Desirable')),
-      SimpleTerm(value=u'irrelevant', title=_(u'Unnecessary')) ])
+    [ SimpleTerm(value=u'required', title=_(u'required', default='Required')),
+      SimpleTerm(value=u'desirable', title=_(u'desirable', default='Desirable')),
+      SimpleTerm(value=u'irrelevant', title=_(u'unnecessary', default='Unnecessary')) ])
 
 vitality_voc = SimpleVocabulary(
-    [ SimpleTerm(value=u't', title=_(u'Termophilic')),
-      SimpleTerm(value=u'uv', title=_(u'Moderately cold resistant')),
-      SimpleTerm(value=u'v', title=_(u'Cold resistant')),
-      SimpleTerm(value=u'ov', title=_(u'Highly cold resistant')) ])
+    [ SimpleTerm(value=u'ot', title=_(u'ot', default='Highly termophilic')),
+      SimpleTerm(value=u't', title=_(u't', default='Termophilic')),
+      SimpleTerm(value=u'uv', title=_(u'uv', default='Moderately cold resistant')),
+      SimpleTerm(value=u'v', title=_(u'v', default='Cold resistant')),
+      SimpleTerm(value=u'ov', title=_(u'ov', default='Highly cold resistant')) ])
 
 # Interface class; used to define content-type schema.
 
@@ -58,17 +59,16 @@ class IPlant(form.Schema):
 
     dexteritytextindexer.searchable('body')
     body = RichText(
-        title = _(u"Notes"),
-        description=_(u"Notes about the plant"),
+        title = _(u"notes", default=u"Notes"),
         required = False)
 
     lighting = schema.Choice(
-        title = _(u"Lighting"),
+        title = _(u"lighting", default=u"Lighting"),
         vocabulary = lighting_voc,
         required = False)
 
     allelopathic = RelationList(
-        title = _(u"Allelopathic plants"),
+        title = _(u"Allelopathic plants", default=u"Allelopathic plants"),
         default = [],
 # TODO: this is ugly since depends on absolute path:
         value_type=RelationChoice(title=_(u"Related"),
@@ -78,7 +78,7 @@ class IPlant(form.Schema):
         required = False)
 
     photo = NamedBlobImage(
-        title = _(u"Photo"),
+        title = _(u"photo", default=u"Photo"),
         required = False)
 
     form.fieldset('seeds',
@@ -95,50 +95,48 @@ class IPlant(form.Schema):
                           'seed_shoots'])
 
     seed_storage_period = schema.Float(
-        title=_(u"Storage period"),
-        description=_(u"Retention period of seeds [years]"),
+        title=_(u"seed_storage_period", default="Storage period"),
         required = False)
 
     seed_density = schema.Int(
-        title=_(u"Number of seeds in 5 g"),
+        title=_(u"seed_density", default="Number of seeds in 5 g"),
         required = False)
 
     seed_demand = schema.Int(
-        title=_(u"Number of seeds per a 10 m long row"),
+        title=_(u"seed_demand", default="Number of seeds per a 10 m long row"),
         required = False)
 
     seed_stratification = schema.Choice(
-        title = _(u"Stratification"),
+        title = _(u"stratification", default="Stratification"),
         vocabulary = stratification_voc,
         required = False)
 
     seed_depth = schema.Float(
-        title = _(u"Seeding depth"),
-        description = _(u"[cm]"),
+        title = _(u"seed_depth", default="Seeding depth"),
         required = False)
 
     seed_min_distance = schema.TextLine(
-        title = _(u"Minimal distance in a row"),
+        title = _(u"seed_min_distance", default="Minimal distance in a row"),
         description = _(u"[cm]"),
         required = False)
 
     seed_row = schema.TextLine(
-        title = _(u"Distance between rows"),
+        title = _(u"seed_row", default="Distance between rows"),
         description = _(u"[cm]"),
         required = False)
 
     seed_tmin = schema.Int(
-        title=_(u"Minimal soil temperature [deg C]"),
+        title=_(u"seed_tmin", default="Minimal soil temperature [deg C]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
     seed_vitality = schema.Choice(
-        title = _(u"Cold resistance"),
+        title = _(u"vitality", default="Cold resistance"),
         vocabulary = vitality_voc,
         required = False)
 
     seed_shoots = schema.TextLine(
-        title = _(u"Shoots [days]"),
+        title = _(u"seed_shoots", default="Shoots [days]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
@@ -154,45 +152,45 @@ class IPlant(form.Schema):
                           'sprout_notes'])
 
     sprout_depth = schema.Float(
-        title = _(u"Sprout seeding depth [cm]"),
+        title = _(u"sprout_depth", default="Sprout seeding depth [cm]"),
         required = False)
 
     sprout_min_distance = schema.Float(
-        title = _(u"Minimal distance between plants [cm]"),
+        title = _(u"sprout_min_distance", default="Minimal distance between plants [cm]"),
         required = False)
 
     sprout_temp = schema.TextLine(
-        title = _(u"Soil temperature range [deg C]"),
+        title = _(u"sprout_temp", default="Soil temperature range [deg C]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
     sprout_shoots = schema.TextLine(
-        title = _(u"Shoots [days]"),
+        title = _(u"sprout_shoots", default="Shoots [days]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
     sprout_age = schema.TextLine(
-        title = _(u"Optimal sprout age when seeding [weeks]"),
+        title = _(u"sprout_age", default="Optimal sprout age when seeding [weeks]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
     sprout_min_distance_bed = schema.Float(
-        title = _(u"Minimal distance in the bed [cm]"),
+        title = _(u"sprout_min_distance_bed", default="Minimal distance in the bed [cm]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
     sprout_tmin_bed = schema.Int(
-        title = _(u"Minimal temperature in the bed [deg C]"),
+        title = _(u"sprout_tmin_bed", default="Minimal temperature in the bed [deg C]"),
         description=_(u"TODO: add description from the book"),
         required = False)
 
     sprout_vitality = schema.Choice(
-        title = _(u"Cold resistance"),
+        title = _(u"vitality", default="Cold resistance"),
         vocabulary = vitality_voc,
         required = False)
 
     sprout_notes = schema.Text(
-        title = _(u"Notes on sprouts"),
+        title = _(u"notes", default="Notes on sprouts"),
         required = False)
 
 class Plant(dexterity.Item):

@@ -16,12 +16,18 @@
 
 	<table class="listing">
 	  <tbody>
+	    <tr>
+	      <th i18n:translate="Plant">Plant</th>
+	      <th i18n:translate="seed_storage_period">Seed storage period</th>
+	      <th></th>
+	      <th i18n:translate="lighting">Lighting</th>
+	    </tr>
 	  <tal:plants tal:condition="batch" tal:repeat="plant batch">
 	    <tr tal:define="obj plant/getObject">
 	      <td><a tal:attributes="href plant/getURL" tal:content="obj/Title" /></td>
-	      <td tal:content="obj/Description" />
+	      <td tal:content="obj/seed_storage_period|nothing" />
 	      <td tal:content="obj/seeding_notes|nothing" />
-	      <td tal:content="obj/lighting/title|nothing" />
+	      <td i18n:translate="" tal:content="obj/lighting|nothing" />
 	    </tr>
 	  </tal:plants>
 	  </tbody>

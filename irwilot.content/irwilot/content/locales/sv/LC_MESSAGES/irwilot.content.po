@@ -1,6 +1,6 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
 # SOME DESCRIPTIVE TITLE.
-# Konstantin Batkov <kbat.plone @at@ lizardie.com>, 2013.
+# Konstantin Batkov <batkov@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -267,4 +267,3 @@ msgstr "Länkar"
 
 msgid "Pencil"
 msgstr "Blyerts"
-

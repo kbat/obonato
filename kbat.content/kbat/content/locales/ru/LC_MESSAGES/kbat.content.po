@@ -1,0 +1,138 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# Konstantin Batkov <batkov@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2020-04-18 09:03+0001\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: Konstantin Batkov <batkov@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: ru\n"
+"Language-Name: Russian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: kbat.content\n"
+
+msgid "PlantFolder"
+msgstr "Коллекция растений"
+
+msgid "Plant"
+msgstr "Растение"
+
+msgid "Seeds"
+msgstr "Семена"
+
+msgid "Sprouts"
+msgstr "Рассада"
+
+msgid "seed_properties_pre_sowing"
+msgstr "Предпосевные характеристики семян"
+
+msgid "seed_properties_sowing"
+msgstr "Посевные характеристики семян"
+
+msgid "seed_storage_period"
+msgstr "Допустимый срок хранения семян [лет]"
+
+msgid "seed_density"
+msgstr "Количество семян в 5 г"
+
+msgid "seed_demand"
+msgstr "Потребность в семенах на 10 м ряд [гр]"
+
+msgid "stratification"
+msgstr "Стратификация"
+
+msgid "seed_depth"
+msgstr "Глубина заделки семян [см]"
+
+msgid "seed_min_distance"
+msgstr "Минимальная дистанция в ряду [см]"
+
+msgid "seed_row"
+msgstr "Междурядья [см]"
+
+msgid "seed_tmin"
+msgstr "Минимальная температура почвы [°C]"
+
+msgid "vitality"
+msgstr "Выносливость"
+
+msgid "seed_shoots"
+msgstr "Всходы [дней]"
+
+msgid "sprout_info"
+msgstr "Сведения о рассаде"
+
+msgid "sprout_depth"
+msgstr "Глубина заделки семян [см]"
+
+msgid "sprout_min_distance"
+msgstr "Минимальное расстояние между растениями в рассаде [см]"
+
+msgid "sprout_temp"
+msgstr "Допустимая температура почвы для семян [°C]"
+
+msgid "sprout_shoots"
+msgstr "Всходы [дней]"
+
+msgid "sprout_age"
+msgstr "Оптимальный возраст рассады [недель]"
+
+msgid "sprout_min_distance_bed"
+msgstr "Минимальное расстояние между растениями на грядке [см]"
+
+msgid "sprout_tmin_bed"
+msgstr "Минимальная температура почвы на грядке [°C]"
+
+msgid "lighting"
+msgstr "Требования к освещению"
+
+msgid "notes"
+msgstr "Заметки"
+
+msgid "full_light"
+msgstr "Солнце"
+
+msgid "prenumbra"
+msgstr "Полутень"
+
+msgid "shadow"
+msgstr "Тень"
+
+msgid "required"
+msgstr "Необходима"
+
+msgid "desirable"
+msgstr "Желательна"
+
+msgid "unnecessary"
+msgstr "Не нужна"
+
+msgid "ot"
+msgstr "Очень теплолюбивые"
+
+msgid "t"
+msgstr "Теплолюбивые"
+
+msgid "uv"
+msgstr "Умеренно выносливые"
+
+msgid "v"
+msgstr "Выносливые"
+
+msgid "ov"
+msgstr "Очень выносливые"
+
+msgid "Allelopathic plants"
+msgstr "Аллелопатические растения"
+
+msgid "photo"
+msgstr "Фотография"
+
+# msgid "Choose File" - does not work
+# msgstr "Выбрать файл"
