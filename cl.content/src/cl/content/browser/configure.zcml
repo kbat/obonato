@@ -18,4 +18,12 @@
       directory="static"
       />
 
+    <browser:page
+      name="view"
+      for="cl.content.content.component.IComponent"
+      class="cl.content.content.component.View"
+      template="templates/component_view.pt"
+      permission="zope2.View"
+      />
+
 </configure>

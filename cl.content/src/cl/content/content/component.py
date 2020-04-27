@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from os import path
+import re
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Item
@@ -9,6 +11,7 @@ from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import implementer
 #from collective import dexteritytextindexer
+from Products.Five import BrowserView
 
 from cl.content import _
 
@@ -26,7 +29,7 @@ class IComponent(model.Schema):
         required = True
     )
 
-    header = schema.URI(
+    headerURL = schema.URI(
         title=_(u'Header'),
         description=_('URL to the class header on GitHub'),
         required=True
@@ -60,3 +63,31 @@ class IComponent(model.Schema):
 class Component(Item):
     """
     """
+
+# class View(dexterity.DisplayForm):
+#     """ Default view (called @@view) for Component
+
+
+class View(BrowserView):
+    """
+    """
+
+    def update(self):
+        """ Prepare info for the template """
+        self.commit_url = self.context.commit + " here"
+
+    def commitURL(self):
+        return 'https://github.com/sansell/comblayer/commit/' + self.context.commit
+
+    def className(self):
+        return path.splitext(self.context.headerURL)[0].split('/')[-1]
+
+    def header(self):
+        return self.className() + '.h'
+
+    def cxx(self):
+        return self.className() + '.cxx'
+
+    def cxxURL(self):
+        incDir = '/'.join(self.context.headerURL.split('/')[:-1])
+        return re.sub('Inc', '', incDir) + '/' + self.cxx()
