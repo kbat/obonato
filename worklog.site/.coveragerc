@@ -1,0 +1,6 @@
+[report]
+include =
+    src/worklog/*
+omit =
+    */test*
+    */upgrades/*
