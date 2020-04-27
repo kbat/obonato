@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# from plone.app.textfield import RichText
-# from plone.autoform import directives
+from plone.app.textfield import RichText
+from plone.autoform import directives
 from plone.dexterity.content import Item
-# from plone.namedfile import field as namedfile
+from plone.namedfile import field as namedfile
 from plone.supermodel import model
-# from plone.supermodel.directives import fieldset
-# from z3c.form.browser.radio import RadioFieldWidget
-# from zope import schema
+from plone.supermodel.directives import fieldset
+#from plone.z3cform.textlines.textlines import TextLinesFieldWidget
+from zope import schema
 from zope.interface import implementer
+#from collective import dexteritytextindexer
 
-
-# from cl.content import _
+from cl.content import _
 
 
 class IComponent(model.Schema):
@@ -21,33 +21,37 @@ class IComponent(model.Schema):
 
     # model.load('component.xml')
 
-    # directives.widget(level=RadioFieldWidget)
-    # level = schema.Choice(
-    #     title=_(u'Sponsoring Level'),
-    #     vocabulary=LevelVocabulary,
-    #     required=True
-    # )
+    img = namedfile.NamedBlobImage(
+        title=_(u'Image'),
+        required=True,
+    )
 
-    # text = RichText(
-    #     title=_(u'Text'),
-    #     required=False
-    # )
+    commit = schema.TextLine(
+        title=_(u"Commit hash on GitHub"),
+        required = True
+    )
 
-    # url = schema.URI(
-    #     title=_(u'Link'),
-    #     required=False
-    # )
+    header = schema.URI(
+        title=_(u'Header'),
+        description=_('URL to the class header on GitHub'),
+        required=True
+    )
 
-    # fieldset('Images', fields=['logo', 'advertisement'])
-    # logo = namedfile.NamedBlobImage(
-    #     title=_(u'Logo'),
-    #     required=False,
-    # )
+    # directives.widget(build=TextLinesFieldWidget)
+    # build = schema.List(
+    #     title = _(u"How to build"),
+    #     description = _(u"Instructions how to build the component"),
+    #     value_type = schema.TextLine(),
+    #     required = True,
+    #     )
 
-    # advertisement = namedfile.NamedBlobImage(
-    #     title=_(u'Advertisement (Gold-sponsors and above)'),
-    #     required=False,
-    # )
+
+    fieldset('Miscellaneous', fields=['text'])
+#    dexteritytextindexer.searchable('text')
+    text = RichText(
+        title=_(u'Text'),
+        required=False
+    )
 
     # directives.read_permission(notes='cmf.ManagePortal')
     # directives.write_permission(notes='cmf.ManagePortal')
