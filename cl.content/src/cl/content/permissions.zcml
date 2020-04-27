@@ -6,6 +6,12 @@
   <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission
+        id="cl.content.AddComponent"
+        title="cl.content: Add Component"
+    />
+
+
 
   </configure>
 
