@@ -21,11 +21,6 @@ class IComponent(model.Schema):
 
     # model.load('component.xml')
 
-    img = namedfile.NamedBlobImage(
-        title=_(u'Image'),
-        required=True,
-    )
-
     commit = schema.TextLine(
         title=_(u"Commit hash on GitHub"),
         required = True
@@ -46,12 +41,12 @@ class IComponent(model.Schema):
     #     )
 
 
-    fieldset('Miscellaneous', fields=['text'])
+#    fieldset('Miscellaneous', fields=['text'])
 #    dexteritytextindexer.searchable('text')
-    text = RichText(
-        title=_(u'Text'),
-        required=False
-    )
+    # text = RichText(
+    #     title=_(u'Text'),
+    #     required=False
+    # )
 
     # directives.read_permission(notes='cmf.ManagePortal')
     # directives.write_permission(notes='cmf.ManagePortal')
