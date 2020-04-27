@@ -76,6 +76,9 @@ class View(BrowserView):
         """ Prepare info for the template """
         self.commit_url = self.context.commit + " here"
 
+    def commit(self):
+        return self.context.commit[:8]
+
     def commitURL(self):
         return 'https://github.com/sansell/comblayer/commit/' + self.context.commit
 
