@@ -26,6 +26,7 @@ setup(name='cl.policy',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+        'cl.content'
 #          'Products.PloneFormGen',
       ],
       entry_points="""
