@@ -5,5 +5,11 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="cl.content">
   <schema>
+    <field name="url" type="zope.schema.URI">
+      <title i18n:translate="label_url">Repository</title>
+      <description i18n:translate="label_library_url">
+	URL to the source code repository
+      </description>
+    </field>
   </schema>
 </model>
