@@ -8,8 +8,7 @@
   <body>
 
     <metal:main fill-slot="main">
-      <tal:main-macro metal:define-macro="main"
-		      tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+      <tal:main-macro metal:define-macro="main" >
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -21,7 +20,24 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-	Body
+	<div class="discreet" align="right">Repository: <a tal:attributes="href context/url"><span tal:replace="context/url"></a></div>
+
+	<div>
+	  <tal:block repeat="component view/components">
+	    <div class="photoAlbumEntry"
+		 tal:define="obj component/getObject; image nocall:obj/image;
+			     scale_func obj/@@images;
+			     scaled_image python: getattr(obj.aq_explicit, 'image', False) and scale_func.scale('image', scale='large', direction='up')"
+		 tal:condition="nocall:image">
+	      <figure tal:condition="python: scaled_image">
+		<a tal:attributes="href obj/@@plone_context_state/object_url; title obj/Description">
+		  <img tal:replace="structure python: scaled_image.tag(css_class='photoAlbumEntryWrapper')" />
+		</a>
+		<figcaption tal:content="obj/title" />
+	      </figure>
+	    </div>
+	  </tal:block>
+	</div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
