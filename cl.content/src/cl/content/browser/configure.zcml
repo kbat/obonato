@@ -26,4 +26,12 @@
       permission="zope2.View"
       />
 
+    <browser:page
+      name="view"
+      for="cl.content.content.library.ILibrary"
+      class="cl.content.content.library.View"
+      template="templates/library_view.pt"
+      permission="zope2.View"
+      />
+
 </configure>

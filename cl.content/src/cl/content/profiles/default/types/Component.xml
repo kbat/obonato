@@ -27,7 +27,7 @@
   <property name="schema">cl.content.content.component.IComponent</property>
 
   <!-- Enabled behaviors -->
-  <property name="behaviors" purge="false">
+  <property name="behaviors" purge="true">
     <!-- Details about all standard behaviors following can be read at
          https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
     -->
