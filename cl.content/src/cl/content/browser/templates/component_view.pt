@@ -19,6 +19,36 @@
 
         <p class="documentDescription" tal:content="context/description" />
 
+	<table class="listing">
+	  <tbody>
+	    <tr tal:condition="context/commit">
+            <td align="right" i18n:translate="label_commit">Commit</td>
+	    <td><a tal:attributes="href view/commitURL" tal:content="view/commit" /></td>
+	    </tr>
+	    <tr tal:condition="context/headerURL">
+	    <td align="right" i18n:translate="label_header">Header</td>
+	    <td><a tal:attributes="href context/headerURL" tal:content="view/header" /></td>
+	    </tr>
+	    <tr tal:condition="context/headerURL">
+	    <td align="right" i18n:translate="label_implementation">Implementation</td>
+	    <td><a tal:attributes="href view/cxxURL" tal:content="view/cxx" /></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+	<table>
+	  <tbody>
+	    <tr tal:condition="context/commit">
+            <td align="right" i18n:translate="label_commit">Commit:</td>
+	    <td><a tal:attributes="href view/commitURL" tal:content="view/commit" /></td>
+	    <td align="right" i18n:translate="label_header">Header:</td>
+	    <td><a tal:attributes="href context/headerURL" tal:content="view/header" /></td>
+	    <td align="right" i18n:translate="label_implementation">Implementation:</td>
+	    <td><a tal:attributes="href view/cxxURL" tal:content="view/cxx" /></td>
+	    </tr>
+	  </tbody>
+	</table>
+
         <div class="discreet">
           <tal:block condition="context/commit">
             <span i18n:translate="label_commit">Commit:</span>
@@ -39,8 +69,6 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
 	<div tal:content="structure context/text/output|nothing" />
-
-	<div tal:content="view/libTitle" />
 
 	<h3>Instructions to build</h3>
 	<pre>
