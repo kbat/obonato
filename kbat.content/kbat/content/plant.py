@@ -35,7 +35,7 @@ lighting_voc = SimpleVocabulary(
 stratification_voc = SimpleVocabulary(
     [ SimpleTerm(value=u'required', title=_(u'required', default='Required')),
       SimpleTerm(value=u'desirable', title=_(u'desirable', default='Desirable')),
-      SimpleTerm(value=u'irrelevant', title=_(u'unnecessary', default='Unnecessary')) ])
+      SimpleTerm(value=u'unnecessary', title=_(u'unnecessary', default='Unnecessary')) ])
 
 vitality_voc = SimpleVocabulary(
     [ SimpleTerm(value=u'ot', title=_(u'ot', default='Highly termophilic')),
@@ -56,6 +56,10 @@ class IPlant(form.Schema):
     # If you want a model-based interface, edit
     # models/plant.xml to define the content type
     # and add directives here as necessary.
+
+    latin = schema.TextLine(
+        title = _(u"latin_name", default=u"Latin name"),
+        required = True)
 
     dexteritytextindexer.searchable('body')
     body = RichText(
@@ -201,6 +205,18 @@ class View(grok.View):
     implements(IPlant)
     grok.context(IPlant)
     grok.require('zope2.View')
+
+    def seedPreTable(self):
+        """ Checks if pre-sowing properties of seeds contain any info """
+        return self.context.seed_storage_period or self.context.seed_density or self.context.seed_demand or self.context.seed_stratification
+
+    def seedSowTable(self):
+        """ Checks if seed sowing properties contain any info """
+        return  self.context.seed_depth or self.context.seed_min_distance or self.context.seed_row or self.context.seed_tmin or self.context.seed_vitality or self.context.seed_shoots
+
+    def sproutTable(self):
+        """ Checks is the sproud table has any info """
+        return self.context.sprout_depth or self.context.sprout_min_distance or self.context.sprout_temp or self.context.sprout_shoots or self.context.sprout_age or self.context.sprout_min_distance_bed or self.context.sprout_tmin_bed or self.context.sprout_vitality
 
 #    def update(self):
 #        self.dateFormatted = self.context.start.strftime("%d %b %Y")

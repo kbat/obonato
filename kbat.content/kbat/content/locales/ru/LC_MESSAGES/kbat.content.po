@@ -134,5 +134,8 @@ msgstr "Аллелопатические растения"
 msgid "photo"
 msgstr "Фотография"
 
+msgid "latin_name"
+msgstr "Латинское название"
+
 # msgid "Choose File" - does not work
 # msgstr "Выбрать файл"
