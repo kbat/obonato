@@ -17,13 +17,13 @@
 	<div tal:content="structure context/body/output|nothing" style="float:left; width:50%"/>
 
 	<div style="float:right; width:50%">
-	  <table class="vertical listing" tal:condition="context/lighting" >
+	  <table class="vertical listing" >
 	    <tbody>
 	      <tr>
 		<td i18n:translate="latin_name">Latin name</td>
 		<td i18n:translate="" tal:content="context/latin" />
 	      </tr>
-	      <tr>
+	      <tr tal:condition="context/lighting">
 		<td i18n:translate="lighting">Lighting</td>
 		<td i18n:translate="" tal:content="context/lighting" />
 	      </tr>
