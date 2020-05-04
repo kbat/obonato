@@ -36,12 +36,11 @@ class IComponent(model.Schema):
     )
 
     # directives.widget(build=TextLinesFieldWidget)
-    # build = schema.List(
-    #     title = _(u"How to build"),
-    #     description = _(u"Instructions how to build the component"),
-    #     value_type = schema.TextLine(),
-    #     required = True,
-    #     )
+    build = schema.Text(
+        title = _(u"How to build"),
+        description = _(u"Instructions how to compile and build the component. It's also a good idea to show how to make the attached POV-Ray image."),
+        required = True,
+    )
 
 
 #    fieldset('Miscellaneous', fields=['text'])

@@ -19,6 +19,7 @@
 
         <p class="documentDescription" tal:content="context/description" />
 
+	<tal:comment tal:replace="nothing">
 	<table class="listing">
 	  <tbody>
 	    <tr tal:condition="context/commit">
@@ -48,6 +49,7 @@
 	    </tr>
 	  </tbody>
 	</table>
+	</tal:comment>
 
         <div class="discreet">
           <tal:block condition="context/commit">
@@ -68,15 +70,14 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-	<div tal:content="structure context/text/output|nothing" />
+	<div tal:condition="context/text">
+	  <h3>Notes</h3>
+	  <div tal:content="structure context/text/output" />
+	</div>
 
 	<h3>Instructions to build</h3>
-	<pre>
-git checkout <span tal:content="view/commit" />
-CMake.pl -O
-cmake .
-make singleItem
-singleItem AA</pre>
+
+<pre><span tal:replace="structure context/build" /></pre>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
