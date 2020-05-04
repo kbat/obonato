@@ -70,9 +70,9 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-	<div tal:condition="context/text">
+	<div tal:condition="context/notes">
 	  <h3>Notes</h3>
-	  <div tal:content="structure context/text/output" />
+	  <div tal:content="structure context/notes/output" />
 	</div>
 
 	<h3>Instructions to build</h3>

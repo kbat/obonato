@@ -35,6 +35,15 @@ class IComponent(model.Schema):
         required=True
     )
 
+    notes = RichText(
+        title=_(u'Notes'),
+        description=u'',
+        required=False,
+    )
+#    form.widget('text', RichTextFieldWidget)
+#    model.primary('text')
+
+
     # directives.widget(build=TextLinesFieldWidget)
     build = schema.Text(
         title = _(u"How to build"),
