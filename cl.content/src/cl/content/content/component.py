@@ -25,14 +25,22 @@ class IComponent(model.Schema):
     # model.load('component.xml')
 
     commit = schema.TextLine(
-        title=_(u"Commit hash on GitHub"),
+        title=_(u"Commit hash on Git"),
+        description=_("The idea is to provide a user the CombLayer version which he can use to build the component using the instructions listed in the 'How to build' field below. Of course the component might be changed in the newer versions and we suppose a user knows this."),
         required = True
     )
 
     headerURL = schema.URI(
-        title=_(u'Header'),
-        description=_('URL to the class header on GitHub'),
+        title=_(u'Header URL'),
+        description=_('Link to the class header on GitHub'),
         required=True
+    )
+
+    # directives.widget(build=TextLinesFieldWidget)
+    build = schema.Text(
+        title = _(u"How to build"),
+        description = _(u"Instructions how to compile and build the component. It's also a good idea to show how to make the attached POV-Ray image."),
+        required = True,
     )
 
     notes = RichText(
@@ -43,13 +51,6 @@ class IComponent(model.Schema):
 #    form.widget('text', RichTextFieldWidget)
 #    model.primary('text')
 
-
-    # directives.widget(build=TextLinesFieldWidget)
-    build = schema.Text(
-        title = _(u"How to build"),
-        description = _(u"Instructions how to compile and build the component. It's also a good idea to show how to make the attached POV-Ray image."),
-        required = True,
-    )
 
 
 #    fieldset('Miscellaneous', fields=['text'])
@@ -82,7 +83,7 @@ class View(BrowserView):
 
     def update(self):
         """ Prepare info for the template """
-        self.commit_url = self.context.commit + " here"
+#        self.commit_url = self.context.commit + " here"
 
     def commit(self):
         return self.context.commit[:8]
