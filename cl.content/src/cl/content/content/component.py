@@ -2,6 +2,7 @@
 from os import path
 import re
 from plone.app.textfield import RichText
+from plone.app.z3cform.widget import RichTextFieldWidget
 from plone.autoform import directives
 from plone.dexterity.content import Item
 from plone.namedfile import field as namedfile
@@ -40,7 +41,7 @@ class IComponent(model.Schema):
         description=u'',
         required=False,
     )
-#    form.widget('text', RichTextFieldWidget)
+    directives.widget('notes', RichTextFieldWidget)
 #    model.primary('text')
 
 
