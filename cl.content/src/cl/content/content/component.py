@@ -28,6 +28,8 @@ class IComponent(model.Schema):
     commit = schema.TextLine(
         title=_(u"Commit hash on Git"),
         description=_("The idea is to provide a user the CombLayer version which he can use to build the component using the instructions listed in the 'How to build' field below. Of course the component might be changed in the newer versions and we suppose a user knows this."),
+        min_length=7,
+        max_length=40,
         required = True
     )
 
