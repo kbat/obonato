@@ -75,10 +75,16 @@
 	  <div tal:content="structure context/notes/output" />
 	</div>
 
-	<h3>Instructions to build</h3>
-
+	<h3>Compile</h3>
 <pre><span tal:replace="structure context/build" /></pre>
 
+        <h3>MCNP(X) deck</h3>
+<pre><span tal:replace="structure context/mcnp" /></pre>
+
+<tal:block condition="context/povray">
+        <h3>POV-Ray scene</h3>
+<pre><span tal:replace="structure context/povray" /></pre>
+</tal:block>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
       </tal:main-macro>

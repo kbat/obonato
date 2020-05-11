@@ -39,10 +39,20 @@ class IComponent(model.Schema):
 
     # directives.widget(build=TextLinesFieldWidget)
     build = schema.Text(
-        title = _(u"How to build"),
-        description = _(u"Instructions how to compile and build the component. It's also a good idea to show how to make the attached POV-Ray image."),
+        title = _(u"Compilation instructions"),
+        description = _(u"Instructions how to build the component"),
         required = True,
     )
+
+    mcnp = schema.Text(
+        title = _(u"Instructions to generate MCNP(X) deck"),
+        required = True
+        )
+
+    povray = schema.Text(
+        title = _(u"Instructions to generate POV-Ray scene"),
+        required = False
+        )
 
     notes = RichText(
         title=_(u'Notes'),
