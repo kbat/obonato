@@ -77,10 +77,11 @@
 
 	<h3>Build</h3>
 	<p class="discreet">Compilation instructions are
-	described <a href="tutorial/compile">in this section</a>.</p>
+	described <a href="../tutorial/compile">in this section</a>.</p>
 <pre><span tal:replace="structure context/build" /></pre>
 
-        <h3>MCNP(X) deck</h3>
+<h3>MCNP(X) deck</h3>
+<p class="discreet">Add <code>--fluka</code> to build FLUKA model
 <pre><span tal:replace="structure context/mcnp" /></pre>
 
 <tal:block condition="context/povray">
