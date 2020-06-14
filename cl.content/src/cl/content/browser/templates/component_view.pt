@@ -80,9 +80,12 @@
 	described <a href="../tutorial/compile">in this section</a>.</p>
 <pre><span tal:replace="structure context/build" /></pre>
 
-<h3>MCNP(X) deck</h3>
-<p class="discreet">Add <code>--fluka</code> to build FLUKA model
+<h3>MCNP geometry</h3>
 <pre><span tal:replace="structure context/mcnp" /></pre>
+	<p class="discreet"><a href="http://www.fluka.org">FLUKA</a> and
+	  <a href="https://phits.jaea.go.jp">PHITS</a>
+	  models can be build by adding the <code>--fluka</code> and
+	  <code>--phits</code> arguments.
 
 <tal:block condition="context/povray">
         <h3>POV-Ray scene</h3>
