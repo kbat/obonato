@@ -15,6 +15,7 @@ from zope.interface import implementer
 from Products.Five import BrowserView
 from zope.interface import Invalid
 import urllib
+from collective import dexteritytextindexer
 
 from cl.content import _
 
@@ -65,6 +66,7 @@ class IComponent(model.Schema):
         required = True
     )
 
+    dexteritytextindexer.searchable('headerURL')
     headerURL = schema.URI(
         title=_(u'Header URL'),
         description=_('Link to the class header on GitHub'),
@@ -89,6 +91,7 @@ class IComponent(model.Schema):
         required = False
         )
 
+    dexteritytextindexer.searchable('notes')
     notes = RichText(
         title=_(u'Notes'),
         description=u'',
