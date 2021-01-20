@@ -28,6 +28,8 @@
     <source tal:attributes="src download_url; type content_type"></source>
   </audio>
 
+  <div tal:content="structure context/body/output|nothing" />
+
   <div tal:condition="python: content_type.startswith('text')">
     <h2 i18n:translate="heading_file_contents">File contents</h2>
     <pre tal:content="context/file/data|nothing" />
