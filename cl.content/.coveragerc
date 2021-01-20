@@ -1,0 +1,6 @@
+[report]
+include =
+    src/cl/*
+omit =
+    */test*
+    */upgrades/*

@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
+  <body>
+
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+		      tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription" tal:content="context/description" />
+
+	<tal:comment tal:replace="nothing">
+	<table class="listing">
+	  <tbody>
+	    <tr tal:condition="context/commit">
+            <td align="right" i18n:translate="label_commit">Commit</td>
+	    <td><a tal:attributes="href view/commitURL" tal:content="view/commit" /></td>
+	    </tr>
+	    <tr tal:condition="context/headerURL">
+	    <td align="right" i18n:translate="label_header">Header</td>
+	    <td><a tal:attributes="href context/headerURL" tal:content="view/header" /></td>
+	    </tr>
+	    <tr tal:condition="context/headerURL">
+	    <td align="right" i18n:translate="label_implementation">Implementation</td>
+	    <td><a tal:attributes="href view/cxxURL" tal:content="view/cxx" /></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+	<table>
+	  <tbody>
+	    <tr tal:condition="context/commit">
+            <td align="right" i18n:translate="label_commit">Commit:</td>
+	    <td><a tal:attributes="href view/commitURL" tal:content="view/commit" /></td>
+	    <td align="right" i18n:translate="label_header">Header:</td>
+	    <td><a tal:attributes="href context/headerURL" tal:content="view/header" /></td>
+	    <td align="right" i18n:translate="label_implementation">Implementation:</td>
+	    <td><a tal:attributes="href view/cxxURL" tal:content="view/cxx" /></td>
+	    </tr>
+	  </tbody>
+	</table>
+	</tal:comment>
+
+        <div class="discreet">
+          <tal:block condition="context/commit">
+            <span i18n:translate="label_commit">Commit:</span>
+	    <a tal:attributes="href view/commitURL" tal:content="view/commit" />
+          </tal:block>
+	  <br/>
+	  <tal:block condition="context/headerURL">
+	    <span i18n:translate="label_header">Header:</span>
+	    <a tal:attributes="href context/headerURL" tal:content="view/header" />
+	  </tal:block>
+	  <br/>
+	  <tal:block condition="context/headerURL">
+	    <span i18n:translate="label_implementation">Implementation:</span>
+	    <a tal:attributes="href view/cxxURL" tal:content="view/cxx" />
+	  </tal:block>
+        </div>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+	<div tal:condition="context/notes">
+	  <h3>Notes</h3>
+	  <div tal:content="structure context/notes/output" />
+	</div>
+
+	<h3>Build</h3>
+	<p class="discreet">Compilation instructions are
+	described <a href="../tutorial/compile">in this section</a>.</p>
+<pre><span tal:replace="structure context/build" /></pre>
+
+<h3>MCNP geometry</h3>
+<pre><span tal:replace="structure context/mcnp" /></pre>
+	<p class="discreet"><a href="http://www.fluka.org">FLUKA</a> and
+	  <a href="https://phits.jaea.go.jp">PHITS</a>
+	  models can be build by adding the <code>-fluka</code> or
+	  <code>-phits</code> arguments.
+
+<tal:block condition="context/povray">
+        <h3>POV-Ray scene</h3>
+<pre><span tal:replace="structure context/povray" /></pre>
+</tal:block>
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+      </tal:main-macro>
+    </metal:main>
+
+  </body>
+</html>

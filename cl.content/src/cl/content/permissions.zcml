@@ -1,0 +1,24 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="plone">
+
+  <configure zcml:condition="installed AccessControl.security">
+  <!-- -*- extra stuff goes here -*- -->
+
+    <permission
+        id="cl.content.AddLibrary"
+        title="cl.content: Add Library"
+    />
+
+
+    <permission
+        id="cl.content.AddComponent"
+        title="cl.content: Add Component"
+    />
+
+
+
+  </configure>
+
+</configure>
