@@ -18,7 +18,7 @@
                           item_wf_state       item/review_state|python: context_state.workflow_state();
                           item_wf_state_class python: 'state-' + normalizeString(item_wf_state);
                           item_url            item/getURL|item/absolute_url;
-                          item_url            python:(item_type in use_view_action) and item_url+'/view' or item_url;
+                          item_url            python:item_url+'/view';
                           item_has_image      python:item.getIcon"
               tal:attributes="title item_type">
           <a tal:attributes="href  item_url">
